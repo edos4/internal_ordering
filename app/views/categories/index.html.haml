@@ -1,11 +1,50 @@
-%h1 Listing Categories
+/ %h1 Listing Categories
 
-%table#dttb-categories.responsive.nowrap.table.table-hover{:data-sort=>"true",:data-source=>"#{url_for(format: :json)}"}
-  %thead
-    %tr
-      %th{"data-data"=>"name"} Name
-      %th{"data-data"=>"image"} Image
-      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
+/ %table#dttb-categories.responsive.nowrap.table.table-hover{:data-sort=>"true",:data-source=>"#{url_for(format: :json)}"}
+/   %thead
+/     %tr
+/       %th{"data-data"=>"name"} Name
+/       %th{"data-data"=>"image"} Image
+/       %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
 
 
-= link_to 'New Category', new_category_path
+/ = link_to 'New Category', new_category_path
+
+
+
+- content_for :title, t('categories.index.title')
+- content_for :breadcrumb, "Stores"
+.twelvecol
+  .page-header
+    = link_to new_category_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('categories.index.add_tooltip') do
+      %i.icon-plus
+    %h2.widget.widget-header= t('categories.index.header')
+  - if @categories.empty?
+    .widget.widget-content
+      .helper-notification
+        %p= t('categories.index.no_records')
+        %i.icon-lab
+  - else
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th= t('categories.index.name')
+            %th Type
+            %th= t('categories.index.image')
+            %th= t('categories.index.url')
+            %th
+        %tbody
+          - @categories.each do |category|
+            %tr
+              %td
+                = category.name
+              / %td
+              /   = @store_types[category.store_type]
+              %td
+                = category.image
+              %td
+                = category.url
+              / %td
+              /   = category.products.count
+              = table_actions [:admin, category], "edit", "delete"

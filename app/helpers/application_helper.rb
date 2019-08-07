@@ -21,4 +21,12 @@ module ApplicationHelper
 	def format_num(num)
 		number_with_precision(num, delimiter: ",", separator: ".", precision: 2)
 	end
+
+	def active_controller? data
+        if data[:action].nil?
+            "current" if params[:controller] == data[:controller]
+        else
+            "current" if params[:controller] == data[:controller] && params[:action] == data[:action]
+        end
+    end
 end
