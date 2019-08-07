@@ -1,0 +1,11 @@
+%h1 Listing Settings
+
+%table#dttb-settings.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
+  %thead
+    %tr
+      %th{"data-data"=>"key"} Key
+      %th{"data-data"=>"value"} Value
+      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
+
+
+= link_to 'New Setting', new_setting_path

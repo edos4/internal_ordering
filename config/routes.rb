@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :settings
+  resources :promos
   resources :order_items
   resources :orders
   resources :variants
