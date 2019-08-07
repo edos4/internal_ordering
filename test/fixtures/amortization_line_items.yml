@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  term: 1
+  amortization_id: 1
+  period: 2019-03-06
+  principal: 1.5
+  interest: 1.5
+  monthly_amort: 1.5
+  balance: 1.5
+
+two:
+  term: 1
+  amortization_id: 1
+  period: 2019-03-06
+  principal: 1.5
+  interest: 1.5
+  monthly_amort: 1.5
+  balance: 1.5

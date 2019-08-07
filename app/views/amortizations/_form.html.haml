@@ -1,0 +1,88 @@
+= form_for @amortization do |f|
+  - if @amortization.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@amortization.errors.count, "error")} prohibited this amortization from being saved:"
+      %ul
+        - @amortization.errors.full_messages.each do |message|
+          %li= message
+
+  .form-row
+    .col-md-6
+      .field
+        = f.label :customer, :class=>"text-muted"
+        = f.text_field :customer,{:required => true, :class => "form-control"}
+    .col-md-6
+      .field
+        = f.label "Block and Lot", :class=>"text-muted"
+        = f.text_field :blocklot,{:required => true, :class => "form-control"}
+  - if @amortization.customer.nil?
+    .form-row
+      .col-md-6
+        .field
+          = f.label :contract_price, :class=>"text-muted"
+          = f.text_field :contract_price,{:required => true, :class => "form-control", :value => "#{@amortization.contract_price.present? ? @amortization.contract_price : 0}"}
+      .col-md-6
+        .field
+          = f.label :processing_fees, :class=>"text-muted"
+          = f.text_field :processing_fees,{:class => "form-control", :value => "#{@amortization.processing_fees.present? ? @amortization.processing_fees : 0}"}
+    .form-row
+      .col-md-6
+        .field
+          = f.label :downpayment, :class=>"text-muted"
+          = f.text_field :downpayment,{:required => true, :class => "form-control", :value => "#{@amortization.downpayment.present? ? @amortization.downpayment : 0}"}
+      .col-md-6
+        .field
+          = f.label :terms, :class=>"text-muted"
+          = f.number_field :terms,{:required => true, :class => "form-control", :value => "#{@amortization.terms.present? ? @amortization.terms : 0}", onchange: "javascript: comp_month_amort()"}
+    .form-row
+      .col-md-6
+        .field
+          = f.label :ar_account_id, :class=>"text-muted"
+          = f.select :ar_account_id, options_for_select(ArAccount.all.order(:name).collect{ |u| [u.name, u.id]}),{:required => "true"}, :class=>"form-control"
+      .col-md-6
+        .field
+          = f.label :interest, :class=>"text-muted"
+          = f.text_field :interest,{:placeholder => "In %",:required => true, :class => "form-control", :value => "#{@amortization.interest.present? ? @amortization.interest : 0}", onchange: "javascript: comp_month_amort()"}
+    .form-row
+
+      .col-md-6
+        .field
+          = f.label :contract_date, :class=>"text-muted"
+          = f.date_field :contract_date, :class=>"form-control", :required => "true"
+      .col-md-6
+        .field
+          = f.label :amortization_start_date, :class=>"text-muted"
+          = f.date_field :amortization_start_date, :class=>"form-control", :required => "true"
+    .form-row
+      .col-md-6
+        .field
+          = f.label "Monthly Amortization", :class=>"text-muted"
+          = f.text_field "amort", disabled: true, :value => "#{@amortization.monthly_amort.present? ? (sprintf "%.2f",@amortization.monthly_amort) : 0}", :class => "form-control"
+  .actions
+    = f.submit 'Save', :class=> "mt-3 col-md-3 btn btn-sm btn-primary float-right"
+
+:javascript
+  function tst(){
+    alert('yo');
+  }
+  function comp_month_amort(){
+    $.ajax({
+      url: "/amortizations/compute_monthly_amort", // this will be routed
+      type: 'GET',
+      data: {
+        balance: $("#amortization_contract_price").val()-$("#amortization_downpayment").val() - $("#amortization_processing_fees").val(), 
+        interest_rate: $("#amortization_interest").val(),
+        terms: $("#amortization_terms").val()
+      },
+      async: true,
+      dataType: "json",
+      error: function(XMLHttpRequest, errorTextStatus, error){
+          alert("Failed: "+ errorTextStatus+" ;"+error);
+      },
+      success: function(ret){
+          // here we iterate the json result
+          $("#amortization_amort").val(ret)
+          console.log("Result yohoho: " + ret);
+      }
+    });
+  }

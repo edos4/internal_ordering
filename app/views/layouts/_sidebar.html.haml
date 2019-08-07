@@ -1,0 +1,47 @@
+%aside.main-sidebar.col-lg-2.px-0
+  .main-navbar
+    %nav.navbar.align-items-stretch.navbar-light.bg-white.flex-md-nowrap.border-bottom.p-0
+      %a.navbar-brand.w-100.mr-0{:href => "#", :style => "line-height: 25px;"}
+        .d-table.m-auto
+          %span.d-none.d-md-inline.ml-1 Bantug
+      %a.toggle-sidebar.d-sm-inline.d-md-none.d-lg-none
+        %i.material-icons 
+  .nav-wrapper
+    %ul.nav.flex-column.mainmenu
+      - unless current_user.role == 'boss'
+        %li.nav-item
+          %a.nav-link{:href => "/amortizations", :class => "#{ 'active' if current_page?(amortizations_path)}"}
+            %span Amortization
+        %li.nav-item
+          %a.nav-link{:href => "/customer_payments/new", :class => "#{ 'active' if current_page?(new_customer_payment_path)}"}
+            %span Add Payment
+        %li.nav-item
+          %a.nav-link{:href => "/summary_reports/", :class => "#{ 'active' if current_page?(summary_reports_path)}"}
+            %span Summary Report
+      - unless current_user.role == 'cashier' || current_user.role == 'boss'
+        %li.nav-item
+          %a.nav-link{:href => "/record_deposits/", :class => "#{ 'active' if current_page?(record_deposits_path)}"}
+            %span Record Deposit
+      %li.nav-item
+        %a.nav-link{:href => "/summary_collections/", :class => "#{ 'active' if current_page?(summary_collections_path)}"}
+          %span Summary Collections
+      %li.nav-item
+        %a.nav-link{:href => "/aging_reports/", :class => "#{ 'active' if current_page?(aging_reports_path)}"}
+          %span Aging Reports
+      
+      - if current_user.role == 'admin'
+        %li.nav-item
+          %a.nav-link-dropdown{:href => ""} Settings
+          %ul.submenu
+            %li.nav-item
+              %a.nav-link{:href => "/ar_accounts", :class => "#{ 'active' if current_page?(ar_accounts_path)}"} AR Account
+              %a.nav-link{:href => "/bank_accounts", :class => "#{ 'active' if current_page?(bank_accounts_path)}"} Bank Accounts
+              %a.nav-link{:href => "/admins/index", :class => "#{ 'active' if current_page?(admins_index_path)}"} Users
+      %li.nav-item
+        %a.nav-link{"data-method" => "delete", :href => "/users/sign_out", :rel => "nofollow" , data: { confirm: 'Are you sure?'}  } Logout
+:javascript
+  $('.sub-menu ul').hide();
+  $(".sub-menu a").click(function () {
+    $(this).parent(".sub-menu").children("ul").slideToggle("100");
+    $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+  });

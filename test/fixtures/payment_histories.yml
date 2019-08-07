@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amortization_id: 1
+  current_balance: 1.5
+  interest: 1.5
+  payment: 1.5
+  new_balance: 1.5
+  mode_of_payment: MyString
+  check_bank: MyString
+  check_no: MyString
+  bank_account_id: 1
+  ar_account_id: 1
+  penalty: 1.5
+  processing: 1.5
+  reservation: 1.5
+  equity: 1.5
+  others: 1.5
+  advance_payment_to_principal: 1.5
+
+two:
+  amortization_id: 1
+  current_balance: 1.5
+  interest: 1.5
+  payment: 1.5
+  new_balance: 1.5
+  mode_of_payment: MyString
+  check_bank: MyString
+  check_no: MyString
+  bank_account_id: 1
+  ar_account_id: 1
+  penalty: 1.5
+  processing: 1.5
+  reservation: 1.5
+  equity: 1.5
+  others: 1.5
+  advance_payment_to_principal: 1.5

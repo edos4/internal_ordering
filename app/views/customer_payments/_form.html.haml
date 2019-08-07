@@ -1,0 +1,9 @@
+= simple_form_for("customer_payments", url: "/customer_payments/process_pay", method: "post") do |f|
+  .field
+    = f.label :customer
+    = f.select "amortization_id", @customers.map{ |r| ["#{r[:customer]} (#{r[:blocklot]})", r[:id]] }, {include_blank: "*"}, { :class => 'chosen-select' }
+  .field
+    = f.label :payment
+    = f.number_field :payment
+  .actions
+    = f.submit 'Save'

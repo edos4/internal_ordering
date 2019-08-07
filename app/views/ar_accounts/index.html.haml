@@ -1,0 +1,32 @@
+.main.main-content.col-lg-10.p-0.offset-sm-1
+  .main-content-container.container-fluid.px-4
+    / Page Header
+    .page-header.row.no-gutters.py-4
+      .col-6.col-sm-4.text-center.text-sm-left.mb-0
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title AR Accounts
+      .col-md-8
+        = link_to 'New Ar account', new_ar_account_path, :class=>"mt-3 btn btn-sm btn-primary mr-1 float-right btn-create"
+
+    .row
+      .col
+        %table.table.table-striped.table-bordered{:role => 'datatable'}
+          %thead
+            %tr
+              %th Name
+              %th Actions
+
+          %tbody
+            - @ar_accounts.each do |ar_account|
+              %tr
+                %td= ar_account.name
+                %td
+                  = link_to '', edit_ar_account_path(ar_account), :class => "far fa-edit"
+                  = link_to '', ar_account, method: :delete, data: { confirm: 'Are you sure?' }, :class => "far fa-trash-alt"
+
+
+
+
+:javascript
+  $(document).ready(function() { $('#example').DataTable(); } );
+  

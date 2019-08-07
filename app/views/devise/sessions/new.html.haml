@@ -1,0 +1,85 @@
+.main.login-main
+  .right
+    .form-login
+      .row
+        .col-md-12
+          .logo
+            %img.logo{:src => "/bantug.png"}
+          .panel-title.text-center
+          %h3.page-title Admin Panel Login
+        .panel-body
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form-inputs
+              .field
+                = f.text_field :email, {:required => true, :class => "form-control", :placeholder => 'Email'}
+              .field
+                = f.text_field :password, {:class => "form-control",:placeholder => 'Password', :autocomplete=>"off", :type => "password"}
+            .form-actions
+              = f.button :submit, "Log in", :class=> "btn btn-primary form-btn"
+:css 
+  .main-login {
+    background-color: #00af3f;
+    overflow: hidden;
+  }
+  .login-con-form {
+    background-color: white;
+    height: 100vh;
+    width: 50%;
+    border-right: 1px solid #000;
+  }
+  .main {
+    width: 100%;
+    font-family: "Lato";
+    background-color: #3b4148;
+  }
+  .main div{
+    display: inline-block;
+    border:none;
+    width: 77%;
+  }
+  .right {
+    /*height:100%;*/
+    width:50%;
+    background-color: blue;
+    float:left;
+    height:100%;
+    margin-left:-5px;
+    padding-right:5px;
+    background-color:#fff;
+    background-size: cover;
+    text-align:center; 
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 25%);
+  }
+  .form-login {
+    width: 40%;
+  }
+  input {
+    border-radius: 0.25rem;
+    border: 1px solid #bdbdbd;
+    margin-bottom: 10px;
+  }
+ 
+  .form-btn {
+    margin-top: 10px;
+    color: #eee;
+    background-color: #2272c7;
+    width: 16.7em;
+    text-transform: uppercase;
+  }
+  h3.page-title {
+    letter-spacing: 3px;
+    font-size: 21px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  img.logo {
+    width: 40%;
+  }

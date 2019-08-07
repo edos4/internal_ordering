@@ -1,0 +1,81 @@
+%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"}
+%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"}
+
+.main.main-content.col-lg-10.p-0.offset-sm-1
+  .main-content-container.container-fluid.px-4
+    / Page Header
+    .page-header.row.no-gutters.py-4
+      .col-6.col-sm-4.text-center.text-sm-left.mb-0
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title Summary Reports
+      .col-md-8
+        
+    / End Page Header
+    / Default Light Table
+    .row
+      .col
+        = form_for("up", url: "/summary_reports/", method: "get") do |g|
+          .row#datepicker_form_row.ml-2.mb-4
+            = g.label "Date Filter", :class=>"label-date"
+            .col-date.mb-3
+              .col-md-2
+                = g.date_field :start_date, :class=> "form-control"
+              .col-md-2
+                = g.date_field :end_date, :class=> "form-control"
+              .col-md-2
+                .actions
+                  = g.submit "Submit", class: "btn btn-primary btn-sm"
+
+
+        %table.table.table-striped.table-bordered#exportables{:role => 'datatable'}
+          %thead
+            %tr
+              %th Date Paid
+              %th AR
+              %th Blk Lot
+              %th Customer
+              %th Balance
+              %th OR No.
+              %th Payment
+              %th Principal
+              %th Interest
+              %th Penalties
+              %th Downpayment
+              %th Processing Fee
+              %th Others
+              %th Total
+              %th Balanced End
+
+
+          %tbody
+            - @customer_ledger.each do |ledger|
+              %tr
+                %td= ledger.payment_date.strftime("%b-%d-%Y")
+                %td
+                  = link_to ledger.ar_name, "/summary_reports/?ar_account_id=#{ledger.ar_account_id}"
+                %td= ledger.amortization.blocklot
+                %td
+                  = link_to ledger.amortization.customer, "/summary_reports/?amortization=#{ledger.amortization.id}"
+                %td 
+                  = format_num(ledger.running_balance)
+                -#ledger.amortization.contract_price
+                %td= ledger.or_num
+                %td= format_num(ledger.payment)
+                %td= format_num(ledger.principal)
+                %td= format_num(ledger.interest)
+                %td= format_num(ledger.penalty)
+                %td= format_num(ledger.downpayment)
+                %td= format_num(ledger.processing_fee)
+                %td= format_num(ledger.others)
+                %td 
+                  - if ledger.downpayment.to_i > 0 || ledger.processing_fee.to_i > 0
+                    = format_num(ledger.downpayment + ledger.processing_fee) 
+                  - else
+                    = format_num(ledger.interest + ledger.principal)
+                %td 
+                  - if ledger.downpayment.to_i > 0 || ledger.processing_fee.to_i > 0
+                    = format_num(ledger.running_balance - (ledger.downpayment + ledger.processing_fee) )
+                  - else
+                    = format_num(ledger.running_balance - ledger.principal)
+
+

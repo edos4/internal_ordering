@@ -1,0 +1,17 @@
+= form_tag sessions_path, id: "login_form" do
+  .login-content
+    .login-form
+      #flash_messages#login_msg
+      - flash.each do |key, value|
+        = content_tag(:div, value, :class => "alert alert-danger alert-dismissible fade show" ,:role => "alert")
+      %h3 Jira Extension
+      .field
+        = text_field_tag :jira_url, params[:jira_url],:placeholder => "ex: https://edoscorp.atlassian.net", :required=>"true"
+      .field
+        = text_field_tag :email, params[:email],:placeholder => "Email", :required=>"
+
+        'true"
+      .field
+        = password_field_tag :password, nil,:placeholder => "Password", :required=>"true"
+      .actions
+        = submit_tag "Log In"

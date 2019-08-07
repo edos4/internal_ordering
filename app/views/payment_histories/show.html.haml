@@ -1,0 +1,54 @@
+%p#notice= notice
+
+%p
+  %b Amortization:
+  = @payment_history.amortization_id
+%p
+  %b Current balance:
+  = @payment_history.current_balance
+%p
+  %b Interest:
+  = @payment_history.interest
+%p
+  %b Payment:
+  = @payment_history.payment
+%p
+  %b New balance:
+  = @payment_history.new_balance
+%p
+  %b Mode of payment:
+  = @payment_history.mode_of_payment
+%p
+  %b Check bank:
+  = @payment_history.check_bank
+%p
+  %b Check no:
+  = @payment_history.check_no
+%p
+  %b Bank account:
+  = @payment_history.bank_account_id
+%p
+  %b Ar account:
+  = @payment_history.ar_account_id
+%p
+  %b Penalty:
+  = @payment_history.penalty
+%p
+  %b Processing:
+  = @payment_history.processing
+%p
+  %b Reservation:
+  = @payment_history.reservation
+%p
+  %b Equity:
+  = @payment_history.equity
+%p
+  %b Others:
+  = @payment_history.others
+%p
+  %b Advance payment to principal:
+  = @payment_history.advance_payment_to_principal
+
+= link_to 'Edit', edit_payment_history_path(@payment_history)
+\|
+= link_to 'Back', payment_histories_path

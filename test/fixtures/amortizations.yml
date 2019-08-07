@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: MyString
+  blocklot: MyString
+  contract_price: 1.5
+  processing_fees: 1.5
+  downpayment: 1.5
+  terms: 1
+  interest: 1.5
+  monthly_amort: 1.5
+  contract_date: 2019-02-20
+
+two:
+  customer: MyString
+  blocklot: MyString
+  contract_price: 1.5
+  processing_fees: 1.5
+  downpayment: 1.5
+  terms: 1
+  interest: 1.5
+  monthly_amort: 1.5
+  contract_date: 2019-02-20
