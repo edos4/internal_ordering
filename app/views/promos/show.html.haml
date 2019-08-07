@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Image:
+  = @promo.image
+%p
+  %b Desc:
+  = @promo.desc
+%p
+  %b Url:
+  = @promo.url
+
+= link_to 'Edit', edit_promo_path(@promo)
+\|
+= link_to 'Back', promos_path
