@@ -4,6 +4,7 @@
     %meta{:charset => "utf-8"}/
     %title
       = yield :title
+      
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     = csrf_meta_tag
@@ -27,7 +28,5 @@
               = render partial: 'layouts/loading', format: [:html]
               .container
                 .row
-                  / = render_flash 'layouts/flash'
-                  / = render_breadcrumbs 0
                   = yield
     = yield :footer
