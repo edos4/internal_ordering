@@ -5,7 +5,7 @@
   .page-header
     = link_to new_merchant_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('merchants.index.add_tooltip') do
       %i.icon-plus
-    %h2.widget.widget-header= t('merchants.index.header')
+    %h2.widget.widget-header= t('merchants.index.merchants')
   - if @merchants.empty?
     .widget.widget-content
       .helper-notification
@@ -18,7 +18,7 @@
           %tr
             %th= t('merchants.index.name')
             %th= t('merchants.index.logo')
-            %th
+            %th= t('merchants.index.category')
         %tbody
           - @merchants.each do |merchant|
             %tr
@@ -27,6 +27,10 @@
               %td
                 = merchant.logo
               %td
+                = merchant.category.name
+              %td
                 = link_to 'Show', merchant
                 = link_to 'Edit', edit_merchant_path(merchant)
                 = link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' }
+
+    

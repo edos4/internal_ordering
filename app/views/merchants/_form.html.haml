@@ -17,7 +17,8 @@
     = f.text_field :name, :class => 'form-control'
   .form-group
     = f.label :logo
-    = f.text_field :logo, :class => 'form-control'
+    %br
+    = f.file_field :logo, id: :logo
   .form-group
     = f.label :category_id
     %br/
