@@ -1,0 +1,15 @@
+%h1 Listing Merchants
+
+%table#dttb-merchants.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
+  %thead
+    %tr
+      %th{"data-data"=>"name"} Name
+      %th{"data-data"=>"logo"} Logo
+      / %th data-data="category_id" Category
+      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
+
+            
+
+
+
+= link_to 'New Merchant', new_merchant_path

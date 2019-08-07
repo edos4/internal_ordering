@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @merchant.name
+%p
+  %b Logo:
+  = @merchant.logo
+%p
+  %b Category:
+  = @merchant.category_id
+
+= link_to 'Edit', edit_merchant_path(@merchant)
+\|
+= link_to 'Back', merchants_path
