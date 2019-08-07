@@ -7,8 +7,6 @@ ruby '2.5.5'
 gem 'rails', '~> 5.2.1'
 #Bootatrap 4
 gem 'bootstrap', '~> 4.0.0'
-# Jquery Rails
-gem 'jquery-rails'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-datatables'
