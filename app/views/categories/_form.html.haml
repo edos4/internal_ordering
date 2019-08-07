@@ -1,16 +1,21 @@
-= form_for @category do |f|
-  - if @category.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
-      %ul
-        - @category.errors.full_messages.each do |message|
-          %li= message
+.twelvecol
+  .page-header
+    %h2.widget.widget-header= t('categories.new.category')
+  = form_for @category do |f|
+    .threecol
+    .ninecol.last
+      - if @category.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+    .form-group
+      = f.label :name
+      = f.text_field :name, :class => 'form-control'
+    .form-group
+      = f.label :image
+      %br/
+      = f.file_field :image, id: :category_image
+    .form-group
+      = f.submit 'Save', :class => 'btn btn-blue btn-large'
+        
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :image
-    = f.text_field :image
-  .actions
-    = f.submit 'Save'
+

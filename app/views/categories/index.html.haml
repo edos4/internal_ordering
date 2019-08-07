@@ -1,18 +1,4 @@
-/ %h1 Listing Categories
-
-/ %table#dttb-categories.responsive.nowrap.table.table-hover{:data-sort=>"true",:data-source=>"#{url_for(format: :json)}"}
-/   %thead
-/     %tr
-/       %th{"data-data"=>"name"} Name
-/       %th{"data-data"=>"image"} Image
-/       %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
-
-
-/ = link_to 'New Category', new_category_path
-
-
-
-- content_for :title, t('categories.index.title')
+- content_for :title, 'Categories'
 - content_for :breadcrumb, "Stores"
 .twelvecol
   .page-header
@@ -30,21 +16,16 @@
         %thead
           %tr
             %th= t('categories.index.name')
-            %th Type
             %th= t('categories.index.image')
-            %th= t('categories.index.url')
             %th
         %tbody
           - @categories.each do |category|
             %tr
               %td
                 = category.name
-              / %td
-              /   = @store_types[category.store_type]
               %td
                 = category.image
               %td
-                = category.url
-              / %td
-              /   = category.products.count
-              = table_actions [:admin, category], "edit", "delete"
+                = link_to 'Show', category
+                = link_to 'Edit', edit_category_path(category)
+                = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
