@@ -1,0 +1,11 @@
+%h1 Listing Categories
+
+%table#dttb-categories.responsive.nowrap.table.table-hover{:data-sort=>"true",:data-source=>"#{url_for(format: :json)}"}
+  %thead
+    %tr
+      %th{"data-data"=>"name"} Name
+      %th{"data-data"=>"image"} Image
+      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
+
+
+= link_to 'New Category', new_category_path
