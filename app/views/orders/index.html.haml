@@ -1,0 +1,19 @@
+%h1 Listing Orders
+
+%table#dttb-orders.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
+  %thead
+    %tr
+      %th{"data-data"=>"messenger_id"}Messenger
+      %th{"data-data"=>"customer_name"} Custumer name
+      %th{"data-data"=>"contact_no"} Contact no
+      %th{"data-data"=>"address"} Address
+      %th{"data-data"=>"coordinates"} Coordinates
+      %th{"data-data"=>"delivery_option"} Delivery option
+      %th{"data-data"=>"payment_option"} Payment option
+      %th{"data-data"=>"reference_number"} Reference number
+      %th{"data-data"=>"message"} Message
+      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
+
+
+
+= link_to 'New Order', new_order_path

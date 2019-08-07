@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  messenger_id: MyString
+  custumer_name: MyString
+  contact_no: MyString
+  address: MyString
+  coordinates: MyString
+  delivery_option: MyString
+  payment_option: MyString
+  reference_number: MyString
+  message: MyString
+
+two:
+  messenger_id: MyString
+  custumer_name: MyString
+  contact_no: MyString
+  address: MyString
+  coordinates: MyString
+  delivery_option: MyString
+  payment_option: MyString
+  reference_number: MyString
+  message: MyString

@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Messenger:
+  = @order.messenger_id
+%p
+  %b Custumer name:
+  = @order.custumer_name
+%p
+  %b Contact no:
+  = @order.contact_no
+%p
+  %b Address:
+  = @order.address
+%p
+  %b Coordinates:
+  = @order.coordinates
+%p
+  %b Delivery option:
+  = @order.delivery_option
+%p
+  %b Payment option:
+  = @order.payment_option
+%p
+  %b Reference number:
+  = @order.reference_number
+%p
+  %b Message:
+  = @order.message
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

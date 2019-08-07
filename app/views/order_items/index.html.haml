@@ -1,0 +1,13 @@
+%h1 Listing Order Items
+
+%table#dttb-order_items.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
+  %thead
+    %tr
+      %th{"data-data"=>"variant_id"} Variant
+      %th{"data-data"=>"quantity"} Quantity
+      %th{"data-data"=>"cancel_option"} Cancel option
+      / %th data-data="order_id" Order
+      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
+
+
+= link_to 'New Order item', new_order_item_path

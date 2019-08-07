@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Variant:
+  = @order_item.variant_id
+%p
+  %b Quantity:
+  = @order_item.quantity
+%p
+  %b Cancel option:
+  = @order_item.cancel_option
+%p
+  %b Order:
+  = @order_item.order_id
+
+= link_to 'Edit', edit_order_item_path(@order_item)
+\|
+= link_to 'Back', order_items_path
