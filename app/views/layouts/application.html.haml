@@ -1,18 +1,32 @@
 !!!
-%html
+%html{:lang => "en"}
   %head
-    %link{:href => "https://use.fontawesome.com/releases/v5.9.0/css/all.css", :rel => "stylesheet"}/
-    %link{:href => "https://use.fontawesome.com/releases/v5.9.0/css/v4-shims.css", :rel => "stylesheet"}/
-
+    %meta{:charset => "utf-8"}/
+    %title
+      = yield :title
+      
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title JuanRide
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body.h-100
-    .container-fluid
-      .row
-        - if current_user.present?
-          = render 'layouts/sidebar'
-        = yield
+    = csrf_meta_tag
+    %link{:href => "/administration.css", :media => "screen", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,500,700,300", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "https://code.jquery.com/jquery-3.3.1.js"}
+    %link{:href => "/stylesheets/font.css", :media => "screen", :rel => "stylesheet"}/
+    %script{:src => "/modernizr.js", :type => "text/javascript"}
+    %script{:src => "/administration.js"}
+    = yield :header
+  %body
+    .all-wrapper
+      #mp-pusher.mp-pusher
+        = render partial: 'layouts/mobile_menu', format: [:html]
+        .scroller
+          .scroller-inner
+            = render partial: 'layouts/header', format: [:html]
+            #sidebar.desktop
+              = render partial: 'layouts/desktop_menu', format: [:html]
+            .main
+              = render partial: 'layouts/loading', format: [:html]
+              .container
+                .row
+                  = yield
+    = yield :footer

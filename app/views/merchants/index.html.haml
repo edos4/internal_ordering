@@ -1,15 +1,36 @@
-%h1 Listing Merchants
 
-%table#dttb-merchants.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
-  %thead
-    %tr
-      %th{"data-data"=>"name"} Name
-      %th{"data-data"=>"logo"} Logo
-      / %th data-data="category_id" Category
-      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
+- content_for :title, 'Merchants'
+- content_for :breadcrumb, "Stores"
+.twelvecol
+  .page-header
+    = link_to new_merchant_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('merchants.index.add_tooltip') do
+      %i.icon-plus
+    %h2.widget.widget-header= t('merchants.index.merchants')
+  - if @merchants.empty?
+    .widget.widget-content
+      .helper-notification
+        %p= t('merchants.index.no_records')
+        %i.icon-labmerchants
+  - else
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th= t('merchants.index.name')
+            %th= t('merchants.index.logo')
+            %th= t('merchants.index.category')
+        %tbody
+          - @merchants.each do |merchant|
+            %tr
+              %td
+                = merchant.name
+              %td
+                = merchant.logo
+              %td
+                = merchant.category.name
+              %td
+                = link_to 'Show', merchant
+                = link_to 'Edit', edit_merchant_path(merchant)
+                = link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' }
 
-            
-
-
-
-= link_to 'New Merchant', new_merchant_path
+    

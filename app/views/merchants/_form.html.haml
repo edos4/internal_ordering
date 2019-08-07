@@ -1,19 +1,29 @@
-= form_for @merchant do |f|
-  - if @merchant.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
-      %ul
-        - @merchant.errors.full_messages.each do |message|
-          %li= message
+.twelvecol
+  .page-header
+    %h2.widget.widget-header= t('merchants.new.merchant')
 
-  .field
+= form_for @merchant do |f|
+  .threecol
+    .ninecol.last
+      - if @merchant.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
+          %ul
+            - @merchant.errors.full_messages.each do |message|
+              %li= message
+
+  .form-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, :class => 'form-control'
+  .form-group
     = f.label :logo
-    = f.text_field :logo
-  .field
+    %br
+    = f.file_field :logo, id: :logo
+  .form-group
     = f.label :category_id
-    = f.number_field :category_id
-  .actions
-    = f.submit 'Save'
+    %br/
+    = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
+  .form-group
+    = f.submit 'Save', :class => 'btn btn-blue btn-large'
+
+

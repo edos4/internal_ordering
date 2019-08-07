@@ -1,0 +1,32 @@
+%nav#mp-menu.mp-menu
+  .mp-level
+    %ul
+      %li
+        = link_to root_path do
+          %i.icon-dashboard
+          %span Dashboard
+      %li
+        = link_to categories_path do
+          %i.icon-lab
+          %span Stores
+      %li
+        = link_to products_path do
+          %i.fa.fa-th-large
+          %span Products
+      %li
+        = link_to orders_path do
+          %i.icon-box-add
+          %span Orders
+    %ul#mobile-secondary-menu
+      %li
+        = link_to root_path, target: '_blank' do
+          %i.icon-screen
+          %span Storefront
+      %li
+        = link_to settings_path do
+          %i.icon-cog
+          %span Settings
+      %li
+        = link_to destroy_user_session_path, method: :delete do
+          %i.icon-switch
+          %span Logout
