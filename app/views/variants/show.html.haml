@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @variant.name
+%p
+  %b Image:
+  = @variant.image
+%p
+  %b Price:
+  = @variant.price
+%p
+  %b Product:
+  = @variant.product_id
+
+= link_to 'Edit', edit_variant_path(@variant)
+\|
+= link_to 'Back', variants_path
