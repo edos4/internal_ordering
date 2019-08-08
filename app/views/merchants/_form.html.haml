@@ -19,10 +19,8 @@
     = f.label :logo
     %br
     = f.file_field :logo, id: :logo
-  .form-group
-    = f.label :category_id
     %br/
-    = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
+    / = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
   .form-group
     = f.submit 'Save', :class => 'btn btn-blue btn-large'
 

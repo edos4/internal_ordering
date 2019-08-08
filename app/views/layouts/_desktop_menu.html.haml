@@ -15,6 +15,10 @@
     = link_to products_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Products' do
       %i.fa.fa-th-large
       %span Products
+  %li{:class => "#{active_controller?(controller: 'driver')}"}
+    = link_to drivers_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Drivers' do
+      %i.fa.fa-th-large
+      %span Drivers
   %li{:class => "#{active_controller?(controller: 'order')}"}
     = link_to orders_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Orders' do
       %i.icon-box-add

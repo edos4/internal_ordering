@@ -18,7 +18,6 @@
           %tr
             %th= t('merchants.index.name')
             %th= t('merchants.index.logo')
-            %th= t('merchants.index.category')
         %tbody
           - @merchants.each do |merchant|
             %tr
@@ -26,8 +25,6 @@
                 = merchant.name
               %td
                 = merchant.logo
-              %td
-                = merchant.category.name
               %td
                 = link_to 'Show', merchant
                 = link_to 'Edit', edit_merchant_path(merchant)

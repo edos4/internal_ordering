@@ -1,0 +1,16 @@
+= form_for @driver do |f|
+  - if @driver.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@driver.errors.count, "error")} prohibited this driver from being saved:"
+      %ul
+        - @driver.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :devise_id
+    = f.text_field :devise_id
+  .actions
+    = f.submit 'Save'
