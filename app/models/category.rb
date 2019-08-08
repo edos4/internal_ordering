@@ -1,3 +1,5 @@
 class Category < ApplicationRecord
-	has_many :merchants
+	belongs_to :merchant
+	has_many :products
 end
+
