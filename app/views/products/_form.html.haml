@@ -11,12 +11,12 @@
     = f.text_field :name
   .field
     = f.label :image
-    = f.text_field :image
+    = f.file_field :image, id: :product_image
   .field
     = f.label :description
     = f.text_field :description
   .field
     = f.label :category_id
-    = f.number_field :category_id
+    = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
   .actions
     = f.submit 'Save'

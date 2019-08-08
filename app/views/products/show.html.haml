@@ -11,7 +11,7 @@
   = @product.description
 %p
   %b Merchant:
-  = @product.merchant_id
+  = @product.category.name
 
 = link_to 'Edit', edit_product_path(@product)
 \|
