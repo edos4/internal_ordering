@@ -12,4 +12,8 @@
 # Populate tables
 require 'roo'
 xlsx = Roo::Excelx.new("#{Dir.pwd}/supermarket.xlsx", {:expand_merged_ranges => true})
-binding.pry
+data = xlsx.parse.drop(1) #drop the header on line 1
+
+data.each do |d|
+	merch = Merchant.find_or_create_by!(name: d[0])
+end
