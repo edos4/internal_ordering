@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @variants = Product.find(params['id']).variants
   end
 
   # GET /products/new

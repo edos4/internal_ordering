@@ -1,12 +1,31 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @merchant.name
-%p
-  %b Logo:
-  = @merchant.logo
-
-= link_to 'Edit', edit_merchant_path(@merchant)
-\|
-= link_to 'Back', merchants_path
+- content_for :title, 'Categories'
+- content_for :breadcrumb, "Stores"
+.twelvecol
+  .page-header
+    = link_to new_category_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('categories.index.add_tooltip') do
+      %i.icon-plus
+    %h2.widget.widget-header= t('categories.index.categories')
+  - if @categories.empty?
+    .widget.widget-content
+      .helper-notification
+        %p= t('categories.index.no_records')
+        %i.icon-lab
+  - else
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th= t('categories.index.name')
+            %th= t('categories.index.image')
+            %th
+        %tbody
+          - @categories.each do |category|
+            %tr
+              %td
+                = category.name
+              %td
+                = category.image
+              %td
+                = link_to 'Show', category
+                = link_to 'Edit', edit_category_path(category)
+                = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
