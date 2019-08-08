@@ -5,4 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(email: 'admin@example.com', password: 'password', role: 'admin')
+
+# Create Seed
+#User.create(email: 'admin@example.com', password: 'password', role: 'admin')
+
+# Populate tables
+require 'roo'
+xlsx = Roo::Excelx.new("#{Dir.pwd}/supermarket.xlsx", {:expand_merged_ranges => true})
+binding.pry
