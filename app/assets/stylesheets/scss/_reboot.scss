@@ -1,57 +1,55 @@
-// Reboot / Shards Improvements
+// scss-lint:disable QualifyingElement, DuplicateProperty
 
-// HTML
+// Reboot Adjustments
+
+//
+// HTML (element)
+//
 html {
-  font-size: 16px;
-  font-weight: 500;
-
-  // Adjust font sizes for 144dpi+ (including retina).
-  @media (-webkit-min-device-pixel-ratio: 1.5),
-  (min-resolution: 144dpi) {
-    font-size: 16px;
-    font-weight: 400;
+  @include media-breakpoint-down(xs) {
+    font-size: 15px;
   }
 }
 
-
+//
 // Body
-body {
-  background: $body-background;
-  font-size: 15px;
-  font-weight: 500;
+//
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-    font-size: 13px;
-    font-weight: 400;
-  }
+body {
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  color: $body-color;
+  background-color: $body-bg;
 }
 
 
+//
 // Links
+//
+
 a {
-  color: $accent-color;
+  color: $link-color;
+  text-decoration: $link-decoration;
 
   @include hover {
-    color: darken($accent-color, 15%);
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
   }
 }
 
-
-// Labels
-label {
-  font-weight: 400;
+b, strong {
+  font-weight: $font-weight-bold;
 }
 
+//
+// Typography
+//
 
-// Datepicker adjustments
-.datepicker {
-  font-size: .75rem;
-  padding: 0.625rem;
-
-  table tr td,
-  table tr th {
-    width: 1.875rem;
-    height: 1.875rem;
-  }
+// Remove top margins from headings
+//
+// By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
+// margin for easier control within type scales as it avoids margin collapsing.
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: .5rem;
 }

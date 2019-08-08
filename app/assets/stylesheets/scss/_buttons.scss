@@ -1,66 +1,158 @@
-// Buttons Adjustments
+// scss-lint:disable QualifyingElement
 
-// White and black button adjustments specific to Shards Dashboard.
-// If you want to use the default Shards buttons just comment the
-// styles below.
+//
+// Base styles
+//
 
-.btn-white,
-.btn-black {
-  // Set the defaults to use the accent color.
+.btn {
+  font-weight: $btn-font-weight;
+  font-family: $btn-font-family;
+  border: $input-btn-border-width solid transparent;
+
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $input-btn-line-height,
+    $btn-border-radius
+  );
+
+  @include transition($btn-transition);
+
+  &:hover,
+  &.hover {
+    cursor: pointer;
+  }
+
+  &:focus,
+  &.focus {
+    @include box-shadow(none);
+  }
+
   &:not([disabled]):not(.disabled):active,
   &:not([disabled]):not(.disabled).active {
-    box-shadow: none !important;
-    background-color: $accent-color;
-    border-color: $accent-color;
+    background-image: none;
+    @include box-shadow(none);
+  }
+
+  //
+  // Class modifiers
+  //
+
+  &.btn-squared {
+    border-radius: 0;
+  }
+
+  &.btn-pill {
+    border-radius: $btn-pill-border-radius;
+  }
+}
+
+//
+// Alternate buttons
+//
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value);
+  }
+}
+
+// White buttons
+.btn-white {
+  @include button-variant($white);
+}
+
+// Black buttons
+.btn-black {
+  @include button-variant($black);
+}
+
+// Outlined default buttons
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+// White outline buttons
+.btn-outline-white {
+  @include button-outline-variant($white);
+  color: $white;
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: $black;
+  }
+}
+
+// Black outline buttons
+.btn-outline-black {
+  @include button-outline-variant($black);
+  color: $black;
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
     color: $white;
-
-    + .btn {
-      border-left: 1px solid $accent-color;
-    }
-  }
-
-  &:hover {
-    background: $white;
-    border-color: $white;
-    box-shadow: 0px 0.125rem 0.625rem rgba($reagent-gray, .2),
-                0 0.0625rem 0.125rem rgba($reagent-gray, .3);
-  }
-}
-
-// White button accent color modifiers.
-// Selector specificity to override existing active state.
-.btn.btn-white {
-  border: 1px solid $border-color;
-  color: $fiord-blue;
-
-  @mixin btn-active-modifier($color, $value) {
-    &:not([disabled]):not(.disabled).active-#{$color} {
-      &.active,
-      &:active {
-        background-color: $value;
-        border-color: $value;
-        color: color-yiq($value);
-
-        & + .btn {
-          border-left: 1px solid red;
-        }
-      }
-    }
-  }
-
-  // Existent theme colors
-  @each $color, $value in $theme-colors {
-    @include btn-active-modifier($color, $value);
   }
 }
 
 
-// Button variation for the accent color.
-.btn-accent {
-  @include button-variant($accent-color);
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.btn-link {
+  font-weight: $font-weight-normal;
+  color: $link-color;
+
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:disabled {
+    color: $btn-link-disabled-color;
+  }
 }
 
-// Outline button variation for the accent color.
-.btn-outline-accent {
-  @include button-outline-variant($accent-color);
+
+//
+// Button Sizes
+//
+
+.btn-lg {
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $btn-line-height-lg,
+    $btn-border-radius-lg
+  );
+}
+
+.btn-sm {
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $btn-line-height-sm,
+    $btn-border-radius-sm
+  );
+}
+
+
+//
+// Block button
+//
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: $btn-block-spacing-y;
 }

@@ -1,5 +1,24 @@
-// Images adjustments
+// Images Adjustments
 
-.thumbnail {
-  border: 1px solid #D4D4D4;
+// Image thumbnails
+.img-thumbnail {
+  padding: $thumbnail-padding;
+  border: $thumbnail-border;
+  background-color: $thumbnail-bg;
+
+  @include border-radius($thumbnail-border-radius);
+  @include box-shadow($thumbnail-box-shadow);
+}
+
+//
+// Figures
+//
+
+.figure-img {
+  margin-bottom: ($spacer / 2);
+}
+
+.figure-caption {
+  font-size: $figure-caption-font-size;
+  color: $figure-caption-color;
 }
