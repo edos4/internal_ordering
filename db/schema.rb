@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_032128) do
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "grocery_price"
   end
 
 end
