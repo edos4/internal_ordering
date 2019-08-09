@@ -5,6 +5,7 @@
 }
 .card{
     border: 0 !important;   
+    box-shadow: none!important;
 }
 .btn-link{
     color: #535353;

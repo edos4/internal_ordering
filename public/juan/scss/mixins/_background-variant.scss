@@ -2,6 +2,7 @@
 
 @mixin bg-variant($parent, $color) {
   #{$parent} {
+    height: 100vh;
     background-color: $color !important;
 
     // Fix cards with background colors.

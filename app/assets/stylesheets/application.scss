@@ -11,10 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require shards-dashboard-main
- *= require css/shards.min.css
- *= require css/shards-demo.min.css
- *= require css/shards-extras.min.css
+ *= require main
+ *= require style
  */
 
-// @import "bootstrap";
-// @import "datatables";
+@import "bootstrap";
+@import "datatables";
