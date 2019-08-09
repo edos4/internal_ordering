@@ -4,11 +4,11 @@
       %i.icon-dashboard
       %span Dashboard
   %li{:class => "#{active_controller?(controller: 'merchant')}"}
-    = link_to merchants_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Stores' do
+    = link_to merchants_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Merchants' do
       %i.icon-lab
       %span Merchants
   %li{:class => "#{active_controller?(controller: 'category')}"}
-    = link_to categories_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Stores' do
+    = link_to categories_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Categories' do
       %i.icon-lab
       %span Categories
   %li{:class => "#{active_controller?(controller: 'product')}"}
@@ -25,7 +25,7 @@
       %span Orders
 %ul#secondary-menu
   %li
-    = link_to root_path, 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Storefront', target: '_blank' do
+    = link_to '/store', 'data-toggle' => 'tooltip', 'data-placement' => 'right', 'data-original-title' => 'Storefront', target: '_blank' do
       %i.icon-screen
       %span Storefront
   / %li{:class => "#{active_controller?(controller: 'admin/admin', action: 'settings')}"}
