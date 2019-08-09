@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @everyday.name
+%p
+  %b Image:
+  = @everyday.image
+%p
+  %b Category:
+  = @everyday.category
+
+= link_to 'Edit', edit_everyday_path(@everyday)
+\|
+= link_to 'Back', everydays_path

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_032128) do
+ActiveRecord::Schema.define(version: 2019_08_09_083153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2019_08_08_032128) do
   create_table "drivers", force: :cascade do |t|
     t.string "name"
     t.string "devise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "everydays", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

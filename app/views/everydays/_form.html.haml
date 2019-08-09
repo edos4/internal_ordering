@@ -1,0 +1,19 @@
+= form_for @everyday do |f|
+  - if @everyday.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@everyday.errors.count, "error")} prohibited this everyday from being saved:"
+      %ul
+        - @everyday.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :image
+    = f.file_field :image
+  .field
+    = f.label :category
+    = f.select :category, options_for_select([['Grocery'],['Booze'],['Health']]), :class => 'form-control'
+  .actions
+    = f.submit 'Save'

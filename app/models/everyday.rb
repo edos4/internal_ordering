@@ -1,0 +1,2 @@
+class Everyday < ApplicationRecord
+end
