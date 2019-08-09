@@ -4,23 +4,38 @@
     .py-4
       .row
         .card-deck
-          - @merchant.each do |merchant|
+          - if @merchant.empty?
             .col-md-12.col-lg-4
               .card.mb-4
                 %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
                 .card-body
-                  %h5.card-title
-                    = merchant.name
+                  %h5.card-title sample1
                   /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-              .card-body
-                %h5.card-title sample1
-                /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-              .card-body
-                %h5.card-title sample2
-                /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
+            .col-md-12.col-lg-4
+              .card.mb-4
+                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .card-body
+                  %h5.card-title sample2
+                  /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
+            .col-md-12.col-lg-4
+              .card.mb-4
+                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .card-body
+                  %h5.card-title sample1
+                  /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
+            .col-md-12.col-lg-4
+              .card.mb-4
+                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .card-body
+                  %h5.card-title sample2
+                  /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
+          - else
+            - @merchant.each do |merchant|
+              .col-md-12.col-lg-4
+                .card.mb-4
+                  %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                  .card-body
+                    %h5.card-title
+                      = merchant.name
+                    /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
+            
