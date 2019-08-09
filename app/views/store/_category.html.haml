@@ -1,5 +1,5 @@
 #promos.blog.section.py-4.container
-  %h3.section-title.m-4 Promos
+  %h4.section-title.m-3 Promos
   .container
     .py-4
       .row
@@ -7,53 +7,132 @@
           - if @promos.empty?
             .col-md-12.col-lg-6
               .card.mb-6
-                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .welcome-heading-sub
+                  %p.welcome-sub Share us on Facebook
+                  %p.welcome-sub2 Get a free delivery when you share
+                %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
             .col-md-12.col-lg-6
               .card.mb-6
-                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-            .col-md-12.col-lg-6
-              .card.mb-6
-                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-            .col-md-12.col-lg-6
-              .card.mb-6
-                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .welcome-heading-sub
+                  %p.welcome-sub Share us on Facebook
+                  %p.welcome-sub2 Get a free delivery when you share
+                %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+              
           - else
             - @promos.each do |promo|
               .col-md-12.col-lg-6
                 .card.mb-6
+                  .welcome-heading-sub
+                    %p.welcome-sub Share us on Facebook
+                    %p.welcome-sub2 Get a free delivery when you share
                   %img.card-img-top{:alt => "promo image cap", :src => "example.png"}/
-            
-          
+
   / / Inner Wrapper
 / / Welcome Section
 / Our Services Section
 #grocery.blog.section.py-4.container
-  %h3.section-title.m-4 Main Category
+  %h4.section-title.m-3 Main Category
   .container
-    .py-4
-      .row
-        .card-deck
-          .col-md-12.col-lg-3
-            .card.mb-2
-              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-              .card-body
-                %h5.card-title Grocery
-                /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
-          .col-md-12.col-lg-3
-            .card.mb-2
-              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-              .card-body
-                %h5.card-title Medicine
-                /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
-          .col-md-12.col-lg-3
-            .card.mb-2
-              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-              .card-body
-                %h5.card-title Food
-                /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
-          .col-md-12.col-lg-3
-            .card.mb-2
-              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-              .card-body
-                %h5.card-title Drinks
-                /%p.card-text He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...
+    %ul.hs.full.no-scrollbar
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+
+/ Everyday Health            
+#health.blog.section.py-4.container
+  %h4.section-title.m-3 Every Heatlh
+  .container
+    %ul.hs.full.no-scrollbar
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+
+/ Everyday Booze              
+#booze.blog.section.py-4.container
+  %h4.section-title.m-3 Every Booze
+  .container
+    %ul.hs.full.no-scrollbar
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake
+      %li.item 
+        .card.mb-2
+          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          .card-body
+            %h5.card-title Cake

@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   resources :products
   resources :merchants
   resources :categories
-  resources :store
+
+  resources :store, only: [] do
+    collection do
+      get :index 
+      get :checkout    
+    end
+  end
 
   devise_for :users
 

@@ -4,4 +4,7 @@ class StoreController < ApplicationController
     @promos =  Promo.all
     @merchant = Merchant.all
   end
+
+  def checkout
+  end
 end
