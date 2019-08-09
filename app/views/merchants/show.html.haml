@@ -2,7 +2,7 @@
 - content_for :breadcrumb, "Stores"
 .twelvecol
   .page-header
-    = link_to new_category_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('categories.index.add_tooltip') do
+    = link_to new_merchant_category_path(params['id']), :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('categories.index.add_tooltip') do
       %i.icon-plus
     %h2.widget.widget-header= t('categories.index.categories')
   - if @categories.empty?

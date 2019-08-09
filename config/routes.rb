@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   get '/dashboard' => 'admins#index'
 
+  get 'categories/new/:id' => 'categories#new', :as => :new_merchant_category
+  
   root 'categories#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
