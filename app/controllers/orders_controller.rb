@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order_items = Order.find(params['id']).order_itemss
+    @order_items = Order.find(params['id']).order_items
   end
 
   # GET /orders/new

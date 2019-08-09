@@ -1,19 +1,93 @@
-%h1 Listing Orders
+- content_for :title, 'orders'
+- content_for :breadcrumb, "Stores"
+.twelvecol
+  .page-header
+    / = link_to new_order_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('orders.index.add_tooltip') do
+    / %i.icon-plus
+    %h2.widget.widget-header= t('orders.index.orders')
+  - if @orders.empty?
+    .widget.widget-content
+      .helper-notification
+        %p= t('orders.index.no_records')
+        %i.icon-lab
+  - else
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
+        %thead
+          %tr
+            %th= t('orders.index.messenger_id')
+            %th= t('orders.index.custumer_name')
+            %th= t('orders.index.contact_no')
+            %th= t('orders.index.address')
+            %th= t('orders.index.coordinates')
+            %th= t('orders.index.delivery_option')
+            %th= t('orders.index.payment_option')
+            %th= t('orders.index.reference_number')
+            %th= t('orders.index.message')
+            %th
+        %tbody
+          - @orders.each do |order|
+            %tr
+              %td
+                = order.messenger_id
+              %td
+                = order.custumer_name
+              %td
+                = order.contact_no
+              %td
+                = order.address
+              %td
+                = order.coordinates
+              %td
+                = order.delivery_option
+              %td
+                = order.payment_option
+              %td
+                = order.reference_number
+              %td
+                = order.message
+              %td
+                = link_to 'Items', order
+                / = link_to 'Edit', edit_order_path(order)
+                / = link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }
 
-%table#dttb-orders.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
-  %thead
-    %tr
-      %th{"data-data"=>"messenger_id"}Messenger
-      %th{"data-data"=>"customer_name"} Custumer name
-      %th{"data-data"=>"contact_no"} Contact no
-      %th{"data-data"=>"address"} Address
-      %th{"data-data"=>"coordinates"} Coordinates
-      %th{"data-data"=>"delivery_option"} Delivery option
-      %th{"data-data"=>"payment_option"} Payment option
-      %th{"data-data"=>"reference_number"} Reference number
-      %th{"data-data"=>"message"} Message
-      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
 
+:javascript
+  $(document).ready(function(){
+    $('#exportables').DataTable({
+      dom: 'Blfrtip',
+      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+      buttons: [
+        {extend: 'excel', 
+        exportOptions: {
+          title: 'Orders',
+          columns: 'th:not(:last-child)'
+        }
+        },
+        {extend: 'print',
+          title: 'Orders',
+          orientation: 'landscape',
+          pageSize: 'LEGAL',
+          exportOptions: {
+          columns: 'th:not(:last-child)'
+        },
+          customize: function (win){
+          $(win.document.body).addClass('white-bg');
+          $(win.document.body).css('font-size', '10px');
+          $(win.document.body).find('.actions').css('display', 'none');
+          
+          }
+        }
+      ],
+      });
+      $(".buttons-print").addClass("btn-dt");
+      $(".buttons-html5").addClass("btn-dt");
+      
+    $("table[role='datatable']").each(function(){
+      $(this).DataTable({
+        processing: true,
+        responsive: true       
+      });
+    });
 
-
-= link_to 'New Order', new_order_path
+  })

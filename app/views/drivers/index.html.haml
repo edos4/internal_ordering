@@ -12,11 +12,12 @@
         %i.icon-labmerchants
   - else
     .table-responsive
-      %table.table.table-striped.table-bordered.table-hover
+      %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
         %thead
           %tr
             %th= t('drivers.index.name')
             %th= t('drivers.index.devise_id')
+            %th
         %tbody
           - @drivers.each do |driver|
             %tr
@@ -29,3 +30,42 @@
                 = link_to 'Edit', edit_driver_path(driver)
                 = link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }
 
+:javascript
+  $(document).ready(function(){
+    $('#exportables').DataTable({
+      dom: 'Blfrtip',
+      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+      buttons: [
+        {extend: 'excel', 
+        exportOptions: {
+          title: 'Drivers',
+          columns: 'th:not(:last-child)'
+        }
+        },
+        {extend: 'print',
+          title: 'Drivers',
+          orientation: 'landscape',
+          pageSize: 'LEGAL',
+          exportOptions: {
+          columns: 'th:not(:last-child)'
+        },
+          customize: function (win){
+          $(win.document.body).addClass('white-bg');
+          $(win.document.body).css('font-size', '10px');
+          $(win.document.body).find('.actions').css('display', 'none');
+          
+          }
+        }
+      ],
+      });
+      $(".buttons-print").addClass("btn-dt");
+      $(".buttons-html5").addClass("btn-dt");
+      
+    $("table[role='datatable']").each(function(){
+      $(this).DataTable({
+        processing: true,
+        responsive: true       
+      });
+    });
+
+  })
