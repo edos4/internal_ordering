@@ -2,6 +2,17 @@
 - content_for :breadcrumb, "Stores"
 .twelvecol
   .page-header
+    %nav{"aria-label" => "breadcrumb"}
+      %ol.breadcrumb
+        %li.breadcrumb-item
+          %a{:href => "/merchants"}
+            = @product.category.merchant.name
+        %li.breadcrumb-item
+          %a{:href => "/categories/#{@product.category.id}"}
+            = @product.category.name
+        %li.breadcrumb-item
+          %a{:href => "/products/#{params['id']}"} 
+            = @product.name
     = link_to new_product_variant_path(params['id']), :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('variants.index.add_tooltip') do
       %i.icon-plus
     %h2.widget.widget-header= t('variants.index.variants')
@@ -12,12 +23,13 @@
         %i.icon-lab
   - else
     .table-responsive
-      %table.table.table-striped.table-bordered.table-hover
+      %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
         %thead
           %tr
             %th= t('variants.index.name')
             %th= t('variants.index.image')
             %th= t('variants.index.price')
+            %th
         %tbody
           - @variants.each do |variant|
             %tr
@@ -32,3 +44,42 @@
                 = link_to 'Edit', edit_variant_path(variant)
                 = link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' }
 
+:javascript
+  $(document).ready(function(){
+    $('#exportables').DataTable({
+      dom: 'Blfrtip',
+      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+      buttons: [
+        {extend: 'excel', 
+        exportOptions: {
+          title: 'Variants',
+          columns: 'th:not(:last-child)'
+        }
+        },
+        {extend: 'print',
+          title: 'Variants',
+          orientation: 'landscape',
+          pageSize: 'LEGAL',
+          exportOptions: {
+          columns: 'th:not(:last-child)'
+        },
+          customize: function (win){
+          $(win.document.body).addClass('white-bg');
+          $(win.document.body).css('font-size', '10px');
+          $(win.document.body).find('.actions').css('display', 'none');
+          
+          }
+        }
+      ],
+      });
+      $(".buttons-print").addClass("btn-dt");
+      $(".buttons-html5").addClass("btn-dt");
+      
+    $("table[role='datatable']").each(function(){
+      $(this).DataTable({
+        processing: true,
+        responsive: true       
+      });
+    });
+
+  })
