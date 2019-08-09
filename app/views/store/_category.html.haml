@@ -4,18 +4,34 @@
     .py-4
       .row
         .card-deck
-          .col-md-12.col-lg-6
-            .card.mb-6
-              .welcome-heading
-                %p.welcome-sub Share us on Facebook
-                %p.welcome-sub2 Get a free delivery when you share
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .col-md-12.col-lg-6
-            .card.mb-6
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-/ Everyday Grocery          
+          - if @promos.empty?
+            .col-md-12.col-lg-6
+              .card.mb-6
+                .welcome-heading-sub
+                  %p.welcome-sub Share us on Facebook
+                  %p.welcome-sub2 Get a free delivery when you share
+                %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+            .col-md-12.col-lg-6
+              .card.mb-6
+                .welcome-heading-sub
+                  %p.welcome-sub Share us on Facebook
+                  %p.welcome-sub2 Get a free delivery when you share
+                %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+              
+          - else
+            - @promos.each do |promo|
+              .col-md-12.col-lg-6
+                .card.mb-6
+                  .welcome-heading-sub
+                    %p.welcome-sub Share us on Facebook
+                    %p.welcome-sub2 Get a free delivery when you share
+                  %img.card-img-top{:alt => "promo image cap", :src => "example.png"}/
+
+  / / Inner Wrapper
+/ / Welcome Section
+/ Our Services Section
 #grocery.blog.section.py-4.container
-  %h3.section-title.m-4 Every Grocery
+  %h3.section-title.m-4 Main Category
   .container
     %ul.hs.full.no-scrollbar
       %li.item 

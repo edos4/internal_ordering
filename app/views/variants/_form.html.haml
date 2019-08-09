@@ -11,12 +11,12 @@
     = f.text_field :name
   .field
     = f.label :image
-    = f.text_field :image
+    = f.file_field :image, id: :variant_image
   .field
     = f.label :price
     = f.text_field :price
   .field
-    = f.label :product_id
-    = f.number_field :product_id
+    = f.hidden_field :product_id,:value => "#{params['id']}", :class => 'form-control'
+
   .actions
     = f.submit 'Save'

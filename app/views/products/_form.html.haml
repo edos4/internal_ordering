@@ -10,13 +10,16 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :image
-    = f.file_field :image, id: :product_image
-  .field
     = f.label :description
     = f.text_field :description
   .field
-    = f.label :category_id
-    = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
+    = f.label :image
+    = f.file_field :image, id: :product_image
+  .field
+    - if params['id'].present?
+      = f.hidden_field :category_id,:value => "#{params['id']}", :class => 'form-control'
+    - else
+      = f.label :category_id
+      = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
   .actions
     = f.submit 'Save'

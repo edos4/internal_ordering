@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order_items = Order.find(params['id']).order_itemss
   end
 
   # GET /orders/new
@@ -72,3 +73,4 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:messenger_id, :custumer_name, :contact_no, :address, :coordinates, :delivery_option, :payment_option, :reference_number, :message)
     end
 end
+

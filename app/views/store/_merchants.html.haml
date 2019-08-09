@@ -4,35 +4,32 @@
     .container
       .row
         .card-deck
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-              .card-body#cart-details 
-                %p.card-title SaveMore
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-              .card-body#cart-details 
-                %p.card-title Robinsons
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-              .card-body#cart-details 
-                %p.card-title KMArt
-      .row
-        .card-deck
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-              .card-body#cart-details 
-                %p.card-title SaveMore
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-              .card-body#cart-details 
-                %p.card-title Robinsons
-          .col-md-12.col-lg-4
-            .card.mb-4
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-              .card-body#cart-details 
-                %p.card-title KMArt
+          - if @merchant.empty?
+            .col-md-12.col-lg-4
+              .card.mb-4
+                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .card-body#cart-details 
+                  %p.card-title SaveMore
+            .col-md-12.col-lg-4
+              .card.mb-4
+                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .card-body#cart-details 
+                  %p.card-title SaveMore
+            .col-md-12.col-lg-4
+              .card.mb-4
+                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .card-body#cart-details 
+                  %p.card-title SaveMore
+            .col-md-12.col-lg-4
+              .card.mb-4
+                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                .card-body#cart-details 
+                  %p.card-title SaveMore
+          - else
+            - @merchant.each do |merchant|
+              .col-md-12.col-lg-4
+                .card.mb-4
+                  %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+                  .card-body#cart-details 
+                    %p.card-title 
+                      = merchant.name

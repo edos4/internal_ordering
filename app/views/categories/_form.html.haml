@@ -9,8 +9,10 @@
           %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
     
     .form-groups
-      = f.label :merchant_id
-      = f.select 'merchant_id', options_for_select(Merchant.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
+      - if params['id'].present?
+        = f.hidden_field :merchant_id,:value => "#{params['id']}", :class => 'form-control'
+      - else
+        = f.select 'merchant_id', options_for_select(Merchant.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
     .form-group
       = f.label :name
       = f.text_field :name, :class => 'form-control'

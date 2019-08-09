@@ -10,6 +10,7 @@ class MerchantsController < ApplicationController
   # GET /merchants/1
   # GET /merchants/1.json
   def show
+     @categories = Merchant.find(params['id']).categories
   end
 
   # GET /merchants/new
