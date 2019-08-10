@@ -38,7 +38,7 @@
     padding: 4px 15px;
 }
 .box-btn {
-    margin-top: -30px;
+    margin-top: -35px;
     float: right;
     padding: 6px 30px;
     border-radius: 50px;
@@ -811,4 +811,14 @@ div#cart-details {
         margin-top: 2.3rem;
         padding-top: 3rem;
       }
+      .card-body {
+        padding: 1.875rem 10px;
+      }
+      .box-btn{
+        padding: 6px 20px;
+      }
+      .box-number{
+        width: 100px;
+      }
+    
   }
