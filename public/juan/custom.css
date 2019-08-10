@@ -1,6 +1,78 @@
 :root {
     --gutter: 20px;
     }
+#forms {
+    /* top: 4rem; */
+    margin-top: 4.3rem;
+    padding-top: 3rem;
+}
+.page-content {
+    min-height: 91vh;
+    background: #fafafa;
+    position: relative;
+}
+#cart-button {
+    margin-top: 10px;
+}
+#cart-price {
+    float: right;
+    margin-bottom: none;
+}
+.box-details {
+    margin: 25px 0;
+}
+.box {
+    padding: 0;
+}
+.box-title {
+    margin: 10px 0;
+    padding-bottom: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #a9a9a9;
+}
+.box-number {
+    border: 1px solid #f1f1f1;
+    width: 120px;
+    border-radius: 22px;
+    padding: 4px 15px;
+}
+.box-btn {
+    margin-top: -30px;
+    float: right;
+    padding: 6px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.minus {
+    float: left;
+    cursor: pointer;
+    font-weight: bold;
+}
+.plus {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+}
+.box-num {
+    text-align: center;
+}
+.box-counter {
+    border: none;
+    width: 20px;
+    text-align: center;
+}
+#box-text {
+    border: none;
+    width: 100%;
+    color: #4c4c4c;
+    margin-top: 5px;
+}
+#box-text::placeholder {
+    color: #a2a1a1;
+    font-size: 13px;
+}
+
 div#cart-details {
     padding: 12px 10px;
     background-color: white;
@@ -204,7 +276,7 @@ div#cart-details {
       /* overflow: hidden; */
       font-style: italic;
       letter-spacing: .7px;
-      margin: -15px 0;
+      margin: -5px 0;
   }
   .accordion-item .product-info .upper-product-info{
       /* flex: 1; */
@@ -716,4 +788,27 @@ div#cart-details {
           font-size: 10px;
           color: #ccc;
           margin-top: -1em;
+  }
+  /* Large desktop */
+@media (min-width: 1200px) { 
+    .img-fluid {
+    height: 550px;
+} }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+    .img-fluid {
+        height: 550px;
+    }
+}
+
+  @media (max-width: 767px) { 
+      .img-fluid {
+          height: 200px;
+          width: 100%;
+      }
+      #forms {
+        margin-top: 2.3rem;
+        padding-top: 3rem;
+      }
   }

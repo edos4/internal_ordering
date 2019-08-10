@@ -7,4 +7,7 @@ class StoreController < ApplicationController
 
   def checkout
   end
+
+  def cart
+  end
 end

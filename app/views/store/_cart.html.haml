@@ -1,3 +1,68 @@
+.page-content
+  #forms.container
+    .section-title.col-lg-12.col-md-12.ml-auto.mr-auto
+    .row.px-3
+      .box.col-lg-6.col-md-6
+        %img.img-fluid{:alt => "Card image cap", :src => "/food.png"}/
+      
+      .example.col-lg-6.col-md-6.bg-white
+        .card
+          .card-body
+            .card-title
+              %h4 Crib French Fries
+              %h6.box-title.border-bottom Size
+            .box-details     
+              .custom-control.custom-radio.d-block.my-2
+                %input.custom-control-input{:name => "size", :type => "radio", :id=> "regular"}/
+                %label.custom-control-label{:for => "regular"} Regular
+                %span#cart-price ₱350
+        
+              .custom-control.custom-radio.d-block.my-2
+                %input.custom-control-input{:checked => "checked", :name => "size", :type => "radio", :id=> "large"}/
+                %label.custom-control-label{:for => "large"} Large
+                %span#cart-price ₱350
+
+            %p.box-title.border-bottom Would you like to add dipping?
+            .box-details     
+              .custom-control.custom-radio.d-block.my-2
+                %input.custom-control-input{:name => "addon", :type => "radio", :id=> "addon_1"}/
+                %label.custom-control-label{:for => "addon_1"} 1 Dipping
+                %span#cart-price +₱10
+        
+              .custom-control.custom-radio.d-block.my-2
+                %input.custom-control-input{:checked => "checked", :name => "addon", :type => "radio", :id=> "addon_2"}/
+                %label.custom-control-label{:for => "addon_2"} 2 Dipping
+                %span#cart-price +₱20
+            %p.box-title.border-bottom Special Insturctions?    
+            .box
+              %input#box-text{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
+            
+            .box-details  
+              .box-number
+                .box-num
+                  %span.minus -
+                  %input{:type => "text", :value => "1", :class=> "box-counter"}/
+                  %span.plus +
+              %buttonbtn.btn-primary.box-btn Add to Cart
+
 #add-to-cart   
   %button.btn.btn-block.btn-primary 
     View
+
+:javascript 
+  $(document).ready(function() {
+    $('.minus').click(function () {
+      var $input = $(this).parent().find('input');
+      var count = parseInt($input.val()) - 1;
+      count = count < 1 ? 1 : count;
+      $input.val(count);
+      $input.change();
+      return false;
+    });
+    $('.plus').click(function () {
+      var $input = $(this).parent().find('input');
+      $input.val(parseInt($input.val()) + 1);
+      $input.change();
+      return false;
+    });
+  });
