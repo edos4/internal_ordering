@@ -653,15 +653,18 @@ div#cart-details {
       margin-bottom: 20px;
   }
   .success-message img{
-      margin-bottom: 50px;
-      width: 80px;
-      animation: jump 1s infinite;
-      -webkit-animation: jump 1s infinite;
+      animation: jump .5s ease-out .75s;
+      animation-fill-mode: backwards;
+      
   }
   .success-message a{
       display: block;
       text-decoration: none;
+      margin-top: -15px;
   }
+  .success-message p{
+    margin-top: -15px;
+}
   
   @-webkit-keyframes fadeInUp {
     from {
@@ -683,37 +686,15 @@ div#cart-details {
   }
   }
   @keyframes jump {
-    10%, 90% {
-      transform: translate3d(0, 5px, 0);
-      -webkit-transform: translate3d(0, 5px, 0);
-      -moz-transform: translate3d(0, 5px, 0);
-      -ms-transform: translate3d(0, 5px, 0);
-      -o-transform: translate3d(0, 5px, 0);
+      0% {  
+    opacity: 0;
+      transform:  translateY(30px);
   }
-    
-    20%, 80% {
-      transform: translate3d(0, 30px, 0);
-      -webkit-transform: translate3d(0, 30px, 0);
-      -moz-transform: translate3d(0, 30px, 0);
-      -ms-transform: translate3d(0, 30px, 0);
-      -o-transform: translate3d(0, 30px, 0);
-  }
-  
-     50% {
-      transform: translate3d(0, 50px, 0);
-      -webkit-transform: translate3d(0, 50px, 0);
-      -moz-transform: translate3d(0, 50px, 0);
-      -ms-transform: translate3d(0, 50px, 0);
-      -o-transform: translate3d(0, 50px, 0);
-  }
-  
-    40%, 60% {
-      transform: translate3d(0, 40px, 0);
-      -webkit-transform: translate3d(0, 40px, 0);
-      -moz-transform: translate3d(0, 40px, 0);
-      -ms-transform: translate3d(0, 40px, 0);
-      -o-transform: translate3d(0, 40px, 0);
-  }
+
+    100% {
+      opacity: 1;
+      transform: translateY(-15px)
+    }
   }
   /* search */
   .search-div{
