@@ -1,3 +1,4 @@
+
 .bg-light
   / Form Controls
   #forms.container.py-5
@@ -14,7 +15,9 @@
             %form
               #delivery_details
                 .form-group
-                  %input#form1-name.form-control{:type => "text", :placeholder => "Complete Address here"}/
+                  %input#address_input.form-control{:type => "text", :name=> "delivery_address_attributes", :placeholder => "Complete Address here"}/
+                  %input{:type => "hidden", :name=> "latLong", :id=> "latLong", :value => "bacolod"}
+                  #map
                 .form-group
                   %input#form1-apt.form-control{:type => "text",  :placeholder => "Apt Number / Company Name"}/
                 .row
@@ -103,4 +106,6 @@
                 %h3 Total Amount
                 %h3.total-value ₱1695
                 %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
-  
+
+%script{:async => "", :defer => "defer", :src => "/initmap.js"}
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCkA6UUfUflPmL3pkQvbN_tUpS-hAT-RbY&libraries=places&callback=initMap"}
