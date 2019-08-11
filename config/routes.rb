@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   resources :store, only: [] do
     collection do
       get :index 
+      get :menu
       get :cart
-      get :checkout    
+      get :checkout 
+      get :completed   
     end
   end
 
