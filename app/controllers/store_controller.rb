@@ -5,9 +5,15 @@ class StoreController < ApplicationController
     @merchant = Merchant.all
   end
 
-  def checkout
+  def menu
   end
 
   def cart
+  end
+  
+  def checkout
+  end
+
+  def completed
   end
 end
