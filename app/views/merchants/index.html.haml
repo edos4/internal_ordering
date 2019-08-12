@@ -5,6 +5,10 @@
 .main-content-container.container-fluid.px-4
   .page-header.no-gutters.py-4
     .col-12.text-center.text-sm-left.mb-0.pb-3
+      %nav{"aria-label" => "breadcrumb"}
+        %ol.breadcrumb
+          %li.breadcrumb-item
+            %a{:href => "/merchants"} Merchants
       .col-6.float-left
         %span.text-uppercase.page-subtitle Overview
         %h3.page-title.col-6= t('merchants.index.merchants')
