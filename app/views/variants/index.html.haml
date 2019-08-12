@@ -1,13 +1,19 @@
-%h1 Listing Variants
-
-%table#dttb-variants.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
-  %thead
-    %tr
-      %th{"data-data"=>"name"} Name
-      %th{"data-data"=>"image"} Image
-      %th{"data-data"=>"price"} Price
-      / %th data-data="product_id" Product
-      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
-
-
-= link_to 'New Variant', new_variant_path
+.main-content-container.container-fluid.px-4
+  .page-header.no-gutters.py-4
+    .col-12.text-center.text-sm-left.mb-0.pb-3
+      .col-6.float-left
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title.col-6= t('variants.index.variants')
+      .col-6.float-right
+      = link_to new_variant_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('variants.index.add_tooltip') do
+        %b Add Variants
+    .table-responsive.card.card-small.mt-5
+      .card-body.p-0.pb-3.text-center
+        %table#dttb-variants.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
+          %thead
+            %tr
+              %th{"data-data"=>"name"} Name
+              %th{"data-data"=>"image"} Image
+              %th{"data-data"=>"price"} Price
+              / %th data-data="product_id" Product
+              %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
