@@ -14,30 +14,31 @@
         .helper-notification
           %p= t('products.index.no_records')
     - else
-      .table-responsive
-        %table.table.table-striped.table-bordered.table-hover
-          %thead
+  .table-responsive.card.card-small.mt-5
+    .card-body.p-0.pb-3.text-center
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th= t('products.index.name')
+            %th= t('products.index.image')
+            %th= t('products.index.description')
+            %th= t('products.index.category')
+            %th= t('products.index.actions')
+        %tbody
+          - @products.each do |product|
             %tr
-              %th= t('products.index.name')
-              %th= t('products.index.image')
-              %th= t('products.index.description')
-              %th= t('products.index.category')
-          %tbody
-            - @products.each do |product|
-              %tr
-                %td
-                  = product.name
-                %td
-                  = product.image
-                %td
-                  = product.description
-                %td
-                  = product.category.name
-                %td
-                  = link_to 'Show', product
-                  = link_to 'Edit', edit_product_path(product)
-                  = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
-
+              %td
+                = product.name
+              %td
+                = product.image
+              %td
+                = product.description
+              %td
+                = product.category.name
+              %td
+                = link_to 'Show', product
+                = link_to 'Edit', edit_product_path(product)
+                = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
 / :javascript
 /   $(document).ready(function(){
 /     $('#exportables').DataTable({

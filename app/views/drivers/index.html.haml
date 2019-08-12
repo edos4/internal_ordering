@@ -2,7 +2,7 @@
 - content_for :breadcrumb, "Stores"
 .main-content-container.container-fluid.px-4
   .page-header.no-gutters.py-4
-    .col-12.text-center.text-sm-left.mb-0
+    .col-12.text-center.text-sm-left.mb-0.pb-3
       .col-6.float-left
         %span.text-uppercase.page-subtitle Overview
         %h3.page-title.col-6= t('drivers.index.drivers')
@@ -15,12 +15,14 @@
           %p= t('drivers.index.no_records')
           %i.icon-labmerchants
     - else
-      .table-responsive
-        %table.table.table-striped.table-bordered.table-hover
+    .table-responsive.card.card-small.mt-5
+      .card-body.p-0.pb-3.text-center
+        %table.table.table-striped.table-hover
           %thead
             %tr
               %th= t('drivers.index.name')
               %th= t('drivers.index.devise_id')
+              %th= t('drivers.index.actions')
           %tbody
             - @drivers.each do |driver|
               %tr

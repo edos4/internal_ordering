@@ -7,67 +7,29 @@
         %span.text-uppercase.page-subtitle Overview
         %h3.page-title.col-6= t('categories.index.categories')
       .col-6.float-right
-      = link_to new_product_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('categories.index.add_tooltip') do
+      = link_to new_category_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('categories.index.add_tooltip') do
         %b Add Category
     - if @categories.empty?
       .widget.widget-content.clearfix
         .helper-notification
           %p= t('categories.index.no_records')
     - else
-      .table-responsive
-        %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
-          %thead
-            %tr
-              %th= t('categories.index.name')
-              %th= t('categories.index.image')
-              %th
-          %tbody
-            - @categories.each do |category|
+      .table-responsive.card.card-small.mt-5
+        .card-body.p-0.pb-3.text-center
+          %table.table.table-striped.table-hover
+            %thead
               %tr
-                %td
-                  = category.name
-                %td
-                  = category.image
-                %td
-                  = link_to 'Show', category
-                  = link_to 'Edit', edit_category_path(category)
-                  = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-/ :javascript
-/   $(document).ready(function(){
-/     $('#exportables').DataTable({
-/       dom: 'Blfrtip',
-/       "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-/       buttons: [
-/         {extend: 'excel', 
-/         exportOptions: {
-/           title: 'Categories',
-/           columns: 'th:not(:last-child)'
-/         }
-/         },
-/         {extend: 'print',
-/           title: 'Categories',
-/           orientation: 'landscape',
-/           pageSize: 'LEGAL',
-/           exportOptions: {
-/           columns: 'th:not(:last-child)'
-/         },
-/           customize: function (win){
-/           $(win.document.body).addClass('white-bg');
-/           $(win.document.body).css('font-size', '10px');
-/           $(win.document.body).find('.actions').css('display', 'none');
-          
-/           }
-/         }
-/       ],
-/       });
-/       $(".buttons-print").addClass("btn-dt");
-/       $(".buttons-html5").addClass("btn-dt");
-      
-/     $("table[role='datatable']").each(function(){
-/       $(this).DataTable({
-/         processing: true,
-/         responsive: true       
-/       });
-/     });
-
-/   })
+                %th= t('categories.index.name')
+                %th= t('categories.index.image')
+                %th= t('categories.index.actions')
+            %tbody
+              - @categories.each do |category|
+                %tr
+                  %td
+                    = category.name
+                  %td
+                    = category.image
+                  %td
+                    = link_to 'Show', category
+                    = link_to 'Edit', edit_category_path(category)
+                    = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }

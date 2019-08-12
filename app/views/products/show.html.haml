@@ -1,7 +1,7 @@
 - content_for :title, 'Variants'
 - content_for :breadcrumb, "Stores"
-.twelvecol
-  .page-header
+.main-content-container.container-fluid.px-4
+  .page-header.no-gutters.py-4
     %nav{"aria-label" => "breadcrumb"}
       %ol.breadcrumb
         %li.breadcrumb-item
@@ -13,36 +13,40 @@
         %li.breadcrumb-item
           %a{:href => "/products/#{params['id']}"} 
             = @product.name
-    = link_to new_product_variant_path(params['id']), :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('variants.index.add_tooltip') do
-      %i.icon-plus
-    %h2.widget.widget-header= t('variants.index.variants')
-  - if @variants.empty?
-    .widget.widget-content
-      .helper-notification
-        %p= t('variants.index.no_records')
-        %i.icon-lab
-  - else
-    .table-responsive
-      %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
-        %thead
-          %tr
-            %th= t('variants.index.name')
-            %th= t('variants.index.image')
-            %th= t('variants.index.price')
-            %th
-        %tbody
-          - @variants.each do |variant|
-            %tr
-              %td
-                = variant.name
-              %td
-                = variant.image
-              %td
-                = variant.price
-              %td
-                = link_to 'Show', variant
-                = link_to 'Edit', edit_variant_path(variant)
-                = link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' }
+    .col-12.text-center.text-sm-left.mb-0
+      .col-6.float-left
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title.col-6= t('variants.index.variants')
+      .col-6.float-right
+      = link_to new_product_variant_path(params['id']), :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('variants.index.add_tooltip') do
+        %b Add Variants
+    - if @variants.empty?
+      .widget.widget-content.clearfix
+        .helper-notification
+          %p= t('variants.index.no_records')
+    - else
+      .table-responsive.card.card-small.mt-5
+        .card-body.p-0.pb-3.text-center
+          %table.table.table-striped.table-bordered.table-hover
+            %thead
+              %tr
+                %th= t('variants.index.name')
+                %th= t('variants.index.image')
+                %th= t('variants.index.price')
+            %tbody
+              - @variants.each do |variant|
+                %tr
+                  %td
+                    = variant.name
+                  %td
+                    = variant.image
+                  %td
+                    = variant.price
+                  %td
+                    = link_to 'Show', variant
+                    = link_to 'Edit', edit_variant_path(variant)
+                    = link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' }
+
 
 :javascript
   $(document).ready(function(){
@@ -83,3 +87,4 @@
     });
 
   })
+
