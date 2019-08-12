@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get 'store/menu/:id' => 'store#menu', :as => :merchant_proucts
   get 'store/:id/cart' => 'store#cart', :as => :product_variants
+  get 'store/view_cart' => 'store#view_cart', :as => :view_cart
   
   resources :carts, only: [] do
     collection do

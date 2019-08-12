@@ -56,8 +56,8 @@
 
   $('#add_cart').click(function (){
     $.ajax({
-      url: "/amortizations/compute_monthly_amort", // this will be routed
-      type: 'GET',
+      url: "/carts/add", // this will be routed
+      type: 'POST',
       data: {
         variant_id: document.querySelector('input[name="size"]:checked').value,
         messenger_id: #{params['messenger_id']},

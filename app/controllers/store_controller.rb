@@ -13,6 +13,12 @@ class StoreController < ApplicationController
     @product = Product.find(params['product'])
     @variants = @product.variants
   end
+
+  def view_cart
+    params.permit!
+    messenger_id = params['messenger_id']
+    @order = Order.where(messenger_id: messenger_id, status: "Open")
+  end
   
   def checkout
   end
