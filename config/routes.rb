@@ -12,13 +12,14 @@ Rails.application.routes.draw do
 
   resources :store, only: [] do
     collection do
-      get :index 
-      get :menu
-      get :cart
+      get :index
       get :checkout 
-      get :completed   
+      get :completed 
     end
   end
+
+  get 'store/menu/:id' => 'store#menu', :as => :merchant_proucts
+  get 'store/:id/cart' => 'store#cart', :as => :product_variants
 
   devise_for :users
 

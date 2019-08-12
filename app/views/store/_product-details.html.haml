@@ -9,31 +9,19 @@
         .card
           .card-body
             .card-title
-              %h4 Crib French Fries
-              %h6.box-title.border-bottom Size
+              %h4 
+                = @product.name
+              %h6.box-title.border-bottom Variants
             .box-details     
-              .custom-control.custom-radio.d-block.my-2
-                %input.custom-control-input{:name => "size", :type => "radio", :id=> "regular"}/
-                %label.custom-control-label{:for => "regular"} Regular
-                %span#cart-price ₱350
-        
-              .custom-control.custom-radio.d-block.my-2
-                %input.custom-control-input{:checked => "checked", :name => "size", :type => "radio", :id=> "large"}/
-                %label.custom-control-label{:for => "large"} Large
-                %span#cart-price ₱350
-
-            %p.box-title.border-bottom Would you like to add dipping?
-            .box-details     
-              .custom-control.custom-radio.d-block.my-2
-                %input.custom-control-input{:name => "addon", :type => "radio", :id=> "addon_1"}/
-                %label.custom-control-label{:for => "addon_1"} 1 Dipping
-                %span#cart-price +₱10
-        
-              .custom-control.custom-radio.d-block.my-2
-                %input.custom-control-input{:checked => "checked", :name => "addon", :type => "radio", :id=> "addon_2"}/
-                %label.custom-control-label{:for => "addon_2"} 2 Dipping
-                %span#cart-price +₱20
-            %p.box-title.border-bottom Special Insturctions?    
+              - @variants.each do |variant|
+                .custom-control.custom-radio.d-block.my-2
+                  %input.custom-control-input{:name => "size", :type => "radio", :id=> "regular"}/
+                  %label.custom-control-label{:for => "regular"}
+                    = variant.name
+                  %span#cart-price
+                    = variant.price
+            
+            %p.box-title.border-bottom Special Instructions?    
             .box
               %input#box-text{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
             

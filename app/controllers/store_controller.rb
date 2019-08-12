@@ -6,9 +6,12 @@ class StoreController < ApplicationController
   end
 
   def menu
+    @categories = Category.where(merchant_id: params['id'])
   end
 
   def cart
+    @product = Product.find(params['product'])
+    @variants = @product.variants
   end
   
   def checkout

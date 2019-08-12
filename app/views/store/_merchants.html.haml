@@ -22,5 +22,5 @@
                 .card.mb-4
                   %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
                   .card-body#cart-details 
-                    %p.card-title 
-                      = merchant.name
+                    %p.card-title
+                      = link_to "#{merchant.name}", "/store/menu/#{merchant.id}"
