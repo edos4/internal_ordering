@@ -17,7 +17,6 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-gem 'sprockets'
 
 # Richelle rocks!
 gem 'haml', '~> 5.0.4'
