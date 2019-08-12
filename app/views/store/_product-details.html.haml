@@ -16,7 +16,7 @@
               - @variants.each_with_index do |variant, i|
                 .custom-control.custom-radio.d-block.my-2
                   %input.custom-control-input{:name => "size", :type => "radio", :id=> "#{i+1}"}/
-                  %label.custom-control-label{:for => "#{i+1}"}
+                  %label.custom-control-label{:for => "#{i+1} "}
                     = variant.name
                   %span#cart-price
                     = variant.price
