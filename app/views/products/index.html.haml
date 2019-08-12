@@ -1,77 +1,80 @@
 - content_for :title, 'Products'
 - content_for :breadcrumb, "Stores"
-.twelvecol
-  .page-header
-    = link_to new_product_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('products.index.add_tooltip') do
-      %i.icon-plus
-    %h2.widget.widget-header= t('products.index.products')
-  - if @products.empty?
-    .widget.widget-content
-      .helper-notification
-        %p= t('products.index.no_records')
-        %i.icon-lab
-  - else
-    .table-responsive
-      %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
-        %thead
-          %tr
-            %th= t('products.index.name')
-            %th= t('products.index.image')
-            %th= t('products.index.description')
-            %th= t('products.index.category')
-            %th
-        %tbody
-          - @products.each do |product|
+.main-content-container.container-fluid.px-4
+  .page-header.no-gutters.py-4
+    .col-12.text-center.text-sm-left.mb-0
+      .col-6.float-left
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title.col-6= t('products.index.products')
+      .col-6.float-right
+      = link_to new_product_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('products.index.add_tooltip') do
+        %b Add Products
+    - if @products.empty?
+      .widget.widget-content.clearfix
+        .helper-notification
+          %p= t('products.index.no_records')
+    - else
+      .table-responsive
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
             %tr
-              %td
-                = product.name
-              %td
-                = product.image
-              %td
-                = product.description
-              %td
-                = product.category.name
-              %td
-                = link_to 'Show', product
-                = link_to 'Edit', edit_product_path(product)
-                = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+              %th= t('products.index.name')
+              %th= t('products.index.image')
+              %th= t('products.index.description')
+              %th= t('products.index.category')
+          %tbody
+            - @products.each do |product|
+              %tr
+                %td
+                  = product.name
+                %td
+                  = product.image
+                %td
+                  = product.description
+                %td
+                  = product.category.name
+                %td
+                  = link_to 'Show', product
+                  = link_to 'Edit', edit_product_path(product)
+                  = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
 
-:javascript
-  $(document).ready(function(){
-    $('#exportables').DataTable({
-      dom: 'Blfrtip',
-      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-      buttons: [
-        {extend: 'excel', 
-        exportOptions: {
-          title: 'Products',
-          columns: 'th:not(:last-child)'
-        }
-        },
-        {extend: 'print',
-          title: 'Products',
-          orientation: 'landscape',
-          pageSize: 'LEGAL',
-          exportOptions: {
-          columns: 'th:not(:last-child)'
-        },
-          customize: function (win){
-          $(win.document.body).addClass('white-bg');
-          $(win.document.body).css('font-size', '10px');
-          $(win.document.body).find('.actions').css('display', 'none');
+/ :javascript
+/   $(document).ready(function(){
+/     $('#exportables').DataTable({
+/       dom: 'Blfrtip',
+/       "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+/       buttons: [
+/         {extend: 'excel', 
+/         exportOptions: {
+/           title: 'Products',
+/           columns: 'th:not(:last-child)'
+/         }
+/         },
+/         {extend: 'print',
+/           title: 'Products',
+/           orientation: 'landscape',
+/           pageSize: 'LEGAL',
+/           exportOptions: {
+/           columns: 'th:not(:last-child)'
+/         },
+/           customize: function (win){
+/           $(win.document.body).addClass('white-bg');
+/           $(win.document.body).css('font-size', '10px');
+/           $(win.document.body).find('.actions').css('display', 'none');
           
-          }
-        }
-      ],
-      });
-      $(".buttons-print").addClass("btn-dt");
-      $(".buttons-html5").addClass("btn-dt");
+/           }
+/         }
+/       ],
+/       });
+/       $(".buttons-print").addClass("btn-dt");
+/       $(".buttons-html5").addClass("btn-dt");
       
-    $("table[role='datatable']").each(function(){
-      $(this).DataTable({
-        processing: true,
-        responsive: true       
-      });
-    });
+/     $("table[role='datatable']").each(function(){
+/       $(this).DataTable({
+/         processing: true,
+/         responsive: true       
+/       });
+/     });
 
-  })
+/   })
+
