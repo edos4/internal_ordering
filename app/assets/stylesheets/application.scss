@@ -11,10 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require shards-dashboard-main
- *= require jquery.dataTables
  *= require main
  *= require style
  */
 
 @import "bootstrap";
-@import "datatables";
