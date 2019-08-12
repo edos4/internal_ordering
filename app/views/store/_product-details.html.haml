@@ -13,10 +13,10 @@
                 = @product.name
               %h6.box-title.border-bottom Variants
             .box-details
-              - @variants.each do |variant|
+              - @variants.each_with_index do |variant, i|
                 .custom-control.custom-radio.d-block.my-2
-                  %input.custom-control-input{:name => "size", :type => "radio", :id=> "regular"}/
-                  %label.custom-control-label{:for => "regular"}
+                  %input.custom-control-input{:name => "size", :type => "radio", :id=> "#{i+1}"}/
+                  %label.custom-control-label{:for => "#{i+1}"}
                     = variant.name
                   %span#cart-price
                     = variant.price
