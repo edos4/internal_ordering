@@ -1,33 +1,36 @@
 
 - content_for :title, 'Merchants'
 - content_for :breadcrumb, "Stores"
-.twelvecol
-  .page-header
-    = link_to new_merchant_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('merchants.index.add_tooltip') do
-      %i.icon-plus
-    %h2.widget.widget-header= t('merchants.index.merchants')
-  - if @merchants.empty?
-    .widget.widget-content
-      .helper-notification
-        %p= t('merchants.index.no_records')
-        %i.icon-labmerchants
-  - else
-    .table-responsive
-      %table.table.table-striped.table-bordered.table-hover
-        %thead
-          %tr
-            %th= t('merchants.index.name')
-            %th= t('merchants.index.logo')
-        %tbody
-          - @merchants.each do |merchant|
+.main-content-container.container-fluid.px-4
+  .page-header.no-gutters.py-4
+    .col-12.text-center.text-sm-left.mb-0
+      .col-6.float-left
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title.col-6= t('merchants.index.merchants')
+      .col-6.float-right
+      = link_to new_product_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('merchants.index.add_tooltip') do
+        %b Add Merchants
+    - if @merchants.empty?
+      .widget.widget-content.clearfix
+        .helper-notification
+          %p= t('merchants.index.no_records')
+    - else
+      .table-responsive
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
             %tr
-              %td
-                = merchant.name
-              %td
-                = merchant.logo
-              %td
-                = link_to 'Show', merchant
-                = link_to 'Edit', edit_merchant_path(merchant)
-                = link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' }
+              %th= t('merchants.index.name')
+              %th= t('merchants.index.logo')
+          %tbody
+            - @merchants.each do |merchant|
+              %tr
+                %td
+                  = merchant.name
+                %td
+                  = merchant.logo
+                %td
+                  = link_to 'Show', merchant
+                  = link_to 'Edit', edit_merchant_path(merchant)
+                  = link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' }
 
-    
+      

@@ -1,10 +1,11 @@
 class SettingsController < ApplicationController
   before_action :set_setting, only: [:show, :edit, :update, :destroy]
-
+  layout false
   # GET /settings
   # GET /settings.json
   def index
     @settings = Setting.all
+   
   end
 
   # GET /settings/1
@@ -15,6 +16,7 @@ class SettingsController < ApplicationController
   # GET /settings/new
   def new
     @setting = Setting.new
+    
   end
 
   # GET /settings/1/edit

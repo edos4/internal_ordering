@@ -1,0 +1,43 @@
+/ Main Sidebar
+%aside.main-sidebar.col-12.col-md-3.col-lg-2.px-0
+  .main-navbar
+    %nav.navbar.align-items-stretch.navbar-light.bg-white.flex-md-nowrap.border-bottom.p-0
+      %a.navbar-brand.w-100.mr-0{:href => "#", :style => "line-height: 25px;"}
+        .d-table.m-auto
+          %span.d-md-inline JuanRide
+      %a.toggle-sidebar.d-sm-inline.d-md-none.d-lg-none
+        %i.material-icons 
+  %form.main-sidebar__search.w-100.border-right.d-sm-flex.d-md-none.d-lg-none{:action => "#"}
+    .input-group.input-group-seamless.ml-3
+      .input-group-prepend
+        .input-group-text
+          %i.fas.fa-search
+      %input.navbar-search.form-control{"aria-label" => "Search", :placeholder => "Search for something...", :type => "text"}/
+  .nav-wrapper
+    %ul.nav.flex-column
+      %li.nav-item{:class => "#{active_controller?(controller: 'admin')}"}
+        = link_to '/dashboard', 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Dashboard' do
+          %i.material-icons edit
+          %span Dashboard
+      %li.nav-item{:class => "#{active_controller?(controller: 'merchant')}"}
+        = link_to merchants_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link',  'data-placement' => 'right', 'data-original-title' => 'Stores' do
+          %i.material-icons vertical_split
+          %span Merchants
+      %li.nav-item{:class => "#{active_controller?(controller: 'category')}"}
+        = link_to categories_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Stores' do
+          %i.material-icons note_add
+          %span Category
+      %li.nav-item{:class => "#{active_controller?(controller: 'product')}"}
+        = link_to products_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Products' do
+          %i.material-icons view_module
+          %span Products
+      %li.nav-item{:class => "#{active_controller?(controller: 'driver')}"}
+        = link_to drivers_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Drivers' do
+          %i.material-icons table_chart
+          %span Drivers
+      %li.nav-item{:class => "#{active_controller?(controller: 'driver')}"}
+        = link_to root_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Storefront', target: '_blank' do
+          %i.material-icons table_chart
+          %span Storefront
+   
+      

@@ -1,31 +1,71 @@
 - content_for :title, 'Drivers'
 - content_for :breadcrumb, "Stores"
-.twelvecol
-  .page-header
-    = link_to new_driver_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('drivers.index.add_tooltip') do
-      %i.icon-plus
-    %h2.widget.widget-header= t('drivers.index.drivers')
-  - if @drivers.empty?
-    .widget.widget-content
-      .helper-notification
-        %p= t('drivers.index.no_records')
-        %i.icon-labmerchants
-  - else
-    .table-responsive
-      %table.table.table-striped.table-bordered.table-hover
-        %thead
-          %tr
-            %th= t('drivers.index.name')
-            %th= t('drivers.index.devise_id')
-        %tbody
-          - @drivers.each do |driver|
+.main-content-container.container-fluid.px-4
+  .page-header.no-gutters.py-4
+    .col-12.text-center.text-sm-left.mb-0
+      .col-6.float-left
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title.col-6= t('drivers.index.drivers')
+      .col-6.float-right
+      = link_to new_driver_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('drivers.index.add_tooltip') do
+        %b Add Drivers
+    - if @drivers.empty?
+      .widget.widget-content.clearfix
+        .helper-notification
+          %p= t('drivers.index.no_records')
+          %i.icon-labmerchants
+    - else
+      .table-responsive
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
             %tr
-              %td
-                = driver.name
-              %td
-                = driver.devise_id
-              %td
-                = link_to 'Show', driver
-                = link_to 'Edit', edit_driver_path(driver)
-                = link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }
+              %th= t('drivers.index.name')
+              %th= t('drivers.index.devise_id')
+          %tbody
+            - @drivers.each do |driver|
+              %tr
+                %td
+                  = driver.name
+                %td
+                  = driver.devise_id
+                %td
+                  = link_to 'Show', driver
+                  = link_to 'Edit', edit_driver_path(driver)
+                  = link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }
+
+-# - content_for :title, 'Drivers'
+-# - content_for :breadcrumb, "Stores"
+-# .main-content-container.container-fluid.px-4
+-#   .page-header.no-gutters.py-4
+-#     .col-12.text-center.text-sm-left.mb-0
+-#       .col-6.float-left
+-#         %span.text-uppercase.page-subtitle Overview
+-#           %h3.page-title.col-6 Drivers
+-#           = link_to new_driver_path, :class => "breadcumbs", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('drivers.index.add_tooltip') 
+-#       .col-6.float-right
+-#         %button.Add Products
+-#         -# %h2.widget.widget-header= t('drivers.index.drivers')
+-#     - if @drivers.empty?
+-#       .widget.widget-content
+-#         .helper-notification
+-#           %p= t('drivers.index.no_records')
+-#           %i.icon-labmerchants
+-#     - else
+-#       .table-responsive
+-#         %table.table.table-striped.table-bordered.table-hover
+-#           %thead
+-#             %tr
+-#               %th= t('drivers.index.name')
+-#               %th= t('drivers.index.devise_id')
+-#           %tbody
+-#             - @drivers.each do |driver|
+-#               %tr
+-#                 %td
+-#                   = driver.name
+-#                 %td
+-#                   = driver.devise_id
+-#                 %td
+-#                   = link_to 'Show', driver
+-#                   = link_to 'Edit', edit_driver_path(driver)
+-#                   = link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' }
 
