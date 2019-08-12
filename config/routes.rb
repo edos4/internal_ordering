@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :carts, only: [] do
+    collection do
+      post :add 
+    end
+  end
+
   devise_for :users
 
   get '/dashboard' => 'admins#index'
