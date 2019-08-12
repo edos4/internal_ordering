@@ -193,7 +193,9 @@ div#cart-details {
     width: 25.5vw;
     }
 
-
+    .hs > li, .item:first-child {
+        margin-left: -32px;
+    }
 
     .no-scrollbar {
     scrollbar-width: none;
