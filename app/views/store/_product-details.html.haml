@@ -28,11 +28,10 @@
             .box-details  
               .box-number
                 .box-num
-                  %span.minus -
-                  %input{:type => "text", :value => "1", :class=> "box-counter"}/
-                  %span.plus +
+                  %span.minus.sub-quantity -
+                  %input{:type => "text", :value => "1", :class=> "box-counter product-quantity"}/
+                  %span.plus.add-quantity +
               %buttonbtn.btn-primary.box-btn Add to Cart
-
 #add-to-cart   
   %button.btn.btn-block.btn-primary 
     View
