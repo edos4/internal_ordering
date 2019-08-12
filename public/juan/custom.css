@@ -547,7 +547,6 @@ div#cart-details {
   .total{
       display: flex;
       justify-content: space-between;
-      margin-bottom: -17px
   }
   .amount {
     margin-top: 1.5rem;
