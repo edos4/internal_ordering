@@ -1,6 +1,30 @@
 :root {
     --gutter: 20px;
     }
+
+#add-to-cart{
+    z-index: 98;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -5px 20px 0 rgba(0,0,0,0.11); 
+}
+
+#add-to-cart button{
+    border: 0;
+    font-size: .9em;
+    border-radius: 3px;;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+}
 #forms {
     /* top: 4rem; */
     margin-top: 4.3rem;
@@ -124,7 +148,7 @@ div#cart-details {
     grid-template-columns: 10px;
     grid-template-rows: minmax(150px, 1fr);
     grid-auto-flow: column;
-    grid-auto-columns: calc(30% - var(--gutter) * 2);
+    grid-auto-columns: calc(31% - var(--gutter) * 2);
 
     overflow-x: scroll;
     scroll-snap-type: x proximity;
@@ -166,6 +190,7 @@ div#cart-details {
     align-items: center;
     background: #fff;
     border-radius: 8px;
+    width: 25.5vw;
     }
 
 
@@ -343,9 +368,6 @@ div#cart-details {
       right: 0;
       width: 100%;
       text-align: center;
-      padding: 10px;
-      background: white;
-      display: none;
       justify-content: center;
       align-items: center;
       box-shadow: 0 -5px 20px 0 rgba(0,0,0,0.11); 
@@ -354,6 +376,7 @@ div#cart-details {
   #add-to-cart button{
       border: 0;
       font-size: .9em;
+      padding: 15px;    
       border-radius: 3px;;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -839,6 +862,16 @@ div#cart-details {
 }
 
   @media (max-width: 767px) { 
+    .card-img-top {
+        height: 180px;
+    }
+    .hs { 
+        grid-auto-columns: calc(114% - var(--gutter) * 2);
+    }
+    .hs > li, .item { 
+        width:  51vh;
+        display: inline;
+    }
       .menu-container img {
         height: 25vh;
       }
