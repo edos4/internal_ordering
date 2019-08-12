@@ -20,6 +20,12 @@ Rails.application.routes.draw do
 
   get 'store/menu/:id' => 'store#menu', :as => :merchant_proucts
   get 'store/:id/cart' => 'store#cart', :as => :product_variants
+  
+  resources :carts, only: [] do
+    collection do
+      post :add 
+    end
+  end
 
   devise_for :users
 

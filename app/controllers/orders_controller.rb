@@ -1,4 +1,12 @@
 class OrdersController < ApplicationController
+  # Open = ga add palang sa cart
+  # Pending = after checkout
+  # Processing = assigned to driver/processing order
+  # En Route = Driver is on the way
+  # Delivered = Orders were delivered
+  # Cancelled = orders were cancelled before arriving
+  # Rejected = orders delivered but rejected
+  
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders

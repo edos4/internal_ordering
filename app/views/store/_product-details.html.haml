@@ -12,7 +12,7 @@
               %h4 
                 = @product.name
               %h6.box-title.border-bottom Variants
-            .box-details     
+            .box-details
               - @variants.each do |variant|
                 .custom-control.custom-radio.d-block.my-2
                   %input.custom-control-input{:name => "size", :type => "radio", :id=> "regular"}/
@@ -21,7 +21,7 @@
                   %span#cart-price
                     = variant.price
             
-            %p.box-title.border-bottom Special Instructions?    
+            %p.box-title.border-bottom Special Instructions?
             .box
               %input#box-text{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
             
