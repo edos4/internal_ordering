@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require bootstrap
 //= require js/shards.min.js
 //= require js/demo.min.js
