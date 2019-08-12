@@ -15,8 +15,8 @@
             .box-details
               - @variants.each_with_index do |variant, i|
                 .custom-control.custom-radio.d-block.my-2
-                  %input.custom-control-input{:name => "size", :type => "radio", :id=> "#{i+1}"}/
-                  %label.custom-control-label{:for => "#{i+1} "}
+                  %input.custom-control-input{:name => "size", :type => "radio", :id=> "radio_#{i+1}", :value => variant.id}/
+                  %label.custom-control-label{:for => "radio_#{i+1}"}
                     = variant.name
                   %span#cart-price
                     = variant.price
@@ -29,9 +29,9 @@
               .box-number
                 .box-num
                   %span.minus.sub-quantity -
-                  %input{:type => "text", :value => "1", :class=> "box-counter product-quantity"}/
+                  %input{:type => "text", :value => "1", :class=> "box-counter product-quantity", :id=>"product_quantity"}/
                   %span.plus.add-quantity +
-              %buttonbtn.btn-primary.box-btn Add to Cart
+              %buttonbtn.btn-primary.box-btn#add_cart Add to Cart
 #add-to-cart   
   %button.btn.btn-block.btn-primary 
     View
@@ -51,5 +51,27 @@
       $input.val(parseInt($input.val()) + 1);
       $input.change();
       return false;
+    });
+  });
+
+  $('#add_cart').click(function (){
+    $.ajax({
+      url: "/amortizations/compute_monthly_amort", // this will be routed
+      type: 'GET',
+      data: {
+        variant_id: document.querySelector('input[name="size"]:checked').value,
+        messenger_id: #{params['messenger_id']},
+        product_quantity: $("#product_quantity").val()
+      },
+      async: true,
+      dataType: "json",
+      error: function(XMLHttpRequest, errorTextStatus, error){
+          alert("Failed: "+ errorTextStatus+" ;"+error);
+      },
+      success: function(ret){
+          // here we iterate the json result
+          $("#amortization_amort").val(ret)
+          console.log("Result yohoho: " + ret);
+      }
     });
   });
