@@ -70,8 +70,9 @@
       },
       success: function(ret){
           // here we iterate the json result
-          $("#amortization_amort").val(ret)
-          console.log("Result yohoho: " + ret);
+          console.log("Result yohoho: " + ret['quantity'] + " " + ret['total']);
+          $(".cart-quantity").text(ret['quantity']);
+          $(".price-total").text(ret['total']);
       }
     });
   });
