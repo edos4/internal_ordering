@@ -14,22 +14,22 @@
         .helper-notification
           %p= t('categories.index.no_records')
     - else
-      .table-responsive.card.card-small.mt-5
-        .card-body.p-0.pb-3.text-center
-          %table.table.table-striped.table-hover
-            %thead
-              %tr
-                %th= t('categories.index.name')
-                %th= t('categories.index.image')
-                %th= t('categories.index.actions')
-            %tbody
-              - @categories.each do |category|
-                %tr
-                  %td
-                    = category.name
-                  %td
-                    = category.image
-                  %td
-                    = link_to 'Show', category
-                    = link_to 'Edit', edit_category_path(category)
-                    = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+  .table-responsive.card.card-small.mt-5
+    .card-body.p-0.pb-3.text-center
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th= t('categories.index.name')
+            %th= t('categories.index.image')
+            %th= t('categories.index.actions')
+        %tbody
+          - @categories.each do |category|
+            %tr
+              %td
+                = category.name
+              %td
+                = category.image
+              %td
+                = link_to 'Show', category
+                = link_to 'Edit', edit_category_path(category)
+                = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
