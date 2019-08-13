@@ -26,6 +26,8 @@ class StoreController < ApplicationController
   end
   
   def checkout
+    messenger_id = params['messenger_id']
+    @order = Order.find_by(messenger_id: messenger_id, status: "Open")
   end
 
   def completed
