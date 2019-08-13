@@ -34,6 +34,6 @@
                   - else
                     Description not available
                 %h5.text-primary
-                  = link_to 'Show variants', "/store/#{params['id']}/cart/?product=#{product.id}"
+                  = link_to 'Show variants', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
               %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
           

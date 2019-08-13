@@ -4,30 +4,33 @@
     .card-body
       %h6.cart-details.border-bottom Crib
       / Form Controls: Simple Forms
-      .accordion-item{"data-id" => "301"}
-        .product-info
-          .upper-product-info
-            .product-qty
-              %h2 10 x 
-            .product-text
-              %h2 Chicken Wings
-              %p.description 10 pieces
-            %p.price ₱228
+      - total = 0
+      - @order.order_items.each do |item|
+        .accordion-item{"data-id" => "301"}
+          .product-info
+            .upper-product-info
+              .product-qty
+                %h2 #{item.quantity} x ₱#{item.variant.price}
+              .product-text
+                %h2 #{item.variant.name}
+                %p.description 
+              %p.price ₱#{item.quantity * item.variant.price}
+              - total += item.quantity * item.variant.price
       
       .details-section
         .total
           %h3 Sub Total
-          %h3.total-value ₱1695
+          %h3.total-value ₱#{total}
           %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
         .total
           %h3 Tax & Fees
-          %h3.total-value ₱1695
+          %h3.total-value ₱TBD
           %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
         .total
           %h3 Delivery
-          %h3.total-value ₱1695
+          %h3.total-value ₱TBD
           %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
         .amount.border-top
           %h3 Total Amount
-          %h3.total-value ₱1695
-          %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
+          %h3.total-value ₱#{total}
+          %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/

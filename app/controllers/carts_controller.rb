@@ -9,11 +9,12 @@ class CartsController < ApplicationController
     params.permit!
     messenger_id = params['messenger_id']
     variant_id = params['variant_id']
-    quantity = params['quantity']
+    quantity = params['product_quantity']
 
     order = Order.find_or_create_by!(messenger_id: messenger_id, status: "Open")
     order.order_items.where(variant_id: variant_id).destroy_all
     order.order_items.create(variant_id: variant_id, quantity: quantity)
+    #render json: {quantity: order.order_items.present? ? order.order_items.sum(:quantity) : 0, total: order.order_items.present? ? order.order_items.collect{|x| x.variant.price*x.quantity}.sum : 0}
   end
 
 end

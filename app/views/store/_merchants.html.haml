@@ -23,4 +23,4 @@
                   %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
                   .card-body#cart-details 
                     %p.card-title
-                      = link_to "#{merchant.name}", "/store/menu/#{merchant.id}"
+                      = link_to "#{merchant.name}", "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"

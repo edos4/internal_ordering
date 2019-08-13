@@ -314,7 +314,7 @@ div#cart-details {
   }
   .accordion-item .product-info .product-qty{
       text-tranform: none;
-      flex: .5;
+      flex: .8;
   }
   .accordion-item .product-info p.price{
       font-size: .9em;
