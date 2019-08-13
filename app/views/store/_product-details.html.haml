@@ -72,7 +72,7 @@
           // here we iterate the json result
           console.log("Result yohoho: " + ret['quantity'] + " " + ret['total']);
           $(".cart-quantity").text(ret['quantity']);
-          $(".price-total").text(ret['total']);
+          $(".price-total").text("₱"+ret['total']);
       }
     });
   });
