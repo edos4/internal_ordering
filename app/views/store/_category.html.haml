@@ -34,105 +34,35 @@
   %h4.section-title.m-3 Everyday Grocery
   .container
     %ul.hs.full.no-scrollbar
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-
+      - @everydays.where(category: 'Grocery').each do |g|
+        %li.item 
+          .card.mb-2
+            %img.card-img-top{:alt => "Card image cap", :src => g.image}/
+            .card-body#cart-details 
+              %p.card-title
+                = g.name
 / Everyday Health            
 #health.blog.section.py-4.container
-  %h4.section-title.m-3 Everyday Heatlh
+  %h4.section-title.m-3 Everyday Health
   .container
     %ul.hs.full.no-scrollbar
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
+      - @everydays.where(category: 'Health').each do |g|
+        %li.item 
+          .card.mb-2
+            %img.card-img-top{:alt => "Card image cap", :src => g.image}/
+            .card-body#cart-details 
+              %p.card-title
+                = g.name
 
 / Everyday Booze              
 #booze.blog.section.py-4.container
   %h4.section-title.m-3 Everyday Booze
   .container
     %ul.hs.full.no-scrollbar
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
-      %li.item 
-        .card.mb-2
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-          .card-body#cart-details 
-            %p.card-title Sample
+      - @everydays.where(category: 'Booze').each do |g|
+        %li.item 
+          .card.mb-2
+            %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+            .card-body#cart-details 
+              %p.card-title
+                = g.name

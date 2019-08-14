@@ -1,9 +1,11 @@
 class StoreController < ApplicationController
   layout false
+  
   def index
     @messenger_id = params['messenger_id']
     @promos =  Promo.all
     @merchant = Merchant.all
+    @everydays = Everyday.all
     order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
   end
 
