@@ -43,6 +43,10 @@
         = link_to everydays_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Everydays' do
           %i.material-icons table_chart
           %span Everydays
+      %li.nav-item{:class => "#{active_controller?(controller: 'promos')}"}
+        = link_to promos_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Promos' do
+          %i.material-icons table_chart
+          %span Promos
       %li.nav-item{:class => "#{active_controller?(controller: 'driver')}"}
         = link_to root_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Storefront', target: '_blank' do
           %i.material-icons table_chart

@@ -1,12 +1,38 @@
-%h1 Listing Promos
-
-%table#dttb-promos.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
-  %thead
-    %tr
-      %th{"data-data"=>"image"} Image
-      %th{"data-data"=>"desc"} Desc
-      %th{"data-data"=>"url"} Url
-      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
-
-
-= link_to 'New Promo', new_promo_path
+- content_for :title, 'Promos'
+- content_for :breadcrumb, "Stores"
+.main-content-container.container-fluid.px-4
+	.page-header.no-gutters.py-4
+		.col-12.text-center.text-sm-left.mb-0
+			.col-6.float-left
+				%span.text-uppercase.page-subtitle Overview
+				%h3.page-title.col-6= t('promos.index.promos')
+			.col-6.float-right
+			= link_to new_promo_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('promos.index.add_tooltip') do
+				%b Add promos
+		- if @promos.empty?
+			.widget.widget-content.clearfix
+				.helper-notification
+					%p= t('promos.index.no_records')
+		- else
+			.table-responsive.card.card-small.mt-5
+				.card-body.p-0.pb-3.text-center
+					%table.table.table-striped.table-hover
+						%thead
+							%tr
+								%th= t('promos.index.image')
+								%th= t('promos.index.description')
+								%th= t('promos.index.url')
+								%th
+						%tbody
+							- @promos.each do |promo|
+								%tr
+									%td
+										= promo.image
+									%td
+										= promo.description
+									%td
+										= promo.url
+									%td
+										= link_to 'Show', promo
+										= link_to 'Edit', edit_promo_path(promo)
+										= link_to 'Destroy', promo, method: :delete, data: { confirm: 'Are you sure?' }
