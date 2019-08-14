@@ -15,11 +15,9 @@
       %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
         %thead
           %tr
-            %th= t('orders.index.messenger_id')
-            %th= t('orders.index.custumer_name')
+            %th= t('orders.index.customer_name')
             %th= t('orders.index.contact_no')
             %th= t('orders.index.address')
-            %th= t('orders.index.coordinates')
             %th= t('orders.index.delivery_option')
             %th= t('orders.index.payment_option')
             %th= t('orders.index.reference_number')
@@ -29,15 +27,11 @@
           - @orders.each do |order|
             %tr
               %td
-                = order.messenger_id
-              %td
                 = order.custumer_name
               %td
                 = order.contact_no
               %td
                 = order.address
-              %td
-                = order.coordinates
               %td
                 = order.delivery_option
               %td
