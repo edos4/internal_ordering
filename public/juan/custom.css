@@ -860,6 +860,13 @@ div#cart-details {
 }
 
   @media (max-width: 767px) { 
+    #product-details {
+        margin-bottom: 3rem;
+    }
+    #checkout-wrapper {
+        margin-bottom: 6rem;
+    }
+    }
     .card-img-top {
         height: 180px;
     }
