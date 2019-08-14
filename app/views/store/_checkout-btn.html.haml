@@ -1,6 +1,6 @@
-#add-to-cart   
-  %button.btn.btn-block.btn-primary#checkout
-    CHECKOUT
+  
+%button.btn.btn-block.btn-primary#checkout
+  CHECKOUT
 :javascript
   $('#checkout').click(function () {
     window.location = "/store/checkout/?messenger_id=#{params['messenger_id']}"

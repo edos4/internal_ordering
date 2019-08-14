@@ -2,7 +2,7 @@
 #sidebar.sidebar-collapse.collapse.ios
 	%ul.nav.sidebar-nav
 		%li
-			%a.active{:href => "/store"}
+			%a{:href => "/store", :class => "#{ 'active' if current_page?(store_index_path)}"}
 				%svg.svg-inline--fa.fa-shopping-cart.fa-w-18{:height => "15px", "aria-hidden" => "true", "data-icon" => "shopping-cart", "data-prefix" => "fas", :focusable => "false", :role => "img", :viewbox => "0 0 576 512", :xmlns => "http://www.w3.org/2000/svg"}
 					%g#Welcome{:fill => "none", "fill-rule" => "evenodd", :stroke => "none", "stroke-width" => "1"}
 					%g#heart{:transform => "translate(-47.000000, -239.000000)"}
@@ -10,7 +10,7 @@
 
 				
 		%li
-			%a{:href => "/store/view_cart/?messenger_id=#{params['messenger_id']}"}
+			%a{:href => "/store/view_cart/?messenger_id=#{params['messenger_id']}", :class => "#{ 'active' if current_page?(view_cart_path)}"}
 				%svg.svg-inline--fa.fa-shopping-bag.fa-w-14{"aria-hidden" => "true", "data-icon" => "shopping-bag", "data-prefix" => "fas", :focusable => "false", :role => "img", :viewbox => "0 0 448 512", :xmlns => "http://www.w3.org/2000/svg"}
 					%g#Welcome{:fill => "none", "fill-rule" => "evenodd", :stroke => "none", "stroke-width" => "1"}
 					%g#heart{:transform => "translate(-47.000000, -239.000000)"}
@@ -19,7 +19,7 @@
 
 				
 		%li
-			%a{:href => "/store/checkout/?messenger_id=#{params['messenger_id']}"}
+			%a{:href => "/store/checkout/?messenger_id=#{params['messenger_id']}", :class => "#{ 'active' if current_page?(checkout_store_index_path)}"}
 				%svg.svg-inline--fa.fa-shopping-cart.fa-w-18{:height => "15px", "aria-hidden" => "true", "data-icon" => "shopping-cart", "data-prefix" => "fas", :focusable => "false", :role => "img", :viewbox => "0 0 576 512", :xmlns => "http://www.w3.org/2000/svg"}
 					%g#Welcome{:fill => "none", "fill-rule" => "evenodd", :stroke => "none", "stroke-width" => "1"}
 					%g#heart{:transform => "translate(-47.000000, -239.000000)"}

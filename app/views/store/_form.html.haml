@@ -71,9 +71,8 @@
                   %input#form1-phone.form-control{:disabled => 'true',:placeholder => "CVV", :type => "text"}/
                 .form-group.col-md-4
                   %input#form1-phone.form-control{:disabled => 'true',:placeholder => "Zip Code", :type => "text"}/
-        = render 'cart'
-        #add-to-cart  
-          = o.submit 'Continue', :class => 'btn btn-primary btn-block py-2'
+        = render 'cart' 
+        = o.submit 'Continue', :class => 'btn btn-primary btn-block py-2'
 
 %script{:async => "", :defer => "defer", :src => "/initmap.js"}
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCkA6UUfUflPmL3pkQvbN_tUpS-hAT-RbY&libraries=places&callback=initMap"}
