@@ -28,7 +28,7 @@ class EverydaysController < ApplicationController
 
     respond_to do |format|
       if @everyday.save
-        format.html { redirect_to @everyday, notice: 'Everyday was successfully created.' }
+        format.html { redirect_to everydays_url, notice: 'Everyday was successfully created.' }
         format.json { render :show, status: :created, location: @everyday }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EverydaysController < ApplicationController
   def update
     respond_to do |format|
       if @everyday.update(everyday_params)
-        format.html { redirect_to @everyday, notice: 'Everyday was successfully updated.' }
+        format.html { redirect_to everydays_url, notice: 'Everyday was successfully updated.' }
         format.json { render :show, status: :ok, location: @everyday }
       else
         format.html { render :edit }
