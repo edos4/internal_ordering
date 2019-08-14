@@ -5,75 +5,80 @@
     .section-title.col-lg-12.col-md-12.ml-auto.mr-auto
       
     / Form Controls - Simple Forms: Default / Using Icons (Seamless)
-    .row.px-3
-      .example.col-lg-6.col-md-6
-        %h3.mb-4 Checkout 
-        %h5 Delivery Address
-        / Delivery Address
-        .row.py-3
-          .col-md-12
-            %form
+    = form_for @order, url: "/store/pending/?messenger_id=#{params['messenger_id']}" do |o|
+      .row.px-3
+        .example.col-lg-6.col-md-6
+          %h3.mb-4 Checkout 
+          %h5 Delivery Address
+          / Delivery Address
+          .row.py-3
+            .col-md-12
               #delivery_details
                 .form-group
-                  %input#address_input.form-control{:type => "text", :name=> "delivery_address_attributes", :placeholder => "Complete Address here"}/
+                  = o.text_field :address, {:type => "text", :name=> "delivery_address_attributes", :placeholder => "Complete Address here", :id => 'address_input', :class => 'form-control'}
                   %input{:type => "hidden", :name=> "latLong", :id=> "latLong", :value => "bacolod"}
                   #map
                 .form-group
-                  %input#form1-apt.form-control{:type => "text",  :placeholder => "Apt Number / Company Name"}/
+                  = o.text_field :company_name, {:type => "text", :placeholder => "Apt Number / Company Name", :id => 'form1-apt', :class => 'form-control'}
                 .row
                   .form-group.col-md-6
-                    %input#form1-number.form-control{:placeholder => "Contact Number", :type => "text"}/
+                    = o.text_field :custumer_name, {:type => "text", :placeholder => "Complete Name", :id => 'form1-number', :class => 'form-control'}
                   .form-group.col-md-6
-                    %input#form1-phone.form-control{:placeholder => "Phone Number", :type => "text"}/
+                    = o.text_field :contact_no, {:type => "text", :placeholder => "Phone Number", :id => 'form1-phone', :class => 'form-control'}
                 .form-group
-                  %textarea.form-control{:placeholder => "Add delivery instructions (e.g Use the door bell when you arrive.)", :rows => "5", :type => "textarea"}
+                  = o.text_area :message, {:rows => "5", :placeholder => "Add delivery instructions (e.g Use the door bell when you arrive.)", :class => 'form-control'}
                 .actions
-                  %button.btn.btn-primary.float-right{:type => "button"} Send  
-        %h5 Time
-        .row.py-2
-          .col-md-12
-            %form
+                  / %button.btn.btn-primary.float-right{:type => "button"} Send  
+          %h5 Time
+          .row.py-2
+            .col-md-12
               .row
                 .form-group.col-md-6
-                  %input#form1-number.form-control{:placeholder => "Today", :type => "text"}/
+                  %input#form1-number.form-control{:disabled => 'true',:placeholder => "Today", :type => "text"}/
                 .form-group.col-md-6
-                  %input#form1-phone.form-control{:placeholder => "30 - 45 mins", :type => "number"}/
+                  %input#form1-phone.form-control{:disabled => 'true',:placeholder => "30 - 45 mins", :type => "number"}/
+                / .form-group.col-md-6
+                /   = o.text_field :custumer_name, {::type => "text", :placeholder => "Today", :id => 'form1-number', :class => 'form-control'}
+                / .form-group.col-md-6
+                /   = o.text_field :custumer_name, {:type => "number", :placeholder => "30 - 45 mins", :id => 'form1-phone', :class => 'form-control'}
               .actions
-                %button.btn.btn-primary.float-right{:type => "button"} Confirm    
-        .row.py-3
-          %h5.pl-3   Select Payment
-          .col-md-12
-            %form
+                / %button.btn.btn-primary.float-right{:type => "button"} Confirm    
+          .row.py-3
+            %h5.pl-3   Select Payment
+            .col-md-12
               .row
                 .form-group.col-md-4
                   %fieldset
-                  .custom-control.custom-radio.d-line.my-2
-                    %input#cash.custom-control-input{:name => "customRadio", :type => "radio"}/
-                    %label.custom-control-label{:for => "cash"} Cash on Delivery
+                    .custom-control.custom-radio.d-line.my-2
+                      = o.radio_button :payment_option, "cash"
+                      %label{:for => "cash"} Cash on Delivery
                 .form-group.col-md-4
                   %fieldset
                     .custom-control.custom-radio.d-line.my-2
-                      %input#credit.custom-control-input{:checked => "checked", :name => "customRadio", :type => "radio"}/
-                      %label.custom-control-label{:for => "credit"} Credit Card
+                      = o.radio_button :payment_option, {disabled: 'true', id: 'credit'}
+                      %label{:for => "credit"} Credit Card
                 .form-group.col-md-4
                   %fieldset
                     .custom-control.custom-radio.d-line.my-2
-                      %input#debit.custom-control-input{:checked => "checked", :name => "customRadio", :type => "radio"}/
-                      %label.custom-control-label{:for => "debit"} Debit Card
+                      = o.radio_button :payment_option, {disabled: 'true',id: 'debit'}
+                      %label{:for => "debit"} Debit Card
               .form-group
-                %input#form1-name.form-control{:type => "text", :placeholder => "Card Number"}/
+                %input#form1-name.form-control{:disabled => 'true',:type => "text", :placeholder => "Card Number"}/
               .row
                 .form-group.col-md-4
-                  %input#form1-number.form-control{:placeholder => "MM/YY", :type => "text"}/
+                  %input#form1-number.form-control{:disabled => 'true',:placeholder => "MM/YY", :type => "text"}/
                 .form-group.col-md-4
-                  %input#form1-phone.form-control{:placeholder => "CVV", :type => "text"}/
+                  %input#form1-phone.form-control{:disabled => 'true',:placeholder => "CVV", :type => "text"}/
                 .form-group.col-md-4
-                  %input#form1-phone.form-control{:placeholder => "Zip Code", :type => "text"}/
-              .actions
-                %button.btn.btn-primary.col-12.mt-3{:type => "button"} Continue
-      / Cart Details
-    
-      = render 'cart'
+                  %input#form1-phone.form-control{:disabled => 'true',:placeholder => "Zip Code", :type => "text"}/
+                
+        
+      
+        
+        = render 'cart'
+        .example.col-lg-12.col-md-12
+          .actions
+            = o.submit 'Continue', :class => 'btn btn-primary col-12 mt-3'
 
 %script{:async => "", :defer => "defer", :src => "/initmap.js"}
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCkA6UUfUflPmL3pkQvbN_tUpS-hAT-RbY&libraries=places&callback=initMap"}
