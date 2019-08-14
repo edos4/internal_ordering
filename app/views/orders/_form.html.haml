@@ -7,31 +7,7 @@
           %li= message
 
   .field
-    = f.label :messenger_id
-    = f.text_field :messenger_id
-  .field
-    = f.label :custumer_name
-    = f.text_field :custumer_name
-  .field
-    = f.label :contact_no
-    = f.text_field :contact_no
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :coordinates
-    = f.text_field :coordinates
-  .field
-    = f.label :delivery_option
-    = f.text_field :delivery_option
-  .field
-    = f.label :payment_option
-    = f.text_field :payment_option
-  .field
-    = f.label :reference_number
-    = f.text_field :reference_number
-  .field
-    = f.label :message
-    = f.text_field :message
+    = f.label :driver
+    = f.select 'driver_id', options_for_select(Driver.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
   .actions
     = f.submit 'Save'
