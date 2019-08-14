@@ -1,37 +1,36 @@
-.page-content
+.page-content.container#product-details 
   #forms.container
     .section-title.col-lg-12.col-md-12.ml-auto.mr-auto
-    .row.px-3
-      .box.col-lg-6.col-md-6
-        %img.img-fluid{:alt => "Card image cap", :src => "/food.png"}/
-      
-      .example.col-lg-6.col-md-6.bg-white
-        .card
-          .card-body
-            .card-title
-              %h4 
-                = @product.name
-              %h6.box-title.border-bottom Variants
-            .box-details
-              - @variants.each_with_index do |variant, i|
-                .custom-control.custom-radio.d-block.my-2
-                  %input.custom-control-input{:name => "size", :type => "radio", :id=> "radio_#{i+1}", :value => variant.id}/
-                  %label.custom-control-label{:for => "radio_#{i+1}"}
-                    = variant.name
-                  %span#cart-price
-                    = variant.price
-            
-            %p.box-title.border-bottom Special Instructions?
-            .box
-              %input#box-text{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
-            
-            .box-details  
-              .box-number
-                .box-num
-                  %span.minus.sub-quantity -
-                  %input{:type => "text", :value => "1", :class=> "box-counter product-quantity", :id=>"product_quantity"}/
-                  %span.plus.add-quantity +
-              %buttonbtn.btn-primary.box-btn#add_cart Add to Cart
+  .row.px-3
+    .box.col-lg-6.col-md-6
+      %img.img-fluid{:alt => "Card image cap", :src => "/food.png"}/
+    
+    .example.col-lg-6.col-md-6
+      .card-body
+        .card-title
+          %h4 
+            = @product.name
+          %h6.box-title.border-bottom Variants
+        .box-details
+          - @variants.each_with_index do |variant, i|
+            .custom-control.custom-radio.d-block.my-2
+              %input.custom-control-input{:name => "size", :type => "radio", :id=> "radio_#{i+1}", :value => variant.id}/
+              %label.custom-control-label{:for => "radio_#{i+1}"}
+                = variant.name
+              %span#cart-price
+                = variant.price
+        
+        %p.box-title.border-bottom Special Instructions?
+        .box
+          %input#box-text{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
+        
+        .box-details  
+          .box-number
+            .box-num
+              %span.minus.sub-quantity -
+              %input{:type => "text", :value => "1", :class=> "box-counter product-quantity", :id=>"product_quantity"}/
+              %span.plus.add-quantity +
+          %buttonbtn.btn-primary.box-btn#add_cart Add to Cart
 #add-to-cart   
   %button.btn.btn-block.btn-primary 
     View
