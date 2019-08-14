@@ -62,7 +62,7 @@
       - @everydays.where(category: 'Booze').each do |g|
         %li.item 
           .card.mb-2
-            %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+            %img.card-img-top{:alt => "Card image cap", :src => g.image}/
             .card-body#cart-details 
               %p.card-title
                 = g.name
