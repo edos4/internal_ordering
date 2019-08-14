@@ -15,13 +15,13 @@ Rails.application.routes.draw do
       get :index
       get :checkout 
       get :completed 
+      patch :pending
     end
   end
 
   get 'store/menu/:id' => 'store#menu', :as => :merchant_proucts
   get 'store/:id/cart' => 'store#cart', :as => :product_variants
   get 'store/view_cart' => 'store#view_cart', :as => :view_cart
-  
   resources :carts, only: [] do
     collection do
       post :add 
