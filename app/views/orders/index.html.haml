@@ -93,4 +93,41 @@
                           %td
                             = link_to 'Items', order
 
-          #en_route.tab-pane.fade{"aria-labelledby" => "en_route-tab", :role => "tabpanel"} EN ROUTE
+          #en_route.tab-pane.fade{"aria-labelledby" => "en_route-tab", :role => "tabpanel"}
+            - if @orders.where(status: 'En route').empty?
+              .widget.widget-content.clearfix
+                .helper-notification
+                  %p= t('orders.index.no_records')
+            - else
+              .table-responsive.card.card-small.mt-5
+                .card-body.p-0.pb-3.text-center
+                  %table.table.table-striped.table-hover
+                    %thead
+                      %tr
+                        %th= t('orders.index.customer_name')
+                        %th= t('orders.index.contact_no')
+                        %th= t('orders.index.address')
+                        %th= t('orders.index.delivery_option')
+                        %th= t('orders.index.payment_option')
+                        %th= t('orders.index.driver')
+                        %th= t('orders.index.message')
+                        %th
+                    %tbody
+                      - @orders.where(status: 'Processing').each do |order|
+                        %tr
+                          %td
+                            = order.custumer_name
+                          %td
+                            = order.contact_no
+                          %td
+                            = order.address
+                          %td
+                            = order.delivery_option
+                          %td
+                            = order.payment_option
+                          %td
+                            = order.driver.name
+                          %td
+                            = order.message
+                          %td
+                            = link_to 'Items', order
