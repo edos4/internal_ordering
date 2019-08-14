@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'store/menu/:id' => 'store#menu', :as => :merchant_proucts
   get 'store/:id/cart' => 'store#cart', :as => :product_variants
   get 'store/view_cart' => 'store#view_cart', :as => :view_cart
+  get '/orders/track_order/:id' => 'orders#track_order', :as => :track_order
   resources :carts, only: [] do
     collection do
       post :add 
