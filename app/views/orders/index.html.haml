@@ -6,41 +6,91 @@
       .col-6.float-left
         %span.text-uppercase.page-subtitle Overview
         %h3.page-title.col-6= t('orders.index.orders')
-      
-    - if @orders.empty?
-      .widget.widget-content.clearfix
-        .helper-notification
-          %p= t('orders.index.no_records')
-    - else
-      .table-responsive.card.card-small.mt-5
-        .card-body.p-0.pb-3.text-center
-          %table.table.table-striped.table-hover
-            %thead
-              %tr
-                %th= t('orders.index.customer_name')
-                %th= t('orders.index.contact_no')
-                %th= t('orders.index.address')
-                %th= t('orders.index.delivery_option')
-                %th= t('orders.index.payment_option')
-                %th= t('orders.index.reference_number')
-                %th= t('orders.index.message')
-                %th
-            %tbody
-              - @orders.each do |order|
-                %tr
-                  %td
-                    = order.custumer_name
-                  %td
-                    = order.contact_no
-                  %td
-                    = order.address
-                  %td
-                    = order.delivery_option
-                  %td
-                    = order.payment_option
-                  %td
-                    = order.reference_number
-                  %td
-                    = order.message
-                  %td
-                    = link_to 'Items', order
+      .col-12.float-left
+        %ul#myTab.nav.nav-tabs{:role => "tablist"}
+          %li.nav-item
+            %a#pending-tab.nav-link.active{"aria-controls" => "pending", "aria-selected" => "true", "data-toggle" => "tab", :href => "#pending", :role => "tab"} Pending
+          %li.nav-item
+            %a#processing-tab.nav-link{"aria-controls" => "processing", "aria-selected" => "false", "data-toggle" => "tab", :href => "#processing", :role => "tab"} Processing
+          %li.nav-item
+            %a#en_route-tab.nav-link{"aria-controls" => "en_route", "aria-selected" => "false", "data-toggle" => "tab", :href => "#en_route", :role => "tab"} En Route
+        #myTabContent.tab-content
+          #pending.tab-pane.fade.show.active{"aria-labelledby" => "home-tab", :role => "tabpanel"}
+            - if @orders.where(status: 'Pending').empty?
+              .widget.widget-content.clearfix
+                .helper-notification
+                  %p= t('orders.index.no_records')
+            - else
+              .table-responsive.card.card-small.mt-5
+                .card-body.p-0.pb-3.text-center
+                  %table.table.table-striped.table-hover
+                    %thead
+                      %tr
+                        %th= t('orders.index.customer_name')
+                        %th= t('orders.index.contact_no')
+                        %th= t('orders.index.address')
+                        %th= t('orders.index.delivery_option')
+                        %th= t('orders.index.payment_option')
+                        %th= t('orders.index.reference_number')
+                        %th= t('orders.index.message')
+                        %th
+                    %tbody
+                      - @orders.where(status: 'Pending').each do |order|
+                        %tr
+                          %td
+                            = order.custumer_name
+                          %td
+                            = order.contact_no
+                          %td
+                            = order.address
+                          %td
+                            = order.delivery_option
+                          %td
+                            = order.payment_option
+                          %td
+                            = order.reference_number
+                          %td
+                            = order.message
+                          %td
+                            = link_to 'Items', order
+                            = link_to 'Assign Driver', edit_order_path(order)
+          #processing.tab-pane.fade{"aria-labelledby" => "processing-tab", :role => "tabpanel"}
+            - if @orders.where(status: 'Processing').empty?
+              .widget.widget-content.clearfix
+                .helper-notification
+                  %p= t('orders.index.no_records')
+            - else
+              .table-responsive.card.card-small.mt-5
+                .card-body.p-0.pb-3.text-center
+                  %table.table.table-striped.table-hover
+                    %thead
+                      %tr
+                        %th= t('orders.index.customer_name')
+                        %th= t('orders.index.contact_no')
+                        %th= t('orders.index.address')
+                        %th= t('orders.index.delivery_option')
+                        %th= t('orders.index.payment_option')
+                        %th= t('orders.index.driver')
+                        %th= t('orders.index.message')
+                        %th
+                    %tbody
+                      - @orders.where(status: 'Processing').each do |order|
+                        %tr
+                          %td
+                            = order.custumer_name
+                          %td
+                            = order.contact_no
+                          %td
+                            = order.address
+                          %td
+                            = order.delivery_option
+                          %td
+                            = order.payment_option
+                          %td
+                            = order.driver.name
+                          %td
+                            = order.message
+                          %td
+                            = link_to 'Items', order
+
+          #en_route.tab-pane.fade{"aria-labelledby" => "en_route-tab", :role => "tabpanel"} EN ROUTE
