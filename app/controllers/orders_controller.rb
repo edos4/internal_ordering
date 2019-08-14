@@ -63,6 +63,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def track_order
+    @order = Order.find(params[:id])
+    @driver_id = @order.driver.devise_id
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order

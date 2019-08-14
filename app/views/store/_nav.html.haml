@@ -2,4 +2,14 @@
   .container
     %a.navbar-brand{:href => "#"}
       JuanRide
-    %button Shopping Cart
+    %button.btn.bg-white 2 Items
+-# #add-to-cart   
+-#   %button.btn.btn-block.btn-primary#view_cart
+-#     VIEW CART
+-#     %span.cart-quantity #{@order.order_items.present? ? @order.order_items.sum(:quantity) : 0}
+-#     %span.price-total ₱#{@order.order_items.present? ? @order.order_items.collect{|x| x.variant.price*x.quantity}.sum : 0}
+
+-# :javascript
+-#   $('#view_cart').click(function () {
+-#     window.location = "/store/view_cart/?messenger_id=#{params['messenger_id']}"
+-#   });
