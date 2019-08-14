@@ -37,6 +37,11 @@ gem 'autoprefixer-rails', '8.6.5'
 gem 'finance_math'
 
 gem 'devise'
+
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'mini_magick'
+gem 'rmagick'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 #gem 'mini_racer'
 

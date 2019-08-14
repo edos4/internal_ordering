@@ -1,0 +1,9 @@
+development:
+  cloud_name: "convonaut-skyswitch"
+  api_key: "159157958644438"
+  api_secret: "6lYgPN4oN4mlkKVEgsVKBGZCs2E"
+
+production:
+  cloud_name: "convonaut-skyswitch"
+  api_key: "159157958644438"
+  api_secret: "6lYgPN4oN4mlkKVEgsVKBGZCs2E"
