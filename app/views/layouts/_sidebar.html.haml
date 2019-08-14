@@ -31,6 +31,10 @@
         = link_to products_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Products' do
           %i.material-icons view_module
           %span Products
+      %li.nav-item{:class => "#{active_controller?(controller: 'orders')}"}
+        = link_to orders_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Orders' do
+          %i.material-icons table_chart
+          %span Orders
       %li.nav-item{:class => "#{active_controller?(controller: 'driver')}"}
         = link_to drivers_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Drivers' do
           %i.material-icons table_chart
