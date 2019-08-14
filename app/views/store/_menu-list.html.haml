@@ -23,17 +23,18 @@
     .menu
       .card-deck.row
         - category.products.each do |product|
-          .col-md-12.col-lg-6 
-            .card.menu-box 
-              .menu-left
-                %p
-                  = product.name
-                %h6
-                  - if product.description.present?
-                    = product.description
-                  - else
-                    Description not available
-                %h5.text-primary
-                  = link_to 'Show variants', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
-              %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+          = link_to "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}" do
+            .col-md-12.col-lg-6 
+              .card.menu-box 
+                .menu-left
+                  %p
+                    = product.name
+                  %h6
+                    - if product.description.present?
+                      = product.description
+                    - else
+                      Description not available
+                  %h5.text-primary
+                    = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
+                %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
           
