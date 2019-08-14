@@ -1,7 +1,6 @@
 :root {
     --gutter: 20px;
     }
-
 #add-to-cart{
     z-index: 98;
     position: fixed;
@@ -262,6 +261,7 @@ div#cart-details {
       margin-left: -10px;
       border-bottom: .5px solid #efefef;
       background: #fff;
+      margin-top: 20px;
   }
   .accordion-item img{
     flex: 1;
@@ -286,7 +286,6 @@ div#cart-details {
       display: flex;
       flex-direction: column;
       flex: 3;
-      padding-bottom: 10px;
       /* width: 100%; */
   }
   .accordion-item .product-info h2{
@@ -319,7 +318,6 @@ div#cart-details {
   .accordion-item .product-info p.price{
       font-size: .9em;
       color: #4c4c4c;
-      margin-top: 10px;
       float: right;
       /* margin: 5px 0; */
       flex: 1;
