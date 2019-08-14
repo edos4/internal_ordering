@@ -1,7 +1,7 @@
 
 .bg-light
   / Form Controls
-  #forms.container.pt-xl-5
+  #forms.container.py-xl-4
     .section-title.col-lg-12.col-md-12.ml-auto.mr-auto
       
     / Form Controls - Simple Forms: Default / Using Icons (Seamless)
@@ -71,14 +71,9 @@
                   %input#form1-phone.form-control{:disabled => 'true',:placeholder => "CVV", :type => "text"}/
                 .form-group.col-md-4
                   %input#form1-phone.form-control{:disabled => 'true',:placeholder => "Zip Code", :type => "text"}/
-                
-        
-      
-        
         = render 'cart'
-        .example.col-lg-12.col-md-12
-          .actions
-            = o.submit 'Continue', :class => 'btn btn-primary col-12 mt-3'
+        #add-to-cart  
+          = o.submit 'Continue', :class => 'btn btn-primary btn-block py-2'
 
 %script{:async => "", :defer => "defer", :src => "/initmap.js"}
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCkA6UUfUflPmL3pkQvbN_tUpS-hAT-RbY&libraries=places&callback=initMap"}
