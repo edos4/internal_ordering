@@ -2,20 +2,14 @@
   %h4.section-title.m-3 Popular Items
   .menu
     .card-deck.row
-      .col-md-12.col-lg-6 
-        .card.menu-box 
-          .menu-left
-            %p Cribs Wings
-            %h6 Descrion food here
-            %h5.text-primary P 300.00
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
-      .col-md-12.col-lg-6 
-        .card.menu-box 
-          .menu-left
-            %p Cribs Wings
-            %h6 Descrion food here
-            %h5.text-primary P 300.00
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+      - @populars.each do |popular|
+        - pop = Variant.find(popular[0])
+        .col-md-12.col-lg-6 
+          .card.menu-box 
+            .menu-left
+              %p #{pop.name}
+              %h5.text-primary #{pop.price}
+            %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
 
   - @categories.each do |category|
     %h4.section-title.m-3

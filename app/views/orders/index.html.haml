@@ -92,7 +92,7 @@
                             = order.message
                           %td
                             = link_to 'Items', order
-                            = link_to 'Track', "/track_order/#{order.id}"
+                            = link_to 'Track', "/orders/track_order/#{order.id}"
 
           #en_route.tab-pane.fade{"aria-labelledby" => "en_route-tab", :role => "tabpanel"}
             - if @orders.where(status: 'En route').empty?
