@@ -1,11 +1,38 @@
-%h1 Listing Settings
-
-%table#dttb-settings.responsive.nowrap.table.table-hover{"data-sort"=>"true","data-source"=>"#{url_for(format: :json)}"}
-  %thead
-    %tr
-      %th{"data-data"=>"key"} Key
-      %th{"data-data"=>"value"} Value
-      %th{"data-data"=>"url","data-orderable"=>"false","data-class-name"=>"all","data-searchable"=>"false","class"=>"skip-export","width"=>"100px"}
-
-
-= link_to 'New Setting', new_setting_path
+- content_for :title, 'Settings'
+- content_for :breadcrumb, "Stores"
+.main-content-container.container-fluid.px-4
+  .page-header.no-gutters.py-4
+    .col-12.text-center.text-sm-left.mb-0
+      .col-6.float-left
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title.col-6= t('settings.index.settings')
+      .col-6.float-right
+      / = link_to new_setting_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('settings.index.add_tooltip') do
+      / %b Add Setting
+    - if @settings.empty?
+      .widget.widget-content.clearfix
+        .helper-notification
+          %p= t('settings.index.no_records')
+    - else
+      .table-responsive.card.card-small.mt-5
+        .card-body.p-0.pb-3.text-center
+          %table.table.table-striped.table-hover
+            %thead
+              %tr
+                %th= t('settings.index.key')
+                %th= t('settings.index.text_value')
+                %th= t('settings.index.image_value')
+                %th Action
+            %tbody
+              - @settings.each do |setting|
+                %tr
+                  %td
+                    = setting.key
+                  %td
+                    = setting.text_value
+                  %td
+                    = setting.image_value
+                  %td
+                    / = link_to 'Show', setting
+                    = link_to 'Edit', edit_setting_path(setting)
+                    = link_to 'Destroy', setting, method: :delete, data: { confirm: 'Are you sure?' }

@@ -6,6 +6,7 @@ class StoreController < ApplicationController
     @promos =  Promo.all
     @merchant = Merchant.all
     @everydays = Everyday.all
+    @settings = Setting.all
     order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
     @order = order
   end

@@ -3,4 +3,5 @@
   .inner-wrapper.mt-auto.mb-auto.container
     .row
       .col-md-7
-        %h1.welcome-heading.display-4.text-white Two Line tag lines here
+        %h1.welcome-heading.display-4.text-white
+          = @settings.find_by(key: 'store_header').text_value

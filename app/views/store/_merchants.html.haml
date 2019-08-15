@@ -3,24 +3,24 @@
     %h4.section-title.m-4 Merchants
     .container
       .row
-        .card-deck
-          - if @merchant.empty?
-            .col-md-12.col-lg-6
+        .col-md-12
+        - if @merchant.empty?
+          .col-md-6
+            .card.mb-4
+              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+              .card-body#cart-details 
+                %p.card-title SaveMore
+          .col-md-6
+            .card.mb-4
+              %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+              .card-body#cart-details 
+                %p.card-title SaveMore
+        
+        - else
+          - @merchant.each do |merchant|
+            .col-md-12.col-lg-4
               .card.mb-4
                 %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
                 .card-body#cart-details 
-                  %p.card-title SaveMore
-            .col-md-12.col-lg-6
-              .card.mb-4
-                %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-                .card-body#cart-details 
-                  %p.card-title SaveMore
-         
-          - else
-            - @merchant.each do |merchant|
-              .col-md-12.col-lg-4
-                .card.mb-4
-                  %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
-                  .card-body#cart-details 
-                    %p.card-title
-                      = link_to "#{merchant.name}", "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
+                  %p.card-title
+                    = link_to "#{merchant.name}", "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
