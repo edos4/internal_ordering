@@ -865,10 +865,7 @@ div#cart-details {
           color: #ccc;
           margin-top: -1em;
   }
-  #view_cart {
-    animation: .5s ease-in-out 0s 1 slideInFromLeft;
-    margin-top: 5rem;
-  }
+
 @keyframes slideInFromLeft {
     0% {
         transform: translateY(100%);
@@ -892,6 +889,10 @@ div#cart-details {
 }
 
   @media (max-width: 767px) { 
+    #view_cart {
+        animation: .5s ease-in-out 0s 1 slideInFromLeft;
+        margin-top: 5rem;
+    }
     .box-counter {
         width: 25px;
     }
