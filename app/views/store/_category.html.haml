@@ -1,68 +1,31 @@
-#promos.blog.section.py-4.container
-  %h4.section-title.m-3 Promos
-  .container
-    .py-4
-      .row
-        .card-deck
-          - if @promos.empty?
-            .col-md-12.col-lg-6
-              .card.mb-6
-                .welcome-heading-sub
-                  %p.welcome-sub Share us on Facebook
-                  %p.welcome-sub2 Get a free delivery when you share
-                %img.card-img-top{:alt => "Card image cap", :src => "/burger.png"}/
-            .col-md-12.col-lg-6
-              .card.mb-6
-                .welcome-heading-sub
-                  %p.welcome-sub Share us on Facebook
-                  %p.welcome-sub2 Get a free delivery when you share
-                %img.card-img-top{:alt => "Card image cap", :src => "/burger.png"}/
-              
-          - else
-            - @promos.each do |promo|
-              .col-md-12.col-lg-6
-                .card.mb-6
-                  .welcome-heading-sub
-                    %p.welcome-sub Share us on Facebook
-                    %p.welcome-sub2 Get a free delivery when you share
-                  %img.card-img-top{:alt => "promo image cap", :src =>promo.image}
-
-  / / Inner Wrapper
-/ / Welcome Section
-/ Our Services Section
-#grocery.blog.section.py-4.container
-  %h4.section-title.m-3 Everyday Grocery
-  .container
+/ Category Section
+%section#category.container
+  #grocery
+    %h4.section-title Everyday Grocery
     %ul.hs.full.no-scrollbar
       - @everydays.where(category: 'Grocery').each do |g|
         %li.item 
-          .card.mb-2
-            %img.card-img-top{:alt => "Card image cap", :src => g.image}/
-            .card-body#cart-details 
-              %p.card-title
-                = g.name
-/ Everyday Health            
-#health.blog.section.py-4.container
-  %h4.section-title.m-3 Everyday Health
-  .container
+          .card
+            %img.card-img-top{:src => g.image}/
+            %p.card-title
+              = g.name         
+  #health
+    %h4.section-title Everyday Health
     %ul.hs.full.no-scrollbar
       - @everydays.where(category: 'Health').each do |g|
         %li.item 
-          .card.mb-2
-            %img.card-img-top{:alt => "Card image cap", :src => g.image}/
-            .card-body#cart-details 
-              %p.card-title
-                = g.name
+          .card
+            %img.card-img-top{:src => g.image}/
+            %p.card-title
+              = g.name
 
-/ Everyday Booze              
-#booze.blog.section.py-4.container
-  %h4.section-title.m-3 Everyday Booze
-  .container
+          
+  #booze
+    %h4.section-title Everyday Booze
     %ul.hs.full.no-scrollbar
       - @everydays.where(category: 'Booze').each do |g|
         %li.item 
-          .card.mb-2
-            %img.card-img-top{:alt => "Card image cap", :src => g.image}/
-            .card-body#cart-details 
-              %p.card-title
-                = g.name
+          .card
+            %img.card-img-top{:src => g.image}/
+            %p.card-title
+              = g.name
