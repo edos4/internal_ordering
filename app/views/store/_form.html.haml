@@ -50,27 +50,27 @@
                 .form-group.col-md-4
                   %fieldset
                     .custom-control.custom-radio.d-line.my-2
-                      = o.radio_button :payment_option, "cash"
+                      = o.radio_button :payment_option, "cash", checked: true
                       %label{:for => "cash"} Cash on Delivery
-                .form-group.col-md-4
-                  %fieldset
-                    .custom-control.custom-radio.d-line.my-2
-                      = o.radio_button :payment_option, {disabled: 'true', id: 'credit'}
-                      %label{:for => "credit"} Credit Card
-                .form-group.col-md-4
-                  %fieldset
-                    .custom-control.custom-radio.d-line.my-2
-                      = o.radio_button :payment_option, {disabled: 'true',id: 'debit'}
-                      %label{:for => "debit"} Debit Card
-              .form-group
-                %input#form1-name.form-control{:disabled => 'true',:type => "text", :placeholder => "Card Number"}/
-              .row
-                .form-group.col-md-4
-                  %input#form1-number.form-control{:disabled => 'true',:placeholder => "MM/YY", :type => "text"}/
-                .form-group.col-md-4
-                  %input#form1-phone.form-control{:disabled => 'true',:placeholder => "CVV", :type => "text"}/
-                .form-group.col-md-4
-                  %input#form1-phone.form-control{:disabled => 'true',:placeholder => "Zip Code", :type => "text"}/
+                / .form-group.col-md-4
+                /   %fieldset
+                /     .custom-control.custom-radio.d-line.my-2
+                /       = o.radio_button :payment_option, {disabled: 'true', id: 'credit'}
+                /       %label{:for => "credit"} Credit Card
+                / .form-group.col-md-4
+                /   %fieldset
+                /     .custom-control.custom-radio.d-line.my-2
+                /       = o.radio_button :payment_option, {disabled: 'true',id: 'debit'}
+                /       %label{:for => "debit"} Debit Card
+              / .form-group
+              /   %input#form1-name.form-control{:disabled => 'true',:type => "text", :placeholder => "Card Number"}/
+              / .row
+              /   .form-group.col-md-4
+              /     %input#form1-number.form-control{:disabled => 'true',:placeholder => "MM/YY", :type => "text"}/
+              /   .form-group.col-md-4
+              /     %input#form1-phone.form-control{:disabled => 'true',:placeholder => "CVV", :type => "text"}/
+              /   .form-group.col-md-4
+              /     %input#form1-phone.form-control{:disabled => 'true',:placeholder => "Zip Code", :type => "text"}/
         = render 'cart' 
         = o.submit 'Continue', :class => 'btn btn-primary btn-block py-2'
 
