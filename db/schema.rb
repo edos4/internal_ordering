@@ -13,9 +13,11 @@
 ActiveRecord::Schema.define(version: 2019_08_15_051209) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.datetime "created_at", null: false
@@ -23,14 +25,14 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.integer "merchant_id"
   end
 
-  create_table "drivers", force: :cascade do |t|
+  create_table "drivers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "devise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "everydays", force: :cascade do |t|
+  create_table "everydays", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.string "category"
@@ -38,14 +40,14 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "merchants", force: :cascade do |t|
+  create_table "merchants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_items", force: :cascade do |t|
+  create_table "order_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "variant_id"
     t.integer "quantity"
     t.string "cancel_option"
@@ -54,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "messenger_id"
     t.string "custumer_name"
     t.string "contact_no"
@@ -71,7 +73,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.integer "driver_id"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.string "description"
@@ -80,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.integer "category_id"
   end
 
-  create_table "promos", force: :cascade do |t|
+  create_table "promos", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "image"
     t.string "desc"
     t.string "url"
@@ -88,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "settings", force: :cascade do |t|
+  create_table "settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,7 +98,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.string "image_value"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -109,7 +111,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "variants", force: :cascade do |t|
+  create_table "variants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.float "price"

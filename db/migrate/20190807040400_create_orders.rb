@@ -1,6 +1,6 @@
 class CreateOrders < ActiveRecord::Migration[5.2]
   def change
-    create_table :orders do |t|
+    create_table :orders, id: :uuid, default: 'gen_random_uuid()' do |t|
       t.string :messenger_id
       t.string :custumer_name
       t.string :contact_no

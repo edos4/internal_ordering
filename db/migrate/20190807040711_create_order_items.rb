@@ -1,6 +1,6 @@
 class CreateOrderItems < ActiveRecord::Migration[5.2]
   def change
-    create_table :order_items do |t|
+    create_table :order_items, id: :uuid, default: 'gen_random_uuid()' do |t|
       t.integer :variant_id
       t.integer :quantity
       t.string :cancel_option
