@@ -7,10 +7,13 @@ class StoreController < ApplicationController
     @merchant = Merchant.all
     @everydays = Everyday.all
     order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
+    @order = order
   end
 
   def menu
     @categories = Category.where(merchant_id: params['id'])
+    @messenger_id = params['messenger_id']
+    @order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
   end
 
   def cart
