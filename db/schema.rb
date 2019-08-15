@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "merchant_id"
+    t.string "merchant_id"
   end
 
   create_table "drivers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
   end
 
   create_table "order_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "variant_id"
+    t.string "variant_id"
     t.integer "quantity"
     t.string "cancel_option"
-    t.integer "order_id"
+    t.string "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.datetime "updated_at", null: false
     t.string "status", default: "Open"
     t.string "company_name"
-    t.integer "driver_id"
+    t.string "driver_id"
   end
 
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
+    t.string "category_id"
   end
 
   create_table "promos", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_051209) do
     t.string "name"
     t.string "image"
     t.float "price"
-    t.integer "product_id"
+    t.string "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "grocery_price"

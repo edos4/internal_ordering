@@ -4,7 +4,7 @@ class CreateVariants < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :image
       t.float :price
-      t.integer :product_id
+      t.string :product_id
 
       t.timestamps
     end
