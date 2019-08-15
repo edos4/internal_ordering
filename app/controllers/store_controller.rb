@@ -43,7 +43,7 @@ class StoreController < ApplicationController
   def view_cart
     params.permit!
     messenger_id = params['messenger_id']
-    @order = Order.find_by(messenger_id: messenger_id, status: "Open")
+    @order = Order.find_or_create_by!(messenger_id: messenger_id, status: "Open")
   end
   
   def checkout
