@@ -28,3 +28,6 @@ data.each do |d|
 	variant = Variant.find_or_create_by!(name: variant_name, product_id: product.id)
 	variant.update!(grocery_price: grocery_price, price: juan_ride_price)
 end
+
+Setting.create(key: "store_header", text_value: "Two line tag line here!")
+

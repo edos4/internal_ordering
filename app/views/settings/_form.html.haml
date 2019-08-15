@@ -8,9 +8,12 @@
 
   .field
     = f.label :key
-    = f.text_field :key
+    = f.text_field :key, {disabled: "true"}
   .field
-    = f.label :value
-    = f.text_field :value
+    = f.label :text_value
+    = f.text_field :text_value
+  .field
+    = f.label :image_value
+    = f.file_field :image_value
   .actions
     = f.submit 'Save'
