@@ -14,6 +14,9 @@ section#menu-header {
 section#view_cart {
     margin-top: 80px;
 }
+section#checkout-wrapper {
+    margin-top: 7rem;
+}
 section h4{
 	font-size: 1.3rem;
 	margin-bottom: 10px;
@@ -125,6 +128,9 @@ input.special {
 #product-details::placeholder {
 	color: #adadad;
 }
+#form-details h6 {
+	margin-bottom: 0;
+}
 background-color: white;
     box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
     text-align: center;
@@ -156,8 +162,13 @@ button#checkout {
 	margin-top: -5px;
 	margin-left: 15px; 
 	margin-right: 15px;
-	width: 93%;
-	
+	width: 93%;	
+}
+#form-rad {
+	margin-left: -35px;
+}
+#form-cart {
+	margin-top: -4.5rem;
 }
 .hs.category { 
 	grid-auto-columns: calc(18% - var(--gutter) * 2);
@@ -781,7 +792,6 @@ div#cart-details {
 			padding-top: 1em;
 	}
 	.details-section h3{
-			margin-bottom: 1em;
 			text-transform: uppercase;
 			font-size: .8em;
 			color: #989898;
@@ -1112,6 +1122,9 @@ div#cart-details {
 		}
 		.card-img-top {
 				height: 160px;
+		}
+		section#checkout-wrapper {
+			margin-top: 6rem;
 		}
 		.hs { 
 				grid-auto-columns: calc(110% - var(--gutter) * 2);
