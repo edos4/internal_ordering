@@ -1,4 +1,5 @@
 class StoreController < ApplicationController
+  before_action :messenger_only
   layout false
   
   def index
@@ -60,5 +61,13 @@ class StoreController < ApplicationController
   
   def completed
     @order = Order.first
+  end
+
+  private
+
+  def messenger_only
+    unless params['messenger_id'].present?
+      redirect_to '/404.html'
+    end
   end
 end
