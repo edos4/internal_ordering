@@ -176,8 +176,10 @@ button#checkout {
 	width: 94%;
 	margin: 10px 15px;
 }
-
-
+.custom-radio .warning:checked~.custom-control-label::before
+{
+	background-color: #ea5876;
+}
 .hs.category { 
 	grid-auto-columns: calc(18% - var(--gutter) * 2);
 }
