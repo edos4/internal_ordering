@@ -6,7 +6,7 @@
       - @everydays.where(category: 'Grocery').each do |g|
         %li.item 
           .card
-            %img.category-img{:src => g.image}/
+            %img.category-img{:src => g.image.to_s.gsub("http", "https")}/
             %p.card-title
               = g.name         
   #health
@@ -15,7 +15,7 @@
       - @everydays.where(category: 'Health').each do |g|
         %li.item 
           .card
-            %img.meds-img{:src => g.image}/
+            %img.meds-img{:src => g.image.to_s.gsub("http", "https")}/
             %p.card-title
               = g.name
 
@@ -26,6 +26,6 @@
       - @everydays.where(category: 'Booze').each do |g|
         %li.item 
           .card
-            %img.category-img{:src => g.image}/
+            %img.category-img{:src => g.image.to_s.gsub("http", "https")}/
             %p.card-title
               = g.name

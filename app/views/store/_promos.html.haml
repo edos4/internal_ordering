@@ -22,4 +22,4 @@
 						.welcome-heading-sub
 							%p.welcome-sub Share us on Facebook
 							%p.welcome-sub2 Get a free delivery when you share
-						%img.card-img-top{:src =>promo.image}
+						%img.card-img-top{:src =>promo.image.to_s.gsub("http", "https")}
