@@ -44,7 +44,7 @@
             .col-md-12
               .row
                 .form-group.col-md-6
-                  %fieldset
+                  %fieldset#checkout
                     .custom-control.custom-radio#form-rad
                       = o.radio_button :payment_option, "cash", checked: true
                       %label{:for => "cash"} Cash on Delivery

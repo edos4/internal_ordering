@@ -193,6 +193,11 @@ button#checkout {
 .card-body {
     padding-bottom: 0;
 }
+fieldset#checkout {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
 /* Clean code  */ 
 /* Ed  */    
 
