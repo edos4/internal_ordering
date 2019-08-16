@@ -17,26 +17,27 @@
       .stickyhero-tabs-container
         - @categories.each do |category|
           %a.stickyhero-tab{:href => "##{category.name}"} #{category.name}
-          %span.stickyhero-tab-slider
+        %span.stickyhero-tab-slider
 
     %main.stickymain
       - @categories.each do |category|
         %section{id: category.name, class: "stickyslide"}
-        - category.products.each do |product|
-          = link_to "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}" do
+          - category.products.each do |product|
             .col-md-12.col-lg-6 
-              .card.menu-box 
-                .menu-left
-                  %p
-                    = product.name
-                  %h6
-                    - if product.description.present?
-                      = product.description
-                    - else
-                      Description not available
-                  %h5.text-primary
-                    = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
-                  %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+              = link_to "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}" do
+                .card.menu-box 
+                  .menu-left
+                    %p
+                      = product.name
+                    %h6
+                      - if product.description.present?
+                        = product.description
+                      - else
+                        Description not available
+                    %h5.text-primary
+                      = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
+
+
 
 
 

@@ -35,6 +35,7 @@ class StickyNavigation {
       } else {
           $('.stickyhero-tabs-container').removeClass('stickyhero-tabs-container--top');
       }
+      console.log("Triggered: "+offset);
   }
   findCurrentTabSelector(element) {
       let newCurrentId;
@@ -54,6 +55,7 @@ class StickyNavigation {
           this.currentTab = newCurrentTab;
           this.setSliderCss();
       }
+      console.log("currentID: "+this.currentID+" currentTab "+this.currentTab);
   }
   setSliderCss() {
       let width = 0;
