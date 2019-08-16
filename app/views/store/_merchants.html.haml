@@ -16,6 +16,6 @@
       - @merchant.each do |merchant|
         .col-md-12.col-lg-4
           .card#wrapper
-            %img.card-img-top{:alt => "Card image cap", :src => "example.png"}/
+            = link_to image_tag( '/example.png'), "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
             %p.card-title
-              = link_to "#{merchant.name}", "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
+              = merchant.name
