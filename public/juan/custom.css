@@ -6,7 +6,7 @@ section {
 	margin-top: 25px;
 }
 section#promos {
-	margin-bottom: -15px;
+	margin-bottom: -35px;
 }
 section#menu-header {
     margin-bottom: -3.85rem;
@@ -158,7 +158,9 @@ button#checkout {
 	margin-right: 15px;
 	
 }
-
+.hs.category { 
+	grid-auto-columns: calc(18% - var(--gutter) * 2);
+}
 /* Clean code  */ 
 /* Ed  */    
 
@@ -459,7 +461,13 @@ div#cart-details {
 		padding-bottom: 20px;
 		}
 		#booze{
-			margin-bottom: -20px;
+			margin-bottom: -30px;
+			}
+		#health{
+			margin-bottom: -10px;
+			}
+		#grocery{
+			margin-bottom: -10px;
 			}
 		.no-scrollbar::-webkit-scrollbar {
 		display: none;
@@ -1076,6 +1084,10 @@ div#cart-details {
 }
 
 	@media (max-width: 767px) { 
+		#wrapper img {
+			width: 100%;
+			height: 190px;
+		}
 		.container {
 				padding-left: 15px;
 				padding-right: 15px;
@@ -1084,6 +1096,8 @@ div#cart-details {
 		.card {
 			background-color: transparent;
 		}
+
+
 
 		.box-counter {
 				width: 25px;
