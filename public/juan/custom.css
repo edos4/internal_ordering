@@ -218,6 +218,8 @@ button#checkout {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   background: #fff;
   z-index: 10000000;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .stickyhero-tabs-container--top {
