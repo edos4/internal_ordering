@@ -1076,6 +1076,10 @@ div#cart-details {
 }
 
 	@media (max-width: 767px) { 
+		#wrapper img {
+			width: 100%;
+			height: 190px;
+		}
 		.container {
 				padding-left: 15px;
 				padding-right: 15px;
@@ -1084,6 +1088,8 @@ div#cart-details {
 		.card {
 			background-color: transparent;
 		}
+
+
 
 		.box-counter {
 				width: 25px;
