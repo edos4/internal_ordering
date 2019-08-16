@@ -17,7 +17,15 @@
                 = variant.name
               %span#cart-price
                 = variant.price
-        
+        .card-title
+          %h6.box-title.border-bottom Cancel Option
+        .box-details
+          .custom-control.custom-radio.d-block.my-2
+            %input.custom-control-input{:name => "cancel_option", :type => "radio", :id=> "cancel_item"}
+            %label.custom-control-label{:for => "cancel_item"}  Cancel Item
+          .custom-control.custom-radio.d-block.my-2
+            %input.custom-control-input{:name => "cancel_option", :type => "radio", :id=> "cancel_order"}
+            %label.custom-control-label{:for => "cancel_order"} Cancel Order
         %p.box-title.border-bottom Special Instructions?
         .box
           %input.special{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
@@ -58,7 +66,8 @@
       data: {
         variant_id: document.querySelector('input[name="size"]:checked').value,
         messenger_id: #{params['messenger_id']},
-        product_quantity: $("#product_quantity").val()
+        product_quantity: $("#product_quantity").val(),
+        cancel_option: document.querySelector('input[name="cancel_option"]:checked').id
       },
       async: true,
       dataType: "json",
