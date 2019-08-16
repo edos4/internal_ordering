@@ -1,11 +1,9 @@
-.page-content.container#product-details 
-  #forms.container
-    .section-title.col-lg-12.col-md-12.ml-auto.mr-auto
-  .row.px-3
+%section.container#product-details 
+  .row
     .box.col-lg-6.col-md-6
       %img.img-fluid{:alt => "Card image cap", :src => "/food.png"}/
     
-    .example.col-lg-6.col-md-6
+    .box.col-lg-6.col-md-6
       .card-body
         .card-title
           %h4 
@@ -22,7 +20,7 @@
         
         %p.box-title.border-bottom Special Instructions?
         .box
-          %input#box-text{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
+          %input.special{:name => "special", :type => "text", :placeholder=> "Add instructions..."}/
         
         .box-details  
           .box-number
