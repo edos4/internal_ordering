@@ -156,6 +156,7 @@ button#checkout {
 	margin-top: -5px;
 	margin-left: 15px; 
 	margin-right: 15px;
+	width: 93%;
 	
 }
 .hs.category { 
@@ -804,7 +805,6 @@ div#cart-details {
 	}
 	#checkout #checkout-button{
 			box-sizing: border-box;
-			width: 100%;
 			display: flex;
 			justify-content: center;
 			border: 0;
