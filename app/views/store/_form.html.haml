@@ -69,7 +69,7 @@
               /     %input#form1-phone.form-control{:disabled => 'true',:placeholder => "Zip Code", :type => "text"}/
         #form-cart.col-lg-6.col-md-6
           = render 'cart' 
-          = o.submit 'Continue', :class => 'btn btn-primary btn-block py-2'
+          = o.submit 'Continue', :class => 'btn btn-primary form-btn'
 
 %script{:async => "", :defer => "defer", :src => "/initmap.js"}
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCkA6UUfUflPmL3pkQvbN_tUpS-hAT-RbY&libraries=places&callback=initMap"}

@@ -165,11 +165,19 @@ button#checkout {
 	width: 93%;	
 }
 #form-rad {
-	margin-left: -35px;
+	margin-left: -37px;
+	margin-top: 5px;
 }
 #form-cart {
-	margin-top: -4.5rem;
+	margin-top: -5rem;
+	padding: 0;
 }
+.form-btn {
+	width: 94%;
+	margin: 10px 15px;
+}
+
+
 .hs.category { 
 	grid-auto-columns: calc(18% - var(--gutter) * 2);
 }
