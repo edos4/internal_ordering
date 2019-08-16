@@ -16,6 +16,6 @@
       - @merchant.each do |merchant|
         .col-md-12.col-lg-4
           .card#wrapper
-            = link_to image_tag("#{merchant.logo}"), "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
+            = link_to image_tag("#{merchant.logo.to_s.gsub("http", "https")}"), "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
             %p.card-title
               = merchant.name
