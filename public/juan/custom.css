@@ -212,7 +212,6 @@ button#checkout {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  position: absolute;
   bottom: 0;
   width: 100%;
   height: 50px;
