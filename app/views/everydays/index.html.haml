@@ -9,30 +9,30 @@
       .col-6.float-right
       = link_to new_everyday_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('everydays.index.add_tooltip') do
         %b Add Everyday
-    - if @everydays.empty?
-      .widget.widget-content.clearfix
-        .helper-notification
-          %p= t('everydays.index.no_records')
-    - else
-      .table-responsive.card.card-small.mt-5
-        .card-body.p-0.pb-3.text-center
-          %table.table.table-striped.table-hover
-            %thead
+  - if @everydays.empty?
+    .widget.widget-content.clearfix
+      .helper-notification
+        %p= t('everydays.index.no_records')
+  - else
+    .table-responsive.card.card-small.mt-5
+      .card-body.p-0.pb-3.text-center
+        %table.table.table-striped.table-hover
+          %thead
+            %tr
+              %th= t('everydays.index.name')
+              %th= t('everydays.index.image')
+              %th= t('everydays.index.category')
+              %th
+          %tbody
+            - @everydays.each do |everyday|
               %tr
-                %th= t('everydays.index.name')
-                %th= t('everydays.index.image')
-                %th= t('everydays.index.category')
-                %th
-            %tbody
-              - @everydays.each do |everyday|
-                %tr
-                  %td
-                    = everyday.name
-                  %td
-                    = everyday.image
-                  %td
-                    = everyday.category
-                  %td
-                    = link_to 'Show', everyday
-                    = link_to 'Edit', edit_everyday_path(everyday)
-                    = link_to 'Destroy', everyday, method: :delete, data: { confirm: 'Are you sure?' }
+                %td
+                  = everyday.name
+                %td
+                  = everyday.image
+                %td
+                  = everyday.category
+                %td
+                  = link_to 'Show', everyday
+                  = link_to 'Edit', edit_everyday_path(everyday)
+                  = link_to 'Destroy', everyday, method: :delete, data: { confirm: 'Are you sure?' }
