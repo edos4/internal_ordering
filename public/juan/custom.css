@@ -39,7 +39,7 @@ section.section-title {
 }
 #category p {
 	margin-bottom: 0;
-	font-size: 17px;
+	font-size: 13px;
 }
 .category-img {
 	height: 8rem;
@@ -1149,7 +1149,7 @@ div#cart-details {
 				grid-auto-columns: calc(110% - var(--gutter) * 2);
 		}
 		.hs.category { 
-			grid-auto-columns: calc(65% - var(--gutter) * 2);
+			grid-auto-columns: calc(63% - var(--gutter) * 2);
 		}
 		.hs.meds { 
 			grid-auto-columns: calc(40% - var(--gutter) * 2);
