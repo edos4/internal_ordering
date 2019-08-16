@@ -13,7 +13,7 @@
         %span.text-uppercase.page-subtitle Overview
         %h3.page-title.col-6= t('merchants.index.merchants')
       .col-6.float-right
-      = link_to new_merchants_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('merchants.index.add_tooltip') do
+      = link_to new_merchant_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('merchants.index.add_tooltip') do
         %b Add Merchants
     - if @merchants.empty?
       .widget.widget-content.clearfix
