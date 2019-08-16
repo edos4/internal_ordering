@@ -1,6 +1,6 @@
-.example.col-lg-6.col-md-6#view_cart
-  %h3.mb-4 Cart Details
-  .card-body
+%section#view_cart
+  .container
+    %h4.section-title Cart Details 
     %h6.cart-details.border-bottom Crib
     / Form Controls: Simple Forms
     - total = 0
@@ -33,9 +33,4 @@
         %h3.pt-2 Total Amount
         %h3.total-value.pt-2 ₱#{total}
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/
-    %button.btn.btn-block.btn-primary#checkout
-      CHECKOUT
-:javascript
-  $('#checkout').click(function () {
-    window.location = "/store/checkout/?messenger_id=#{params['messenger_id']}"
-  });
+    

@@ -11,6 +11,9 @@ section#promos {
 section#menu-header {
     margin-bottom: -3.85rem;
 }
+section#view_cart {
+    margin-top: 80px;
+}
 section h4{
 	font-size: 1.3rem;
 	margin-bottom: 10px;
@@ -33,6 +36,7 @@ section.section-title {
 }
 #category p {
 	margin-bottom: 0;
+	text-align: center;
 }
 #menu-wrapper {
 	position: absolute;
@@ -121,6 +125,11 @@ input.special {
 #product-details::placeholder {
 	color: #adadad;
 }
+background-color: white;
+    box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px 0;
 .card {
 	background-color: transparent;
 }
@@ -142,6 +151,21 @@ input.special {
 .hs > li, .item {
 	margin-left: -32px;
 }
+
+.card-small {
+	background-color: white;
+    box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px 0;	
+}
+button#checkout {
+	margin-top: -5px;
+	margin-left: 15px; 
+	margin-right: 15px;
+	
+}
+
 /* Clean code  */ 
 /* Ed  */    
 
@@ -439,7 +463,7 @@ div#cart-details {
 		.no-scrollbar {
 		scrollbar-width: none;
 		margin-bottom: 15px;
-		padding-bottom: 0;
+		padding-bottom: 20px;
 		}
 		#booze{
 			margin-bottom: -20px;
@@ -752,7 +776,7 @@ div#cart-details {
 			left: -2px;
 	}
 	.details-section{
-			padding: 1em 0;
+			padding-top: 1em;
 	}
 	.details-section h3{
 			margin-bottom: 1em;
@@ -1077,7 +1101,7 @@ div#cart-details {
 		}
 		}
 		.card-img-top {
-				height: 180px;
+				height: 160px;
 		}
 		.hs { 
 				grid-auto-columns: calc(110% - var(--gutter) * 2);
