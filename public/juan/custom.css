@@ -55,7 +55,7 @@ section.section-title {
 	width: 100%;
 }
 #menu-header h3 {
-	transform: translate(5%, -42px);
+	transform: translate(0%, -42px);
 }
 #menu-list nav {
 	padding-bottom: 0;
