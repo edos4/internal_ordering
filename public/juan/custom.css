@@ -39,7 +39,13 @@ section.section-title {
 }
 #category p {
 	margin-bottom: 0;
-	text-align: center;
+	font-size: 17px;
+}
+.category-img {
+	height: 8rem;
+}
+.meds-img {
+	height: 9rem;
 }
 #menu-wrapper {
 	position: absolute;
@@ -182,6 +188,9 @@ button#checkout {
 }
 .hs.category { 
 	grid-auto-columns: calc(18% - var(--gutter) * 2);
+}
+.card-body {
+    padding-bottom: 0;
 }
 /* Clean code  */ 
 /* Ed  */    
@@ -1140,7 +1149,10 @@ div#cart-details {
 				grid-auto-columns: calc(110% - var(--gutter) * 2);
 		}
 		.hs.category { 
-			grid-auto-columns: calc(55% - var(--gutter) * 2);
+			grid-auto-columns: calc(65% - var(--gutter) * 2);
+		}
+		.hs.meds { 
+			grid-auto-columns: calc(40% - var(--gutter) * 2);
 		}
 		.hs > li, .item { 
 				width:  100%;	

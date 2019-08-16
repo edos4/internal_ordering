@@ -1,21 +1,21 @@
 / Category Section
 %section#category.container
   #grocery
-    %h4.section-title Everyday Grocery
+    %h4.section-title Everyday Groceries
     %ul.hs.full.no-scrollbar.category
       - @everydays.where(category: 'Grocery').each do |g|
         %li.item 
           .card
-            %img.card-img-top{:src => g.image}/
+            %img.category-img{:src => g.image}/
             %p.card-title
               = g.name         
   #health
-    %h4.section-title Everyday Health
-    %ul.hs.full.no-scrollbar.category
+    %h4.section-title Everyday Medicines  
+    %ul.hs.full.no-scrollbar.meds
       - @everydays.where(category: 'Health').each do |g|
         %li.item 
           .card
-            %img.card-img-top{:src => g.image}/
+            %img.meds-img{:src => g.image}/
             %p.card-title
               = g.name
 
@@ -26,6 +26,6 @@
       - @everydays.where(category: 'Booze').each do |g|
         %li.item 
           .card
-            %img.card-img-top{:src => g.image}/
+            %img.category-img{:src => g.image}/
             %p.card-title
               = g.name
