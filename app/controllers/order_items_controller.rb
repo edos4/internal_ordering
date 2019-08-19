@@ -43,11 +43,14 @@ class OrderItemsController < ApplicationController
   def update
     respond_to do |format|
       if @order_item.update(order_item_params)
-        format.html { redirect_to @order_item, notice: 'Order item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order_item }
+        t_price = @order_item.quantity * @order_item.variant.price
+        total = 0
+        @order_item.order.order_items.each do |item|
+          total += item.quantity * item.variant.price
+        end
+        format.json { render json: {item_price: t_price, total: total} }
       else
         format.html { render :edit }
-        format.json { render json: @order_item.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -9,12 +9,12 @@
         .product-info
           .upper-product-info
             .product-qty
-              %input.i_quantity{:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value=>"#{item.quantity}"}
+              %input.i_quantity{:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value => "#{item.quantity}"}
               %h2 x ₱#{item.variant.price}
             .product-text
               %h2 #{item.variant.name}
               %p.description 
-            %p.price ₱#{item.quantity * item.variant.price}
+            %p.price{:id=>"p_#{item.id}"} ₱#{item.quantity * item.variant.price}
             - total += item.quantity * item.variant.price
     
     .details-section
@@ -32,7 +32,7 @@
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
       .amount.border-top
         %h3.pt-2 Total Amount
-        %h3.total-value.pt-2 ₱#{total}
+        %h3.total-value.pt-2.total_price ₱#{total}
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/
 
 
@@ -52,7 +52,8 @@
           alert("Failed: "+ errorTextStatus+" ;"+error);
       },
       success: function(data){
-        location.reload()
+        $('#p_'+id).html('₱'+data['item_price']);
+        $('.total_price').html('₱'+data['total']);
       }
     });
   }
