@@ -9,7 +9,8 @@
         .product-info
           .upper-product-info
             .product-qty
-              %h2 #{item.quantity} x ₱#{item.variant.price}
+              %input.i_quantity{:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value=>"#{item.quantity}"}
+              %h2 x ₱#{item.variant.price}
             .product-text
               %h2 #{item.variant.name}
               %p.description 
@@ -33,4 +34,27 @@
         %h3.pt-2 Total Amount
         %h3.total-value.pt-2 ₱#{total}
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/
-    
+
+
+:javascript
+  function update_qty(id, value){
+    console.log(id, value);
+    $.ajax({
+      url: "/order_items/"+id, // this will be routed
+      type: 'PUT',
+      data: {
+        order_item: {quantity: value,
+        id: id}
+      },
+      async: true,
+      dataType: "json",
+      error: function(XMLHttpRequest, errorTextStatus, error){
+          alert("Failed: "+ errorTextStatus+" ;"+error);
+      },
+      success: function(data){
+        location.reload = location.reload
+      }
+    });
+  }
+
+  

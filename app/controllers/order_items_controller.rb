@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, :only => [:update]
 
   # GET /order_items
   # GET /order_items.json
@@ -69,6 +70,6 @@ class OrderItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_item_params
-      params.require(:order_item).permit(:variant_id, :quantity, :cancel_option, :order_id)
+      params.require(:order_item).permit(:id, :variant_id, :quantity, :cancel_option, :order_id)
     end
 end
