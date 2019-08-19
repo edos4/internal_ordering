@@ -50,6 +50,8 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1.json
   def update
     @order.update(driver_id: params['order']['driver_id'], status: 'Processing')
+    @driver_id = @order.driver.devise_id
+    BotController.send_chatfuel(@order.messenger_id, "track_order", @order.id, @driver_id)
     redirect_to orders_url
   end
 
