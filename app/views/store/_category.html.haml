@@ -1,31 +1,41 @@
-/ Category Section
+/ Category Section  
 %section#category.container
   #grocery
     %h4.section-title Everyday Groceries
-    %ul.hs.full.no-scrollbar.category
+    .card-swipe.no-scrollbar
       - @everydays.where(category: 'Grocery').each do |g|
-        %li.item 
-          .card
-            %img.category-img{:src => g.image.to_s.gsub("http", "https")}/
-            %p.card-title
-              = g.name         
+        .card-item
+          .card-con
+            %img.card-img-top{:src => g.image.to_s.gsub("http", "https")}/
+            .card-con-body
+              %h6 Get Your Bathroom Essentials Now!
+              %p
+                = g.name      
+              %button order now   
   #health
-    %h4.section-title Everyday Medicines  
-    %ul.hs.full.no-scrollbar.meds
+    %h4.section-title Everyday Medicines
+    .card-swipe.no-scrollbar
       - @everydays.where(category: 'Health').each do |g|
-        %li.item 
-          .card
-            %img.meds-img{:src => g.image.to_s.gsub("http", "https")}/
-            %p.card-title
-              = g.name
+        .card-item
+          .card-con-med
+            %img.card-img-top{:src => g.image.to_s.gsub("http", "https")}/
+            .card-con-body
+              %h6 Get Your Bathroom Essentials Now!
+              %p
+                = g.name      
+              %button order now   
+   
 
           
   #booze
     %h4.section-title Everyday Booze
-    %ul.hs.full.no-scrollbar.category
+    .card-swipe.no-scrollbar
       - @everydays.where(category: 'Booze').each do |g|
-        %li.item 
-          .card
-            %img.category-img{:src => g.image.to_s.gsub("http", "https")}/
-            %p.card-title
-              = g.name
+        .card-item
+          .card-con
+            %img.card-img-top{:src => g.image.to_s.gsub("http", "https")}/
+            .card-con-body
+              %h6 Get Your booze, on demand!
+              %p
+                = g.name      
+              %button order now   
