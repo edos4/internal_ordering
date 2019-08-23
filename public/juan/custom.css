@@ -49,6 +49,60 @@ element.style {
     width: 12rem;
     box-shadow: 0 0.46875rem 2.1875rem rgba(64, 111, 164, 0.1), 0 0.9375rem 1.40625rem rgb(249, 250, 252), 0 0.25rem 0.53125rem rgb(249, 250, 252), 0 0.125rem 0.1875rem rgb(33, 49, 82);
 }
+.card-con-serve {
+    background-color: #fff;
+    border: none;
+	border-radius: 0.2rem;
+    width: 6.7rem;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(64, 111, 164, 0.1), 0 0.9375rem 1.40625rem rgb(249, 250, 252), 0 0.25rem 0.53125rem rgb(249, 250, 252), 0 0.125rem 0.1875rem rgb(33, 49, 82);
+}
+.card-con-serve img {
+	height: 6rem;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	padding: 5px;
+	width: 100%;
+}
+.card-con-serve h5 {
+	font-size: 11px;
+	line-height: 1px;
+	text-align: center;
+}
+.card-con-mer {
+	background-color: #fff;
+    border: none;
+	border-radius: 0.5rem;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 6px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(64, 111, 164, 0.1), 0 0.9375rem 1.40625rem rgb(249, 250, 252), 0 0.25rem 0.53125rem rgb(249, 250, 252), 0 0.125rem 0.1875rem rgb(33, 49, 82);
+}
+.card-con-mer img {
+	border-top-right-radius: 12px;
+	border-top-left-radius: 12px;
+}
+.card-con-mer h3 {
+	font-size: 16px;
+	font-weight: 500;
+	color: #545454;
+}
+.card-con-mer h4 { 
+	font-size: 12px;
+	font-weight: 600;
+	margin-bottom: 6px;
+    color: #a6a6a6;
+}
+.card-con-mer h5 {  
+	font-size: 11px;
+	line-height: 1.4;
+	margin-bottom: 5px;
+    color: #a6a6a6;
+}
+.card-con-mer h6 {  
+	color: #8dbe53;
+	font-weight: 600;
+	margin-bottom: 0;
+}
 .card-con-body {
 	padding: 10px 15px;
 }
@@ -75,7 +129,7 @@ element.style {
     font-weight: 500;
 }
 section {
-	margin-top: 25px;
+	margin-top: 20px;
 }
 section#promos {
 	margin-bottom: -35px;
@@ -577,6 +631,7 @@ div#cart-details {
 		}
 		#booze{
 			margin-bottom: -30px;
+			margin-top: -15px;
 			}
 		#health{
 			margin-bottom: -10px;
@@ -584,6 +639,9 @@ div#cart-details {
 		#grocery{
 			margin-bottom: 20px;
 			}
+		#serve {
+			margin-bottom: -30px;
+		}
 		.no-scrollbar::-webkit-scrollbar {
 		display: none;
 		}
