@@ -1,6 +1,6 @@
 %section#promos.container
-	%h4.section-title Promos
-	%ul.hs.full.no-scrollbar
+	%h4.section-title Featured
+	.row
 		- if @promos.empty?
 			%li.item 
 				.card
@@ -11,15 +11,19 @@
 			%li.item
 				.card
 					.welcome-heading-sub
-						%p.welcome-sub Share us on Facebook
+						%p.welcome-sub Share us onaebook
 						%p.welcome-sub2 Get a free delivery when you share
 					%img.card-img-top{:alt => "Card image cap", :src => "/burger.png"}/
 				
 		- else
-			- @promos.each do |promo|
-				%li.item 
-					.card
-						.welcome-heading-sub
-							%p.welcome-sub Share us on Facebook
-							%p.welcome-sub2 Get a free delivery when you share
-						%img.card-img-top{:src =>promo.image.to_s.gsub("http", "https")}
+			.card-swipe.no-scrollbar
+				- @promos.each do |promo|
+					.card-item-promo
+						.card-con-promo
+							= link_to image_tag("#{promo.image.to_s.gsub("http", "https")}"), "/store/menu/#{promo.id}?messenger_id=#{params['messenger_id']}"
+							#promo-con
+								%h3 Hot moma! Hot Sauce
+								%h4 by Homesite Sharwama
+								%h5 leave you crying if not for the fire, but for how tasty it is!
+								%button order now  
+					

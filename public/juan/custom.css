@@ -103,6 +103,65 @@ element.style {
 	font-weight: 600;
 	margin-bottom: 0;
 }
+.card-item-promo {
+	position: relative;
+    width: 94vw;
+    /* padding-right: 15px; */
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* border-radius: 8px; */
+	padding: 5px;
+	margin: 0 10px;
+}
+.card-con-promo {
+	background-color: #fff;
+    border: none;
+	border-radius: 0.5rem;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 6px 6px 10px 6px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(64, 111, 164, 0.1), 0 0.9375rem 1.40625rem rgb(249, 250, 252), 0 0.25rem 0.53125rem rgb(249, 250, 252), 0 0.125rem 0.1875rem rgb(33, 49, 82);
+}
+.card-con-promo img {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	padding: 1px;
+    width: 100%;
+}
+.card-con-promo h3 {
+	font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #545454;
+}
+.card-con-promo h4 { 
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 6px;
+    color: #737373;
+}
+.card-con-promo h5 {  
+	font-size: 13px;
+	line-height: 1.4;
+	margin-bottom: 0px;
+    color: #737373;
+}
+.card-con-promo button {
+	background-color: white;
+    border: none;
+    color: #007bff;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-weight: 500;
+}
+#promo-con {
+	padding: 0 2px;
+}
 .card-con-body {
 	padding: 10px 15px;
 }
@@ -132,7 +191,7 @@ section {
 	margin-top: 20px;
 }
 section#promos {
-	margin-bottom: -35px;
+	margin-bottom: -40px;
 }
 section#menu-header {
     margin-bottom: -3.85rem;
