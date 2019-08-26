@@ -101,7 +101,14 @@ element.style {
 .card-con-mer h6 {  
 	color: #8dbe53;
 	font-weight: 600;
+	display: inline-block;
 	margin-bottom: 0;
+	font-size: 13px;
+}
+.card-con-mer button {  
+	float: right;
+	color: #007bff;
+    font-weight: 600;
 }
 .card-item-promo {
 	position: relative;

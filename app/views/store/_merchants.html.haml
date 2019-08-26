@@ -21,7 +21,13 @@
           .card-con-mer#wrapper
             = link_to image_tag("#{merchant.logo.to_s.gsub("http", "https")}"), "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
             #promo-con
-              %h3 Kmart
-              %h4 Get Chorizo Recado and muc more!
-              %h5 Dig into Kmart's Specialty products. A long time Bacolod suki is now available for delivery. With Juan tap away!
-              %h6 P250/kg
+              %h3 
+                = merchant.name
+              %h4 
+                = merchant.desc
+              %h5 
+                = merchant.sub_desc
+              %h6 
+                = merchant.price
+              %button 
+                = link_to "Order Now", merchant.url
