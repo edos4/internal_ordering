@@ -22,8 +22,12 @@
 						.card-con-promo
 							= link_to image_tag("#{promo.image.to_s.gsub("http", "https")}"), "/store/menu/#{promo.id}?messenger_id=#{params['messenger_id']}"
 							#promo-con
-								%h3 Hot moma! Hot Sauce
-								%h4 by Homesite Sharwama
-								%h5 leave you crying if not for the fire, but for how tasty it is!
-								%button order now  
+								%h3 
+									= promo.title 
+								%h4 
+									= promo.desc
+								%h5 
+									= promo.sub_desc
+								%button 
+									= promo.url
 					

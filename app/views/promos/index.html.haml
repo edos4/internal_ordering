@@ -1,38 +1,44 @@
-- content_for :title, 'Promos'
+- content_for :title, 'Feautured'
 - content_for :breadcrumb, "Stores"
 .main-content-container.container-fluid.px-4
 	.page-header.no-gutters.py-4
 		.col-12.text-center.text-sm-left.mb-0
 			.col-6.float-left
 				%span.text-uppercase.page-subtitle Overview
-				%h3.page-title.col-6= t('promos.index.promos')
+				%h3.page-title.col-6 Featured
 			.col-6.float-right
 			= link_to new_promo_path, :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('promos.index.add_tooltip') do
-				%b Add promos
-		- if @promos.empty?
-			.widget.widget-content.clearfix
-				.helper-notification
-					%p= t('promos.index.no_records')
-		- else
-			.table-responsive.card.card-small.mt-5
-				.card-body.p-0.pb-3.text-center
-					%table.table.table-striped.table-hover
-						%thead
+				%b Add feature
+	- if @promos.empty?
+		.widget.widget-content.clearfix
+			.helper-notification
+				%p= t('promos.index.no_records')
+	- else
+		.table-responsive.card.card-small.mt-5
+			.card-body.p-0.pb-3.text-center
+				%table.table.table-striped.table-hover
+					%thead
+						%tr
+							%th= t('promos.index.image')
+							%th= t('promos.index.title')
+							%th= t('promos.index.desc')
+							%th= t('promos.index.sub_desc')
+							%th= t('promos.index.url')
+							%th
+					%tbody
+						- @promos.each do |promo|
 							%tr
-								%th= t('promos.index.image')
-								%th= t('promos.index.desc')
-								%th= t('promos.index.url')
-								%th
-						%tbody
-							- @promos.each do |promo|
-								%tr
-									%td
-										= promo.image
-									%td
-										= promo.desc
-									%td
-										= promo.url
-									%td
-										= link_to 'Show', promo
-										= link_to 'Edit', edit_promo_path(promo)
-										= link_to 'Destroy', promo, method: :delete, data: { confirm: 'Are you sure?' }
+								%td
+									= promo.image
+								%td
+									= promo.title
+								%td
+									= promo.desc
+								%td
+									= promo.sub_desc
+								%td
+									= promo.url
+								%td
+									= link_to 'Show', promo
+									= link_to 'Edit', edit_promo_path(promo)
+									= link_to 'Destroy', promo, method: :delete, data: { confirm: 'Are you sure?' }
