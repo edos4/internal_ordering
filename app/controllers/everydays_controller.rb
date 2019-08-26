@@ -69,6 +69,6 @@ class EverydaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def everyday_params
-      params.require(:everyday).permit(:name, :image, :category)
+      params.require(:everyday).permit(:name, :image, :category, :description, :ev_order)
     end
 end

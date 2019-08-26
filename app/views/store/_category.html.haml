@@ -8,10 +8,12 @@
           .card-con
             %img.card-img-top{:src => g.image.to_s.gsub("http", "https")}/
             .card-con-body
-              %h6 Get Your Bathroom Essentials Now!
+              %h6 
+                = g.name  
               %p
-                = g.name      
-              %button order now   
+                = g.description   
+              %button 
+                = g.ev_order  
   -# #health
   -#   %h4.section-title Everyday Medicines
   -#   .card-swipe.no-scrollbar
@@ -31,8 +33,11 @@
         .card-item
           .card-con
             %img.card-img-top{:src => g.image.to_s.gsub("http", "https")}/
-            .card-con-body
-              %h6 Get Your booze, on demand!
+            .card-con-body#boz
+              %h6 
+                = g.name  
               %p
-                = g.name      
-              %button order now   
+                = g.description   
+              %button 
+                = g.ev_order
+

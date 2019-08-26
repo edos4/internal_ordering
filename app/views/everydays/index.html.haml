@@ -22,6 +22,8 @@
               %th= t('everydays.index.name')
               %th= t('everydays.index.image')
               %th= t('everydays.index.category')
+              %th= t('everydays.index.descrption')
+              %th= t('everydays.index.ev_order')
               %th
           %tbody
             - @everydays.each do |everyday|
@@ -32,6 +34,10 @@
                   = everyday.image
                 %td
                   = everyday.category
+                %td
+                  = everyday.description
+                %td
+                  = everyday.ev_order
                 %td
                   = link_to 'Show', everyday
                   = link_to 'Edit', edit_everyday_path(everyday)

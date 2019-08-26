@@ -20,11 +20,11 @@
           %i.material-icons edit
           %span Dashboard
       %li.nav-item{:class => "#{active_controller?(controller: 'merchant')}"}
-        = link_to merchants_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link',  'data-placement' => 'right', 'data-original-title' => 'Stores' do
+        = link_to merchants_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link',  'data-placement' => 'right', 'data-original-title' => 'Merchants' do
           %i.material-icons vertical_split
           %span Merchants
       %li.nav-item{:class => "#{active_controller?(controller: 'category')}"}
-        = link_to categories_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Stores' do
+        = link_to categories_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Category' do
           %i.material-icons note_add
           %span Category
       %li.nav-item{:class => "#{active_controller?(controller: 'product')}"}

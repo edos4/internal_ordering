@@ -15,5 +15,11 @@
   .field
     = f.label :category
     = f.select :category, options_for_select([['Grocery'],['Booze'],['Health']]), :class => 'form-control'
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :ev_order
+    = f.text_field :ev_order
   .actions
     = f.submit 'Save'
