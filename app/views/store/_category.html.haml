@@ -13,19 +13,7 @@
               %p
                 = g.description   
               %button 
-                = g.ev_order  
-  -# #health
-  -#   %h4.section-title Everyday Medicines
-  -#   .card-swipe.no-scrollbar
-  -#     - @everydays.where(category: 'Health').each do |g|
-  -#       .card-item
-  -#         .card-con-med
-  -#           %img.card-img-top{:src => g.image.to_s.gsub("http", "https")}/
-  -#           .card-con-body
-  -#             %h6 Get Your Bathroom Essentials Now!
-  -#             %p
-  -#               = g.name      
-  -#             %button order now   
+                = g.ev_order   
   #booze
     %h4.section-title Everyday Booze
     .card-swipe.no-scrollbar
