@@ -111,9 +111,6 @@ element.style {
 	background-color: white;
     border: none;
     color: #007bff;
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
 }
 .card-item-promo {
 	position: relative;
