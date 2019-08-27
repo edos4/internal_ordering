@@ -31,7 +31,7 @@
               %th= t('merchants.index.sub_desc')
               %th= t('merchants.index.price')
               %th= t('merchants.index.url')
-              %th 
+              %th Actions
           %tbody
             - @merchants.each do |merchant|
               %tr
@@ -48,8 +48,19 @@
                 %td
                   = merchant.url
                 %td
-                  = link_to 'Show', merchant
-                  = link_to 'Edit', edit_merchant_path(merchant)
-                  = link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' }
-
-
+                  .dropdown.dropdown-action
+                    %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                      %i.fa.fa-ellipsis-v
+                    .dropdown-menu.dropdown-menu-right
+                      = link_to merchant, :class => "dropdown-item" do
+                        %i.fa.fa-eye.m-r-5
+                        #text
+                          Show
+                      = link_to edit_merchant_path(merchant), :class => "dropdown-item" do 
+                        %i.fa.fa-pencil.m-r-5
+                        #text
+                          Edit
+                      = link_to  merchant, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
+                        %i.fa.fa-remove.m-r-5
+                        #text
+                          Delete
