@@ -11,7 +11,7 @@
 
 # Populate tables
 require 'roo'
-xlsx = Roo::Excelx.new("#{Dir.pwd}/supermarket.xlsx", {:expand_merged_ranges => true})
+xlsx = Roo::Excelx.new("#{Dir.pwd}/SUPERMARKET.xlsx", {:expand_merged_ranges => true})
 data = xlsx.parse.drop(1) #drop the header on line 1
 
 data.each do |d|

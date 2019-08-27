@@ -29,4 +29,4 @@
 								%h5 
 									= promo.sub_desc
 								%button 
-									= link_to "Order Now", promo.url								
+									= link_to "Order Now", "/store/menu/#{promo.id}?messenger_id=#{params['messenger_id']}"								

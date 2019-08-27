@@ -36,9 +36,4 @@
                         Description not available
                     %h5.text-primary
                       = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
-
-
-
-
-
-    
+                      %img.card-img-top{:src => product.image}

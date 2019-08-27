@@ -30,4 +30,4 @@
               %h6 
                 = merchant.price
               %button 
-                = link_to "Order Now", merchant.url
+                = link_to "Order Now", "/store/menu/#{merchant.id}?messenger_id=#{params['messenger_id']}"
