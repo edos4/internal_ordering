@@ -410,6 +410,14 @@ fieldset#checkout {
     margin: 0;
     padding: 0;
 }
+.box-qty{
+    width: 3rem;
+    border-radius: 2px;
+	padding: 3px;
+	background: white;
+    border: none;
+    text-align: center;
+}
 /* Clean code  */ 
 /* Ed  */    
 
@@ -867,6 +875,7 @@ div#cart-details {
 	}
 	.accordion-item .product-info .product-text{
 			flex: 2.5;
+			margin-top: -8px;
 	}
 	.accordion-item .product-info .product-qty{
 			text-tranform: none;

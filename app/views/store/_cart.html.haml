@@ -9,11 +9,11 @@
         .product-info
           .upper-product-info
             .product-qty
-              %input.i_quantity{:class=> 'box-number box-num',:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value => "#{item.quantity}"}
-              %h2 x ₱#{item.variant.price}
+              %input.i_quantity{:class=> 'box-qty',:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value => "#{item.quantity}"}
+              
             .product-text
               %h2 #{item.variant.name}
-              %p.description 
+              %p.description x ₱#{item.variant.price}
             %p.price{:id=>"p_#{item.id}"} ₱#{item.quantity * item.variant.price}
             - total += item.quantity * item.variant.price
     
