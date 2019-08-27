@@ -1,7 +1,6 @@
-%h1 Editing variant
-
-= render 'form'
-
-= link_to 'Show', @variant
-\|
-= link_to 'Back', variants_path
+.main-content-container.container-fluid.px-4
+	.page-header.no-gutters.py-4
+		.col-12.text-center.text-sm-left.mb-0.pb-3
+			%span.text-uppercase.page-subtitle Overview
+			%h3.page-title.col-12 Update Variant
+			= render 'form'
