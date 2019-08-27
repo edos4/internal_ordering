@@ -1,38 +1,45 @@
-%section#menu-list
-  %nav.navbar.bg-primary
-    %h6.text-white Category 
-  .container
-    %h4.section-title Popular Items
+%body{"data-offset" => "-20", "data-spy" => "scroll", "data-target" => ".list-group", }
 
-    - @populars.each do |popular|
-      - pop = Variant.find(popular[0])
-      .col-md-12.col-lg-6 
-        .card.menu-box 
-          .menu-left
-            %p #{pop.name}
-            %h5.text-primary #{pop.price}
-          %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
+  %section#menu-list
+    %nav.navbar.bg-primary
+      %h6.text-white Category 
+    .container
+      %h4.section-title Popular Items
 
-    %section.stickyhero-tabs
-      .stickyhero-tabs-container.scrollbar
-        - @categories.each do |category|
-          %a.stickyhero-tab{:href => "##{category.name}"} #{category.name}
-        %span.stickyhero-tab-slider
+      - @populars.each do |popular|
+        - pop = Variant.find(popular[0])
+        .col-md-12.col-lg-6 
+          .card.menu-box 
+            .menu-left
+              %p #{pop.name}
+              %h5.text-primary #{pop.price}
+            %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
 
-    %main.stickymain
+      .list-group
+        .stickyhero-tabs-container.scrollbar
+          - @categories.each do |category|
+            %a.list-group-item.list-group-item-action{:href => "##{category.name.gsub(" ", "")}"} #{category.name}
+
       - @categories.each do |category|
-        %section{id: category.name, class: "stickyslide"}
+        %div{id: category.name.gsub(" ", "")}
           %h6  #{category.name}
           - category.products.each do |product|
-            = link_to "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}" do
-              .card.menu-box 
-                .menu-left
-                  %h4
-                    = product.name
-                  %h6
-                    - if product.description.present?
-                      = product.description
-                    - else
-                      Description not available
-                  %h5
-                    = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
+            .card.menu-box 
+              .menu-left
+                %h4
+                  = product.name
+                %h6
+                  - if product.description.present?
+                    = product.description
+                  - else
+                    Description not available
+                %h5
+                  = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
+        %hr
+
+
+:css
+  body{
+    position: relative;
+  }
+  

@@ -16,6 +16,7 @@ body{
 	  overflow-x: hidden;
 	  background: #fdfdfd;
 	  min-height: 120vh;
+	  position: relative;
 }
 button{
 	outline: 0;
