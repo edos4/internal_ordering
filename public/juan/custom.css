@@ -431,7 +431,7 @@ fieldset#checkout {
 }
 .list-group-item.active {
     color: #545454;
-	border-bottom: 2px solid #007bfe;;
+	border-bottom: 3px solid #007bfe;;
 	background-color: transparent;
 }
 .stickyhero-tabs, .stickyslide {
