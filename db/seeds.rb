@@ -14,6 +14,14 @@ require 'roo'
 xlsx = Roo::Excelx.new("#{Dir.pwd}/supermarket.xlsx", {:expand_merged_ranges => true})
 data = xlsx.parse.drop(1) #drop the header on line 1
 
+#purge tables
+Merchant.destroy_all
+Category.destroy_all
+Product.destroy_all
+Variant.destroy_all
+Order.destroy_all
+OrderItem.destroy_all
+
 data.each do |d|
 	merchant_name = d[0]
 	category_name = d[1]
