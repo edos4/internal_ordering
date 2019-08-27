@@ -421,8 +421,9 @@ fieldset#checkout {
 	width: 100%;
 }
 .list-group-item {
-	padding: .5rem .5rem;
+	padding: .7rem .5rem;
 	border: none;
+	font-size: 15px;
 }
 .list-group-item:first-child {
     border-top-left-radius: 0;
