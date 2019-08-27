@@ -405,6 +405,7 @@ fieldset#checkout {
 
 .stickyhero-tabs, .stickyslide {
   display: -webkit-box;
+  scrollbar-width: none;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
@@ -478,6 +479,9 @@ fieldset#checkout {
   background: #66B1F1;
   -webkit-transition: left 0.3s ease;
   transition: left 0.3s ease;
+}
+a.stickyhero-tab {
+    padding: 10px;
 }
 
 /* End sticky nav*/
@@ -700,6 +704,11 @@ div#cart-details {
 		margin-bottom: 15px;
 		padding-bottom: 20px;
 		}
+		.scrollbar{
+			scrollbar-width: none;
+			margin-bottom: 0px;
+			padding-bottom: 0px;
+			}
 		#booze{
 			margin-bottom: -35px;
 			margin-top: -15px;

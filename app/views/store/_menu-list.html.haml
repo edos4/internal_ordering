@@ -14,7 +14,7 @@
           %img.card-img-top{:alt => "Card image cap", :src => "/example.png"}/
 
     %section.stickyhero-tabs
-      .stickyhero-tabs-container
+      .stickyhero-tabs-container.scrollbar
         - @categories.each do |category|
           %a.stickyhero-tab{:href => "##{category.name}"} #{category.name}
         %span.stickyhero-tab-slider
