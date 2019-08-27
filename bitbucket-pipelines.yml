@@ -1,0 +1,18 @@
+pipelines:
+  branches:
+    master:
+        - step:
+            script:
+              - deploy-scripts/package_and_deploy.sh juanrideapp
+    staging:
+      - step:
+          script:
+            - deploy-scripts/package_and_deploy.sh juanrideapp
+  default:
+    - step:
+        script:
+          - apt-get update
+          - apt-get install -y build-essential libpq-dev nodejs
+          - gem update bundler
+          - bundle install
+          - bundle exec rspec
