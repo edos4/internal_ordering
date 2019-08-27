@@ -1,25 +1,28 @@
-.twelvecol
-  .page-header
-    %h2.widget.widget-header= t('categories.new.category')
-  = form_for @category do |f|
-    .threecol
-    .ninecol.last
-      - if @category.errors.any?
-        #error_explanation
-          %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
-    
-    .form-groups
-      - if params['id'].present?
-        = f.hidden_field :merchant_id,:value => "#{params['id']}", :class => 'form-control'
-      - else
-        = f.select 'merchant_id', options_for_select(Merchant.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
-    .form-group
-      = f.label :name
-      = f.text_field :name, :class => 'form-control'
-    .form-group
-      = f.label :image
-      %br/
-      = f.file_field :image, id: :category_image
-    .form-group
-      = f.submit 'Save', :class => 'btn btn-blue btn-large'
-        
+= form_for @category do |f|
+	.form-container
+	- if @category.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+	
+	%form
+		.row.mb-2
+			.col-md-6
+				= f.label :image
+				.custom-file.w-100
+					= f.file_field :image, id: :category_image, :class=> "custom-file-input", :id=>"logo", :required => true
+					= f.label :choose_file, :class=> "custom-file-label", :for=>"logo"
+			.col-md-6
+				= f.label :name
+				= f.text_field :name, :class => 'form-control', :required => true
+				
+		.row.mb-2
+			.col-md-6
+				- if params['id'].present?
+					= f.hidden_field :merchant_id,:value => "#{params['id']}", :class => 'form-control'
+				- else
+					= f.label :merchant_id, :class=> "d-block", :for=>"merchant_id"
+					= f.select 'merchant_id', options_for_select(Merchant.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'custom-select w-100', :id => "merchant_id"
+		
+		.form-group
+			= f.submit 'Save', :class => 'btn btn-sm btn-primary'
+				
