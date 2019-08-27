@@ -1,20 +1,18 @@
-# This is a sample build configuration for Ruby.
-# Check our guides at https://confluence.atlassian.com/x/8r-5Mw for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.5.5
-
 pipelines:
+  branches:
+    master:
+        - step:
+            script:
+              - deploy-scripts/package_and_deploy.sh juanrideapp
+    staging:
+      - step:
+          script:
+            - deploy-scripts/package_and_deploy.sh juanrideapp
   default:
     - step:
-        caches:
-          - bundler
-        script: # Modify the commands below to build your repository.
+        script:
+          - apt-get update
+          - apt-get install -y build-essential libpq-dev nodejs
+          - gem update bundler
           - bundle install
-          - rails db:migrate
-          - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD
-
-definitions:
-  caches:
-    bundler: ./vendor
+          - bundle exec rspec
