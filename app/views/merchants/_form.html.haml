@@ -1,39 +1,37 @@
-.twelvecol
-  .page-header
-    %h2.widget.widget-header= t('merchants.new.merchant')
-
 = form_for @merchant do |f|
-  .threecol
-    .ninecol.last
-      - if @merchant.errors.any?
-        #error_explanation
-          %h2= "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
-          %ul
-            - @merchant.errors.full_messages.each do |message|
-              %li= message
-
-  .form-group
-    = f.label :logo
-    %br
-    = f.file_field :logo, id: :logo
-    %br/
-    / = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
-  .form-group
-    = f.label :name
-    = f.text_field :name, :class => 'form-control'
-  .form-group
-    = f.label :desc
-    = f.text_field :desc, :class => 'form-control'
-  .form-group
-    = f.label :sub_desc
-    = f.text_field :sub_desc, :class => 'form-control'
-  .form-group
-    = f.label :price
-    = f.text_field :price, :class => 'form-control'
-  .form-group
-    = f.label :url
-    = f.text_field :url, :class => 'form-control'
-  .form-group
-    = f.submit 'Save', :class => 'btn btn-blue btn-large'
+	.form-container
+		- if @merchant.errors.any?
+			#error_explanation
+				%h2= "#{pluralize(@merchant.errors.count, "error")} prohibited this merchant from being saved:"
+				%ul
+					- @merchant.errors.full_messages.each do |message|
+						%li= message
+		%form.was-validated
+			.row.mb-2
+				.col-md-6
+					= f.label :logo
+					.custom-file.w-100
+						-# %input#customFile2.custom-file-input{:required => "", :type => "file"}/
+						-# %label.custom-file-label{:for => "customFile2"} Choose file...
+						
+						= f.file_field :logo, id: :logo, :class=> "custom-file-input", :id=>"customFile", :required => true
+						= f.label :choose_file, :class=> "custom-file-label", :for=>"customFile"
+				.col-md-6
+					= f.label :merchant_name
+					= f.text_field :name, :class => 'form-control', :required => true
+			.row.mb-2
+				.col-md-6
+					= f.label :description
+					= f.text_field :desc, :class => 'form-control', :required => true
+				.col-md-6
+					= f.label :sub_description
+					= f.text_field :sub_desc, :class => 'form-control', :required => true
+			.row.mb-2
+				.col-md-6
+					= f.label :price
+					= f.text_field :price, :class => 'form-control', :required => true
+		
+			.form-group
+				= f.submit 'Save', :class => 'btn btn-primary btn-sm px-4'
 
 

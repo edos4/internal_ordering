@@ -6,3 +6,20 @@
 .clearfix {
     clear: both;
 }
+.form-group {
+	position: relative;
+}
+.form-container {
+    margin-top: 1.5rem;
+}
+input:required:focus {
+    border: 1px solid red;
+  }
+input:valid {   
+    border-color: #17c671;
+}
+input.btn {
+    border: none;
+    width: 78px;
+    margin-top: 8px;
+}
