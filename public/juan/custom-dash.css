@@ -23,3 +23,58 @@ input.btn {
     width: 78px;
     margin-top: 8px;
 }
+#text {
+    color: #000;
+    float: right;
+    display: contents;
+    font-size: 12px;
+}
+.dropdown-menu {
+    min-width: 6rem;
+    padding: 0;
+}
+.dropdown .fa, .dropdown .material-icons {
+    color: #007bfe;
+}
+select#category_merchant_id {
+    width: 100%!important;
+    font-size: .8125rem;
+    height: calc(2rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.2;
+    color: #495057;
+    background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
+    background-size: 8px 10px;
+    border: 1px solid #becad6;
+    font-weight: 300;
+    transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
+    border-radius: .375rem;
+}
+select#product_category_id  {
+    width: 100%!important;
+    font-size: .8125rem;
+    height: calc(2rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.2;
+    color: #495057;
+    background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
+    background-size: 8px 10px;
+    border: 1px solid #becad6;
+    font-weight: 300;
+    transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
+    border-radius: .375rem;
+}
+select#everyday_category {
+    width: 100%!important;
+    font-size: .8125rem;
+    height: calc(2rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.2;
+    color: #495057;
+    background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
+    background-size: 8px 10px;
+    border: 1px solid #becad6;
+    font-weight: 300;
+    transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
+    border-radius: .375rem;
+}
