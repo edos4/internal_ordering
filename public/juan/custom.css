@@ -420,7 +420,19 @@ fieldset#checkout {
 	overflow: auto;
 	width: 100%;
 }
-
+.list-group-item {
+	padding: .5rem .5rem;
+	border: none;
+}
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.list-group-item.active {
+    color: #545454;
+	border-bottom: 2px solid #007bfe;;
+	background-color: transparent;
+}
 .stickyhero-tabs, .stickyslide {
   display: -webkit-box;
   scrollbar-width: none;
@@ -450,7 +462,6 @@ fieldset#checkout {
   flex-direction: row;
   bottom: 0;
   width: 100%;
-  height: 45px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   background: #fff;
   z-index: 10000000;
@@ -1359,7 +1370,7 @@ div#cart-details {
 		}
 		.list-group{
 		    position: fixed; 
-		    top: 64px;
+		    top: 63px;
 		    z-index: 5000;
 		    overflow: auto;
 		    width: 100%;
