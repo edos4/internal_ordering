@@ -434,6 +434,12 @@ fieldset#checkout {
 	border-bottom: 3px solid #007bfe;;
 	background-color: transparent;
 }
+.custom-radio .custom-control-label::after {
+	width: 7px;
+    height: 7px;
+    top: 8px;
+    left: 5px;
+}
 .stickyhero-tabs, .stickyslide {
   display: -webkit-box;
   scrollbar-width: none;
