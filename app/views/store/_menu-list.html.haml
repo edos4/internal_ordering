@@ -22,18 +22,17 @@
     %main.stickymain
       - @categories.each do |category|
         %section{id: category.name, class: "stickyslide"}
+          %h6  #{category.name}
           - category.products.each do |product|
-            .col-md-12.col-lg-6 
-              = link_to "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}" do
-                .card.menu-box 
-                  .menu-left
-                    %p
-                      = product.name
-                    %h6
-                      - if product.description.present?
-                        = product.description
-                      - else
-                        Description not available
-                    %h5.text-primary
-                      = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
-                      %img.card-img-top{:src => product.image}
+            = link_to "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}" do
+              .card.menu-box 
+                .menu-left
+                  %h4
+                    = product.name
+                  %h6
+                    - if product.description.present?
+                      = product.description
+                    - else
+                      Description not available
+                  %h5
+                    = link_to 'View', "/store/#{params['id']}/cart/?product=#{product.id}&messenger_id=#{params['messenger_id']}"
