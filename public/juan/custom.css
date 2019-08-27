@@ -270,6 +270,9 @@ section.section-title {
 .menu-left {
 	border-bottom: 1px solid #e0e0e0; 
 }
+.menu-left  a {
+	color: #007bff !important;
+}
 .menu-left  h6 {
 	color: #878787;
 	font-size: 13px;
