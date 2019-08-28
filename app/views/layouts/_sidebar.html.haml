@@ -51,8 +51,8 @@
         = link_to settings_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Settings' do
           %i.material-icons table_chart
           %span Settings
-      %li.nav-item{:class => "#{active_controller?(controller: 'driver')}"}
-        = link_to root_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Storefront', target: '_blank' do
+      %li.nav-item{:class => "#{active_controller?(controller: 'store')}"}
+        = link_to store_index_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Storefront' do
           %i.material-icons table_chart
           %span Storefront
       

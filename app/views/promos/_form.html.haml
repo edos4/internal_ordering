@@ -1,25 +1,31 @@
 = form_for @promo do |f|
-  - if @promo.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@promo.errors.count, "error")} prohibited this promo from being saved:"
-      %ul
-        - @promo.errors.full_messages.each do |message|
-          %li= message
+	.form-container
+	- if @promo.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@promo.errors.count, "error")} prohibited this promo from being saved:"
+			%ul
+				- @promo.errors.full_messages.each do |message|
+					%li= message
 
-  .field
-    = f.label :image
-    = f.file_field :image, id: :promo_image
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :desc
-    = f.text_field :desc
-  .field
-    = f.label :sub_desc
-    = f.text_field :sub_desc
-  .field
-    = f.label :url
-    = f.text_field :url
-  .actions
-    = f.submit 'Save'
+	%form
+		.row.mb-2
+			.col-md-6
+				= f.label :image
+				.custom-file.w-100
+					= f.file_field :image, id: :promo_image, :class=> "custom-file-input", :id=>"logo", :required => true
+					= f.label :choose_file, :class=> "custom-file-label", :for=>"logo"
+			.col-md-6
+				= f.label :title
+				= f.text_field :title, :class => 'form-control', :required => true
+		.row.mb-2
+			.col-md-6
+				= f.label :desc
+				= f.text_field :desc, :class => 'form-control', :required => true
+			.col-md-6
+				= f.label :sub_desc
+				= f.text_field :sub_desc, :class => 'form-control', :required => true
+			-# .field
+			-# 	= f.label :url
+			-# 	= f.text_field :url
+		.form-group
+			= f.submit 'Save', :class => 'btn btn-sm btn-primary'
