@@ -5,21 +5,21 @@ class StoreController < ApplicationController
   def index
     @messenger_id = params['messenger_id']
     @promos =  Promo.all
-    @merchant = Merchant.all
-    @everydays = Everyday.all
+    @merchant = Merchant.all.order("created_at ASC")
+    @everydays = Everyday.all.order("created_at ASC")
     @settings = Setting.all
     order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
     @order = order
   end
 
   def menu
-    @categories = Category.where(merchant_id: params['id'])
+    @categories = Category.where(merchant_id: params['id']).order("created_at ASC")
     @messenger_id = params['messenger_id']
     @order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
 
     order_items = []
     populars = {}
-    orders = Order.where.not(status: "Open")
+    orders = Order.where.not(status: "Open").order("created_at ASC")
     orders.collect{|x| order_items << x.order_items}
     @order_items = order_items.flatten
 
