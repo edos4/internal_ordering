@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   # Rejected = orders delivered but rejected
   
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  layout false, only: [:track_order]
 
   # GET /orders
   # GET /orders.json
