@@ -6,7 +6,7 @@
 				%ul
 					- @merchant.errors.full_messages.each do |message|
 						%li= message
-		%form.was-validated
+		%form
 			.row.mb-2
 				.col-md-6
 					= f.label :logo

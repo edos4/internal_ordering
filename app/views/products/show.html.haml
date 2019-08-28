@@ -20,34 +20,43 @@
       .col-6.float-right
       = link_to new_product_variant_path(params['id']), :class => "btn btn-primary float-right mt-3 btn-sm ", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('variants.index.add_tooltip') do
         %b Add Variants
-    - if @variants.empty?
-      .widget.widget-content.clearfix
-        .helper-notification
-          %p= t('variants.index.no_records')
-    - else
-      .table-responsive.card.card-small.mt-5
-        .card-body.p-0.pb-3.text-center
-          %table.table.table-striped.table-bordered.table-hover
-            %thead
+  - if @variants.empty?
+    .widget.widget-content.clearfix
+      .helper-notification
+        %p= t('variants.index.no_records')
+  - else
+    .table-responsive.card.card-small.mt-5
+      .card-body.p-0.pb-3.text-center
+        %table.table.table-hover
+          %thead
+            %tr
+              %th= t('variants.index.name')
+              %th= t('variants.index.image')
+              %th= t('variants.index.price')
+              %th= t('variants.index.actions')
+          %tbody
+            - @variants.each do |variant|
               %tr
-                %th= t('variants.index.name')
-                %th= t('variants.index.image')
-                %th= t('variants.index.price')
-            %tbody
-              - @variants.each do |variant|
-                %tr
-                  %td
-                    = variant.name
-                  %td
-                    = variant.image
-                  %td
-                    = variant.price
-                  %td
-                    = link_to 'Show', variant
-                    = link_to 'Edit', edit_variant_path(variant)
-                    = link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' }
-
-
+                %td
+                  = variant.name
+                %td
+                  = variant.image
+                %td
+                  = variant.price
+                %td
+                  .dropdown.dropdown-action
+                    %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                      %i.fa.fa-ellipsis-v
+                    .dropdown-menu.dropdown-menu-right
+                      = link_to edit_variant_path(variant), :class => "dropdown-item" do 
+                        %i.fa.fa-pencil.m-r-5
+                        #text
+                          Edit
+                      = link_to variant, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
+                        %i.fa.fa-remove.m-r-5
+                        #text
+                          Delete
+              
 :javascript
   $(document).ready(function(){
     $('#exportables').DataTable({

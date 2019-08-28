@@ -16,29 +16,35 @@
   - else
     .table-responsive.card.card-small.mt-5
       .card-body.p-0.pb-3.text-center
-        %table.table.table-striped.table-hover
+        %table.table.table-hover
           %thead
             %tr
               %th= t('everydays.index.name')
               %th= t('everydays.index.image')
               %th= t('everydays.index.category')
               %th= t('everydays.index.descrption')
-              %th= t('everydays.index.ev_order')
-              %th
+              %th Actions
           %tbody
             - @everydays.each do |everyday|
               %tr
                 %td
                   = everyday.name
-                %td
+                %td.add
                   = everyday.image
                 %td
                   = everyday.category
                 %td
                   = everyday.description
                 %td
-                  = everyday.ev_order
-                %td
-                  = link_to 'Show', everyday
-                  = link_to 'Edit', edit_everyday_path(everyday)
-                  = link_to 'Destroy', everyday, method: :delete, data: { confirm: 'Are you sure?' }
+                  .dropdown.dropdown-action
+                    %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                      %i.fa.fa-ellipsis-v
+                    .dropdown-menu.dropdown-menu-right
+                      = link_to edit_everyday_path(everyday), :class => "dropdown-item" do 
+                        %i.fa.fa-pencil.m-r-5
+                        #text
+                          Edit
+                      = link_to  everyday, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
+                        %i.fa.fa-remove.m-r-5
+                        #text
+                          Delete

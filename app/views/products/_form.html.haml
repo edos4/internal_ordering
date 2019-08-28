@@ -1,23 +1,28 @@
 = form_for @product do |f|
-  - if @product.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
-      %ul
-        - @product.errors.full_messages.each do |message|
-          %li= message
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :image
-    = f.file_field :image, id: :product_image
-  .field
-    = f.hidden_field :category_id,:value => "#{params['id']}", :class => 'form-control'
-    = f.label :category_id
-    = f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
-  .actions
-    = f.submit 'Save'
+	.form-container
+	- if @product.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+			%ul
+				- @product.errors.full_messages.each do |message|
+					%li= message
+	%form
+		.row.mb-2
+			.col-md-6
+				= f.label :image
+				.custom-file.w-100
+					= f.file_field :image, id: :product_image, :class=> "custom-file-input", :id=>"logo"
+					= f.label :choose_file, :class=> "custom-file-label", :for=>"logo"
+			.col-md-6
+				= f.label :name
+				= f.text_field :name, :class => 'form-control', :required => true
+		.row.mb-2
+			.col-md-6
+				= f.label :description
+				= f.text_field :description, :class => 'form-control', :required => true
+			.col-md-6
+				= f.hidden_field :category_id,:value => "#{params['id']}", :class => 'form-control'
+				= f.label :category_id
+				= f.select 'category_id', options_for_select(Category.all.order(:name).collect{ |u| [u.name, u.id] }), :required => true
+		.actions
+			= f.submit 'Save', :class=> "btn btn-primary btn-sm"

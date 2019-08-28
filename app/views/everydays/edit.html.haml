@@ -1,7 +1,6 @@
-%h1 Editing everyday
-
-= render 'form'
-
-= link_to 'Show', @everyday
-\|
-= link_to 'Back', everydays_path
+.main-content-container.container-fluid.px-4
+	.page-header.no-gutters.py-4
+		.col-12.text-center.text-sm-left.mb-0.pb-3
+			%span.text-uppercase.page-subtitle Overview
+			%h3.page-title.col-12 Update Everyday
+			= render 'form'
