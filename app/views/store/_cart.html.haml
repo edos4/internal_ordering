@@ -20,7 +20,7 @@
     .details-section
       .total
         %h3 Sub Total
-        %h3.total-value ₱#{total}
+        %h3#subtotal.total-value ₱#{total}
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
       .total
         %h3 Tax & Fees
@@ -53,6 +53,7 @@
       },
       success: function(data){
         $('#p_'+id).html('₱'+data['item_price']);
+        $('#subtotal').html('₱'+data['total']);
         $('.total_price').html('₱'+data['total']);
       }
     });
