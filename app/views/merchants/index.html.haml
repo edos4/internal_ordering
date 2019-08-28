@@ -22,22 +22,21 @@
     - else
     .table-responsive.card.card-small.mt-5
       .card-body.p-0.pb-3.text-center
-        %table.table.table-hover
+        %table.table#dttb{:role => 'datatable'}
           %thead
             %tr
               %th= t('merchants.index.name')
-              %th= t('merchants.index.logo')
+              %th.add= t('merchants.index.logo')
               %th= t('merchants.index.desc')
               %th= t('merchants.index.sub_desc')
               %th= t('merchants.index.price')
-              %th= t('merchants.index.url')
               %th Actions
           %tbody
             - @merchants.each do |merchant|
               %tr
                 %td
                   = merchant.name
-                %td
+                %td.add
                   = merchant.logo
                 %td
                   = merchant.desc 
@@ -45,8 +44,6 @@
                   = merchant.sub_desc 
                 %td
                   = merchant.price 
-                %td
-                  = merchant.url
                 %td
                   .dropdown.dropdown-action
                     %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}

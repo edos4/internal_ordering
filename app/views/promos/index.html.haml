@@ -19,25 +19,22 @@
 				%table.table.table-hover
 					%thead
 						%tr
-							%th= t('promos.index.image')
 							%th= t('promos.index.title')
+							%th= t('promos.index.image')
 							%th= t('promos.index.desc')
 							%th= t('promos.index.sub_desc')
-							%th= t('promos.index.url')
 							%th Actions
 					%tbody
 						- @promos.each do |promo|
 							%tr
 								%td
-									= promo.image
-								%td
 									= promo.title
+								%td.add
+									= promo.image
 								%td
 									= promo.desc
 								%td
 									= promo.sub_desc
-								%td
-									= promo.url
 								%td
 									.dropdown.dropdown-action
 										%a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}

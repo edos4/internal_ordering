@@ -23,21 +23,18 @@
               %th= t('everydays.index.image')
               %th= t('everydays.index.category')
               %th= t('everydays.index.descrption')
-              %th= t('everydays.index.ev_order')
               %th Actions
           %tbody
             - @everydays.each do |everyday|
               %tr
                 %td
                   = everyday.name
-                %td
+                %td.add
                   = everyday.image
                 %td
                   = everyday.category
                 %td
                   = everyday.description
-                %td
-                  = everyday.ev_order
                 %td
                   .dropdown.dropdown-action
                     %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}

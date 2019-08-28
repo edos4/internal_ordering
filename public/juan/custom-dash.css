@@ -78,3 +78,9 @@ select#everyday_category {
     transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
     border-radius: .375rem;
 }
+.add {
+    white-space: nowrap;
+    max-width: 12rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
