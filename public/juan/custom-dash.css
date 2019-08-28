@@ -84,3 +84,6 @@ select#everyday_category {
     text-overflow: ellipsis;
     overflow: hidden;
 }
+tbody {
+    font-weight: 300;
+}
