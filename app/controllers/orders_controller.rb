@@ -67,8 +67,13 @@ class OrdersController < ApplicationController
   end
 
   def track_order
-    @order = Order.find(params[:id])
-    @driver_id = @order.driver.devise_id
+    require 'rest-client'
+    order = Order.find(params[:id])
+    driver_id = order.driver.devise_id
+
+    request = RestClient::Request.execute(url: "https://v3.api.hypertrack.com/devices/#{driver_id}", method: :get, user: ENV["HYPERTRACK_ACCT_ID"], password: ENV["HYPERTRACK_SECRET_KEY"])
+    parsed_body = JSON.parse(request.body)
+    @share_url = parsed_body['views']['share_url']
   end
 
   private
