@@ -221,15 +221,17 @@ line-height: 1;
 }
 section.welcome {
 position: relative;
-min-height: 300px;
-background-color: #1479fb;
-background-size: cover;
 }
 
-.welcome h1{
-font-size: 2.415rem;
-color: #fff;
+.welcome input{
+position: absolute;
+z-index: 1;
+width: 60%;
 text-align: center;
+transform: translate(5rem, 11rem);
+border-radius: 1rem;
+padding: 10px;
+box-shadow: 1px 1px 5px 0px rgb(15, 113, 203);
 }
 
 section.section-title {
@@ -548,6 +550,7 @@ button.bg-primary.cart-quantity{
 	padding: 5px 20px;
 	color: #fff;
 	font-size: 12px;
+	margin-right: 15px;
 	border: 1.5px solid #fff;
 }
 .element {
@@ -653,6 +656,14 @@ div#cart-details {
 	border-top: none;
 	color: black;
 	/* font-weight: bolder; */
+}
+.welcome-heading img {
+	width: 100%;
+    display: block;
+    max-width: 100%;
+	height: auto;
+	position: relative;
+    margin-top:  2.5rem;
 }
 .welcome-heading-sub {
 	position: absolute;
