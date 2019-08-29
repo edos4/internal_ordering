@@ -660,7 +660,6 @@ div#cart-details {
 .welcome-heading img {
 	width: 100%;
     display: block;
-    max-width: 100%;
 	height: auto;
 	position: relative;
     margin-top:  2.5rem;
