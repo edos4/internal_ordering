@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
-    @order.update(driver_id: params['order']['driver_id'], status: 'Processing')
+    @order.update(driver_id: params['order']['driver_id'], status: 'En route')
     @driver_id = @order.driver.devise_id
     BotController.send_chatfuel(@order.messenger_id, "track_order", @order.id, @driver_id)
     redirect_to orders_url
@@ -80,7 +80,7 @@ class OrdersController < ApplicationController
     params.permit!
     @order = Order.find(params['id'])
     @order.update(status: 'Processing')
-    BotController.send_chatfuel_msg(@order.messenger_id, "msg", "msg=Processing your Order now.")
+    BotController.send_chatfuel_msg(@order.messenger_id, "msg", "msg=Your order is now being processed.")
     redirect_to orders_url
   end
 
