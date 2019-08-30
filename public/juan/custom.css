@@ -596,13 +596,18 @@ label.custom-control-label {
 #delivery_details input:focus {
 	box-shadow: none;
 }
-.form{
+#col input {
 	border: 1px solid white;
     border-bottom: 1px solid #ececec;
     border-radius: 0;
     padding-left: 0;
 	font-size: 13px;
 	background-color: white !important;
+}
+#col input:focus {
+	box-shadow: none;
+	border-color: none;
+
 }
 .form-row {
 	margin-bottom: 10px;
