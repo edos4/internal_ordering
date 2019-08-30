@@ -1,35 +1,32 @@
 %section#view_cart
-  .container
-    %h4.section-title Cart Details 
-    %h6.cart-details.border-bottom Crib
-    / Form Controls: Simple Forms
-    - total = 0
-    - @order.order_items.each do |item|
-      .accordion-item{"data-id" => "301"}
-        .product-info
-          .upper-product-info
-            .product-qty
-              %input.i_quantity{:class=> 'box-qty',:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value => "#{item.quantity}"}
-              
-            .product-text
-              %h2 #{item.variant.name}
-              %p.description x ₱#{item.variant.price}
-            %p.price{:id=>"p_#{item.id}"} ₱#{item.quantity * item.variant.price}
-            - total += item.quantity * item.variant.price
-    
-    .details-section
-      .total
-        %h3 Sub Total
-        %h3.total-value ₱#{total}
-        %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
-      .total
-        %h3 Delivery
-        %h3.total-value ₱TBD
-        %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
-      .amount.border-top
-        %h3.pt-2 Total Amount
-        %h3.total-value.pt-2.total_price ₱#{total}
-        %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/
+  %h4.section-title Cart Details 
+  %h6.cart-details.border-bottom Crib
+  / Form Controls: Simple Forms
+  - total = 0
+  - @order.order_items.each do |item|
+    .accordion-item{"data-id" => "301"}
+      .product-info
+        .upper-product-info
+          .product-qty
+            %input.i_quantity{:class=> 'box-qty',:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value => "#{item.quantity}"}
+          .product-text
+            %h2 #{item.variant.name}
+            %p.description x ₱#{item.variant.price}
+          %p.price{:id=>"p_#{item.id}"} ₱#{item.quantity * item.variant.price}
+          - total += item.quantity * item.variant.price
+  .details-section
+    .total
+      %h3 Sub Total
+      %h3.total-value ₱#{total}
+      %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
+    .total
+      %h3 Delivery
+      %h3.total-value ₱TBD
+      %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
+    .amount.border-top
+      %h3.pt-2 Total Amount
+      %h3.total-value.pt-2.total_price ₱#{total}
+      %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/
 
 
 :javascript
