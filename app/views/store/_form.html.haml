@@ -33,43 +33,13 @@
                   %input#form1-number.form-control{:disabled => 'true',:placeholder => "Today", :type => "text"}/
                 .form-group.col-md-6
                   %input#form1-phone.form-control{:disabled => 'true',:placeholder => "30 - 45 mins", :type => "number"}/
-                / .form-group.col-md-6
-                /   = o.text_field :custumer_name, {::type => "text", :placeholder => "Today", :id => 'form1-number', :class => 'form-control'}
-                / .form-group.col-md-6
-                /   = o.text_field :custumer_name, {:type => "number", :placeholder => "30 - 45 mins", :id => 'form1-phone', :class => 'form-control'}
-              .actions
-                / %button.btn.btn-primary.float-right{:type => "button"} Confirm    
-          .row.form-details.container
-            %h6 Select Payment
-            .col-md-12
-              .row
-                .form-group.col-md-6
-                  %fieldset#checkout
-                    .custom-control.custom-radio#form-rad
-                      = o.radio_button :payment_option, "cash", checked: true
-                      %label{:for => "cash"} Cash on Delivery
-                / .form-group.col-md-4
-                /   %fieldset
-                /     .custom-control.custom-radio.d-line.my-2
-                /       = o.radio_button :payment_option, {disabled: 'true', id: 'credit'}
-                /       %label{:for => "credit"} Credit Card
-                / .form-group.col-md-4
-                /   %fieldset
-                /     .custom-control.custom-radio.d-line.my-2
-                /       = o.radio_button :payment_option, {disabled: 'true',id: 'debit'}
-                /       %label{:for => "debit"} Debit Card
-              / .form-group
-              /   %input#form1-name.form-control{:disabled => 'true',:type => "text", :placeholder => "Card Number"}/
-              / .row
-              /   .form-group.col-md-4
-              /     %input#form1-number.form-control{:disabled => 'true',:placeholder => "MM/YY", :type => "text"}/
-              /   .form-group.col-md-4
-              /     %input#form1-phone.form-control{:disabled => 'true',:placeholder => "CVV", :type => "text"}/
-              /   .form-group.col-md-4
-              /     %input#form1-phone.form-control{:disabled => 'true',:placeholder => "Zip Code", :type => "text"}/
-        #form-cart.col-lg-6.col-md-6
-          = render 'cart' 
+          %h6 Select Payment
+          .form-group.container
+            %fieldset#checkout
+              .custom-control.custom-radio#form-rad
+                = o.radio_button :payment_option, "cash", checked: true
+                %label{:for => "cash"} Cash on Delivery
           = o.submit 'Continue', :class => 'btn btn-primary form-btn'
-
+                
 %script{:async => "", :defer => "defer", :src => "/initmap.js"}
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCkA6UUfUflPmL3pkQvbN_tUpS-hAT-RbY&libraries=places&callback=initMap"}

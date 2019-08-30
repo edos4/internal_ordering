@@ -350,11 +350,6 @@ color: #adadad;
 #form-details h6 {
 margin-bottom: 0;
 }
-background-color: white;
-box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
-text-align: center;
-margin-top: 10px;
-padding: 5px 0;
 .card {
 background-color: transparent;
 box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
@@ -394,8 +389,7 @@ margin-top: -6rem;
 padding: 0;
 }
 .form-btn {
-width: 94%;
-margin: 10px 15px;
+width: 100%;
 }
 .custom-radio .warning:checked~.custom-control-label::before
 {
@@ -836,8 +830,6 @@ div#cart-details {
 		display: flex;
 		flex-direction: row;
 		margin-left: -10px;
-		border-bottom: .5px solid #efefef;
-		margin-top: 20px;
 }
 .accordion-item img{
 	flex: 1;
@@ -1087,11 +1079,13 @@ input{
 		left: -2px;
 }
 .details-section{
-		padding-top: 1em;
+		border-top: 1px solid #ededed;
+		padding-top: 10px;
 }
 .details-section h3{
 		text-transform: uppercase;
 		font-size: .8em;
+		line-height: 1.6rem;
 		color: #989898;
 }
 .total-value{
@@ -1422,7 +1416,7 @@ p.error-message {
 			margin-top: 4.2rem;
 	}
 	#checkout-wrapper {
-			margin: 5rem 0;
+			margin: 1rem 0;
 	}
 	}
 	.card-img-top {
@@ -1432,7 +1426,7 @@ p.error-message {
 			padding: 5px;
 	}
 	section#checkout-wrapper {
-		margin-top: 6rem;
+		margin-top: 1rem;
 	}
 	.hs { 
 			grid-auto-columns: calc(110% - var(--gutter) * 2);
