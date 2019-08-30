@@ -76,6 +76,14 @@ class OrdersController < ApplicationController
     @share_url = parsed_body['views']['share_url']
   end
 
+  def process_order
+    params.permit!
+    @order = Order.find(params['id'])
+    @order.update(status: 'Processing')
+    BotController.send_chatfuel_msg(@order.messenger_id, "msg", "msg=Processing your Order now.")
+    redirect_to orders_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -84,7 +92,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:driver_id, :messenger_id, :custumer_name, :contact_no, :address, :coordinates, :delivery_option, :payment_option, :reference_number, :message)
+      params.require(:order).permit(:id, :driver_id, :messenger_id, :custumer_name, :contact_no, :address, :coordinates, :delivery_option, :payment_option, :reference_number, :message)
     end
 end
 

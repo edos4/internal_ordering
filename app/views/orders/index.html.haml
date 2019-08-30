@@ -53,7 +53,7 @@
                             = order.message
                           %td
                             = link_to 'Items', order
-                            = link_to 'Assign Driver', edit_order_path(order)
+                            = link_to 'Process Order', process_order_path(order.id), method: :posts
           #processing.tab-pane.fade{"aria-labelledby" => "processing-tab", :role => "tabpanel"}
             - if @orders.where(status: 'Processing').empty?
               .widget.widget-content.clearfix
@@ -70,7 +70,6 @@
                         %th= t('orders.index.address')
                         %th= t('orders.index.delivery_option')
                         %th= t('orders.index.payment_option')
-                        %th= t('orders.index.driver')
                         %th= t('orders.index.message')
                         %th
                     %tbody
@@ -87,12 +86,11 @@
                           %td
                             = order.payment_option
                           %td
-                            = order.driver.name
-                          %td
                             = order.message
                           %td
                             = link_to 'Items', order
-                            = link_to 'Track', "/orders/track_order/#{order.id}"
+                            = link_to 'Assign Driver', edit_order_path(order)
+                            
 
           #en_route.tab-pane.fade{"aria-labelledby" => "en_route-tab", :role => "tabpanel"}
             - if @orders.where(status: 'En route').empty?
@@ -132,3 +130,4 @@
                             = order.message
                           %td
                             = link_to 'Items', order
+                            = link_to 'Track', "/orders/track_order/#{order.id}"
