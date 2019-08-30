@@ -1,8 +1,7 @@
 %section#view_cart
-  .container
-    %h4.section-title Cart Details 
-    %h6.cart-details.border-bottom Crib
-    / Form Controls: Simple Forms
+  %h6.cart-details.border-bottom Crib
+  / Form Controls: Simple Forms
+  .items
     - total = 0
     - @order.order_items.each do |item|
       .accordion-item{"data-id" => "301"}
@@ -10,13 +9,11 @@
           .upper-product-info
             .product-qty
               %input.i_quantity{:class=> 'box-qty',:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value => "#{item.quantity}"}
-              
             .product-text
               %h2 #{item.variant.name}
               %p.description x ₱#{item.variant.price}
             %p.price{:id=>"p_#{item.id}"} ₱#{item.quantity * item.variant.price}
             - total += item.quantity * item.variant.price
-    
     .details-section
       .total
         %h3 Sub Total
