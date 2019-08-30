@@ -1,6 +1,9 @@
 :root {
 	--gutter: 20px;
 	}
+.navbar {
+	padding: .75rem 10px;
+}
 .card-swipe {
 display: -ms-flexbox;
 display: grid;
