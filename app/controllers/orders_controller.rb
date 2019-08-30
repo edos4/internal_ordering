@@ -80,7 +80,7 @@ class OrdersController < ApplicationController
     params.permit!
     @order = Order.find(params['id'])
     @order.update(status: 'Processing')
-    BotController.send_chatfuel_msg(@order.messenger_id, "msg", "msg=Processing your Order now.")
+    BotController.send_chatfuel_msg(@order.messenger_id, "msg", "msg=Your order is now being processed.")
     redirect_to orders_url
   end
 
