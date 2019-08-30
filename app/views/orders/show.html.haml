@@ -15,13 +15,19 @@
       %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
         %thead
           %tr
-            %th= t('order_items.index.variant_id')
+            %th= t('order_items.index.merchant')
+            %th= t('order_items.index.product')
+            %th= t('order_items.index.variant')
             %th= t('order_items.index.quantity')
             %th= t('order_items.index.cancel_option')
             / %ths
         %tbody
           - @order_items.each do |order_items|
             %tr
+              %td
+                = order_items.variant.product.category.merchant.name
+              %td
+                = order_items.variant.product.name
               %td
                 = order_items.variant.name
               %td
