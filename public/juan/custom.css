@@ -349,12 +349,8 @@ color: #adadad;
 }
 #form-details h6 {
 margin-bottom: 0;
+font-size: 11px;
 }
-background-color: white;
-box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
-text-align: center;
-margin-top: 10px;
-padding: 5px 0;
 .card {
 background-color: transparent;
 box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
@@ -394,8 +390,7 @@ margin-top: -6rem;
 padding: 0;
 }
 .form-btn {
-width: 94%;
-margin: 10px 15px;
+width: 100%;
 }
 .custom-radio .warning:checked~.custom-control-label::before
 {
@@ -550,7 +545,6 @@ button.bg-primary.cart-quantity{
 	padding: 5px 20px;
 	color: #fff;
 	font-size: 12px;
-	margin-right: 15px;
 	border: 1.5px solid #fff;
 }
 .element {
@@ -580,6 +574,34 @@ button.bg-primary.cart-quantity{
 	/* top: 4rem; */
 	margin-top: 4.3rem;
 	padding-top: 3rem;
+}
+#delivery_details input {
+	border: 1px solid white;
+    border-bottom: 1px solid #ececec;
+    border-radius: 0;
+    padding-left: 0;
+	font-size: 13px;
+	padding-bottom: 5px;
+}
+label.custom-control-label {
+    font-size: 13px;
+}
+.form-group {
+	margin-bottom: 10px;
+}
+#delivery_details input:focus {
+	box-shadow: none;
+}
+.form{
+	border: 1px solid white;
+    border-bottom: 1px solid #ececec;
+    border-radius: 0;
+    padding-left: 0;
+	font-size: 13px;
+	background-color: white !important;
+}
+.form-row {
+	margin-bottom: 10px;
 }
 .page-content {
 	min-height: 91vh;
@@ -835,8 +857,6 @@ div#cart-details {
 		display: flex;
 		flex-direction: row;
 		margin-left: -10px;
-		border-bottom: .5px solid #efefef;
-		margin-top: 20px;
 }
 .accordion-item img{
 	flex: 1;
@@ -1086,11 +1106,13 @@ input{
 		left: -2px;
 }
 .details-section{
-		padding-top: 1em;
+		border-top: 1px solid #ededed;
+		padding-top: 10px;
 }
 .details-section h3{
 		text-transform: uppercase;
 		font-size: .8em;
+		line-height: 1.6rem;
 		color: #989898;
 }
 .total-value{
@@ -1108,7 +1130,7 @@ input{
 		border: 1px solid #ececec;
 }
 #checkout{
-		padding: 10px;
+		padding: 10px 0px 0px;
 }
 #checkout #checkout-button{
 		box-sizing: border-box;
@@ -1420,8 +1442,17 @@ p.error-message {
 			margin-bottom: 3rem;
 			margin-top: 4.2rem;
 	}
-	#checkout-wrapper {
-			margin: 5rem 0;
+	#checkout-wrapper.mobile  {
+			margin-top: 1rem;
+			background-color: #fff;
+			padding: 10px 10px 0px 10px;
+			border-radius: 5px;
+	}
+	input.btn-out {
+		margin-left: 6px;
+		margin-right: 6px;
+		border-radius: 0;
+		margin-top: 10px;
 	}
 	}
 	.card-img-top {
