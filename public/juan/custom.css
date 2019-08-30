@@ -212,7 +212,7 @@ section#menu-header {
 margin-bottom: -3.85rem;
 }
 section#view_cart {
-margin-top: 6rem;
+margin-top: 5rem;
 }
 section#checkout-wrapper {
 margin-top: 7rem;
@@ -352,7 +352,8 @@ color: #adadad;
 }
 #form-details h6 {
 margin-bottom: 0;
-font-size: 11px;
+font-size: 12px;
+font-weight: 500;
 }
 .card {
 background-color: transparent;
@@ -418,6 +419,11 @@ padding: 3px;
 background: transparent;
 border: 1px solid #e6e6e6;
 text-align: center;
+}
+#view_cart h6 {
+	padding-top: 10px;
+	font-size: 15px;
+    font-weight: 500;
 }
 
 /* Clean code  */ 
@@ -595,6 +601,12 @@ label.custom-control-label {
 }
 #delivery_details input:focus {
 	box-shadow: none;
+}
+.bg {
+	background-color: #fff;
+	padding: 0 10px 1px 10px;
+	border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 #col input {
 	border: 1px solid white;
@@ -1116,7 +1128,8 @@ input{
 }
 .details-section{
 		border-top: 1px solid #ededed;
-		padding-top: 10px;
+		padding-top: 15px;
+		margin-top: 10px;
 }
 .details-section h3{
 		text-transform: uppercase;
@@ -1151,14 +1164,21 @@ input{
 		display: flex;
 		justify-content: space-between;
 }
+.items {
+    padding-top: 15px;
+}
 .amount {
-	margin-top: 1.5rem;
+	margin-top: 1rem;
 	display: flex;
 	margin-bottom: 10px;
+	padding-top: 10px;
+    padding-bottom: 5px;
 	justify-content: space-between;
 }
+.border-top {
+    border-top: 1px solid #e8e8e8!important;
+}
 .amount h3 {
-	margin-top: 10px;
 	color: #000;
 	font-weight: bold;
 }
@@ -1455,7 +1475,8 @@ p.error-message {
 			margin-top: 1rem;
 			background-color: #fff;
 			padding: 10px 10px 0px 10px;
-			border-radius: 5px;
+			border-bottom-right-radius: 5px;
+    		border-bottom-left-radius: 5px;
 	}
 	input.btn-out {
 		margin-left: 6px;
