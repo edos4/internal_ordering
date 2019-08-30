@@ -30,7 +30,7 @@ class BotController < ApplicationController
 
     RestClient::Request.new({
       method: :post,
-      url: "https://api.chatfuel.com/bots/#{ENV['chatfuel_key']}/users/#{messenger_id}/send?chatfuel_token=mELtlMAHYqR0BvgEiMq8zVek3uYUK3OJMbtyrdNPTrQB9ndV0fM7lWTFZbM4MZvD&chatfuel_message_tag=CONFIRMED_EVENT_REMINDER&chatfuel_block_name=#{block_name}&#{params}",
+      url: "https://api.chatfuel.com/bots/5d4d0b8f4c69c80001e289b5/users/#{messenger_id}/send?chatfuel_token=mELtlMAHYqR0BvgEiMq8zVek3uYUK3OJMbtyrdNPTrQB9ndV0fM7lWTFZbM4MZvD&chatfuel_message_tag=CONFIRMED_EVENT_REMINDER&chatfuel_block_name=#{block_name}&#{params}",
       headers: { 
         accept: :json, 
         content_type: :json
