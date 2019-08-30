@@ -228,7 +228,7 @@ position: absolute;
 z-index: 1;
 width: 60%;
 text-align: center;
-transform: translate(5rem, 11rem);
+transform: translate(5rem, 12.5rem);
 border-radius: 1rem;
 padding: 10px;
 box-shadow: 1px 1px 5px 0px rgb(15, 113, 203);
@@ -353,7 +353,6 @@ font-size: 11px;
 }
 .card {
 background-color: transparent;
-/* box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1); */
 }
 .card a{
 color: #333;
