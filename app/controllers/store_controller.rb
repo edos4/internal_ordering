@@ -55,7 +55,9 @@ class StoreController < ApplicationController
   def pending
     params.permit!
     @order = Order.find_by(messenger_id: params['messenger_id'], status: "Open")
-    @order.update!(custumer_name: params['order']['custumer_name'], contact_no: params['order']['contact_no'], address: params['delivery_address_attributes'], payment_option: params['order']['payment_option'], message: params['order']['message'], status: "Pending", coordinates: params['order']['coordinates'])
+    raw_coords = JSON.parse(params['order']['coordinates'])
+    coords = "#{raw_coords['lat']},#{raw_coords['lng']}"
+    @order.update!(custumer_name: params['order']['custumer_name'], contact_no: params['order']['contact_no'], address: params['delivery_address_attributes'], payment_option: params['order']['payment_option'], message: params['order']['message'], status: "Pending", coordinates: coords)
     redirect_to "/store/completed?messenger_id=#{params['messenger_id']}"
   end
   
