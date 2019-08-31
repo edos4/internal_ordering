@@ -112,7 +112,7 @@
                         %th= t('orders.index.message')
                         %th
                     %tbody
-                      - @orders.where(status: 'Processing').each do |order|
+                      - @orders.where(status: 'En route').each do |order|
                         %tr
                           %td
                             = order.custumer_name
