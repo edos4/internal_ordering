@@ -14,20 +14,21 @@
               %p.description x ₱#{item.variant.price}
             %p.price{:id=>"p_#{item.id}"} ₱#{item.quantity * item.variant.price}
             - total += item.quantity * item.variant.price
-  .details-section
-    .total
-      %h3 Sub Total
-      %h3.total-value ₱#{total}
-      %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
-    .total
-      %h3 Delivery
-      %h3.total-value ₱TBD
-      %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
-    .amount.border-top
-      %h3.pt-2 Total Amount
-      %h3.total-value.pt-2.total_price ₱#{total}
-      %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/
-
+    .details-section
+      .total
+        %h3 Sub Total
+        %h3.total-value ₱#{total}
+        %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
+      .total
+        %h3 Delivery
+        %h3.total-value ₱TBD
+        %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
+      .amount.border-top
+        %h3.pt-2 Total Amount
+        %h3.total-value.pt-2.total_price ₱#{total}
+        %input.total-value{:name => "gross_amount", :type => "hidden", :value => "#{total}"}/
+    -#%button.btn.btn-block.btn-primary#checkout{display: false}
+      -#CHECKOUT
 
 :javascript
   function update_qty(id, value){

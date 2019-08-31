@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
-    @order.update(driver_id: params['order']['driver_id'], status: 'Processing')
+    @order.update(driver_id: params['order']['driver_id'], status: 'En route')
     @driver_id = @order.driver.devise_id
     BotController.send_chatfuel(@order.messenger_id, "track_order", @order.id, @driver_id)
     redirect_to orders_url
@@ -76,6 +76,21 @@ class OrdersController < ApplicationController
     @share_url = parsed_body['views']['share_url']
   end
 
+  def process_order
+    params.permit!
+    @order = Order.find(params['id'])
+    @order.update(status: 'Processing')
+    BotController.send_chatfuel_msg(@order.messenger_id, "msg", "msg=Your order is now being processed.")
+    redirect_to orders_url
+  end
+
+  def complete_order
+    params.permit!
+    @order = Order.find(params['id'])
+    @order.update(status: 'Completed')
+    redirect_to orders_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -84,7 +99,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:driver_id, :messenger_id, :custumer_name, :contact_no, :address, :coordinates, :delivery_option, :payment_option, :reference_number, :message)
+      params.require(:order).permit(:id, :driver_id, :messenger_id, :custumer_name, :contact_no, :address, :coordinates, :delivery_option, :payment_option, :reference_number, :message)
     end
 end
 

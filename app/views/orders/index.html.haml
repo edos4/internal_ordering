@@ -14,6 +14,8 @@
             %a#processing-tab.nav-link{"aria-controls" => "processing", "aria-selected" => "false", "data-toggle" => "tab", :href => "#processing", :role => "tab"} Processing
           %li.nav-item
             %a#en_route-tab.nav-link{"aria-controls" => "en_route", "aria-selected" => "false", "data-toggle" => "tab", :href => "#en_route", :role => "tab"} En Route
+          %li.nav-item
+            %a#completed-tab.nav-link{"aria-controls" => "completed", "aria-selected" => "false", "data-toggle" => "tab", :href => "#completed", :role => "tab"} Completed
         #myTabContent.tab-content
           #pending.tab-pane.fade.show.active{"aria-labelledby" => "home-tab", :role => "tabpanel"}
             - if @orders.where(status: 'Pending').empty?
@@ -26,6 +28,7 @@
                   %table.table.table-striped.table-hover
                     %thead
                       %tr
+                        %th= t('orders.index.id')
                         %th= t('orders.index.customer_name')
                         %th= t('orders.index.contact_no')
                         %th= t('orders.index.address')
@@ -37,6 +40,8 @@
                     %tbody
                       - @orders.where(status: 'Pending').each do |order|
                         %tr
+                          %td
+                            = order.id.split("-").first
                           %td
                             = order.custumer_name
                           %td
@@ -53,7 +58,8 @@
                             = order.message
                           %td
                             = link_to 'Items', order
-                            = link_to 'Assign Driver', edit_order_path(order)
+                            |
+                            = link_to 'Process Order', process_order_path(order.id), method: :post
           #processing.tab-pane.fade{"aria-labelledby" => "processing-tab", :role => "tabpanel"}
             - if @orders.where(status: 'Processing').empty?
               .widget.widget-content.clearfix
@@ -65,17 +71,19 @@
                   %table.table.table-striped.table-hover
                     %thead
                       %tr
+                        %th= t('orders.index.id')
                         %th= t('orders.index.customer_name')
                         %th= t('orders.index.contact_no')
                         %th= t('orders.index.address')
                         %th= t('orders.index.delivery_option')
                         %th= t('orders.index.payment_option')
-                        %th= t('orders.index.driver')
                         %th= t('orders.index.message')
                         %th
                     %tbody
                       - @orders.where(status: 'Processing').each do |order|
                         %tr
+                          %td
+                            = order.id.split("-").first
                           %td
                             = order.custumer_name
                           %td
@@ -87,12 +95,12 @@
                           %td
                             = order.payment_option
                           %td
-                            = order.driver.name
-                          %td
                             = order.message
                           %td
                             = link_to 'Items', order
-                            = link_to 'Track', "/orders/track_order/#{order.id}"
+                            |
+                            = link_to 'Assign Driver', edit_order_path(order)
+                            
 
           #en_route.tab-pane.fade{"aria-labelledby" => "en_route-tab", :role => "tabpanel"}
             - if @orders.where(status: 'En route').empty?
@@ -105,6 +113,7 @@
                   %table.table.table-striped.table-hover
                     %thead
                       %tr
+                        %th= t('orders.index.id')
                         %th= t('orders.index.customer_name')
                         %th= t('orders.index.contact_no')
                         %th= t('orders.index.address')
@@ -114,8 +123,10 @@
                         %th= t('orders.index.message')
                         %th
                     %tbody
-                      - @orders.where(status: 'Processing').each do |order|
+                      - @orders.where(status: 'En route').each do |order|
                         %tr
+                          %td
+                            = order.id.split("-").first
                           %td
                             = order.custumer_name
                           %td
@@ -132,3 +143,46 @@
                             = order.message
                           %td
                             = link_to 'Items', order
+                            |
+                            = link_to 'Track', "/orders/track_order/#{order.id}"
+                            |
+                            = link_to 'Complete Order', complete_order_path(order.id), method: :post
+
+          #completed.tab-pane.fade{"aria-labelledby" => "completed-tab", :role => "tabpanel"}
+            - if @orders.where(status: 'Completed').empty?
+              .widget.widget-content.clearfix
+                .helper-notification
+                  %p= t('orders.index.no_records')
+            - else
+              .table-responsive.card.card-small.mt-5
+                .card-body.p-0.pb-3.text-center
+                  %table.table.table-striped.table-hover
+                    %thead
+                      %tr
+                        %th= t('orders.index.id')
+                        %th= t('orders.index.customer_name')
+                        %th= t('orders.index.contact_no')
+                        %th= t('orders.index.address')
+                        %th= t('orders.index.delivery_option')
+                        %th= t('orders.index.payment_option')
+                        %th= t('orders.index.driver')
+                        %th= t('orders.index.message')
+                    %tbody
+                      - @orders.where(status: 'Completed').each do |order|
+                        %tr
+                          %td
+                            = order.id.split("-").first
+                          %td
+                            = order.custumer_name
+                          %td
+                            = order.contact_no
+                          %td
+                            = order.address
+                          %td
+                            = order.delivery_option
+                          %td
+                            = order.payment_option
+                          %td
+                            = order.driver.name
+                          %td
+                            = order.message
