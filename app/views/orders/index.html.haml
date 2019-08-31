@@ -26,6 +26,7 @@
                   %table.table.table-striped.table-hover
                     %thead
                       %tr
+                        %th= t('orders.index.id')
                         %th= t('orders.index.customer_name')
                         %th= t('orders.index.contact_no')
                         %th= t('orders.index.address')
@@ -37,6 +38,8 @@
                     %tbody
                       - @orders.where(status: 'Pending').each do |order|
                         %tr
+                          %td
+                            = order.id.split("-").first
                           %td
                             = order.custumer_name
                           %td
@@ -65,6 +68,7 @@
                   %table.table.table-striped.table-hover
                     %thead
                       %tr
+                        %th= t('orders.index.id')
                         %th= t('orders.index.customer_name')
                         %th= t('orders.index.contact_no')
                         %th= t('orders.index.address')
@@ -75,6 +79,8 @@
                     %tbody
                       - @orders.where(status: 'Processing').each do |order|
                         %tr
+                          %td
+                            = order.id.split("-").first
                           %td
                             = order.custumer_name
                           %td
@@ -103,6 +109,7 @@
                   %table.table.table-striped.table-hover
                     %thead
                       %tr
+                        %th= t('orders.index.id')
                         %th= t('orders.index.customer_name')
                         %th= t('orders.index.contact_no')
                         %th= t('orders.index.address')
@@ -114,6 +121,8 @@
                     %tbody
                       - @orders.where(status: 'En route').each do |order|
                         %tr
+                          %td
+                            = order.id.split("-").first
                           %td
                             = order.custumer_name
                           %td
