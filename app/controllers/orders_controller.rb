@@ -84,6 +84,13 @@ class OrdersController < ApplicationController
     redirect_to orders_url
   end
 
+  def complete_order
+    params.permit!
+    @order = Order.find(params['id'])
+    @order.update(status: 'Completed')
+    redirect_to orders_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
