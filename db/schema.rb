@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_081651) do
+ActiveRecord::Schema.define(version: 2019_09_01_085551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -70,13 +70,14 @@ ActiveRecord::Schema.define(version: 2019_08_26_081651) do
     t.string "coordinates"
     t.string "delivery_option"
     t.string "payment_option"
-    t.string "reference_number"
+    t.string "reference_number", default: "6e84b6"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "Open"
     t.string "company_name"
     t.string "driver_id"
+    t.string "share_url"
   end
 
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
