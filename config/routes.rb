@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'store/view_cart' => 'store#view_cart', :as => :view_cart
   get '/orders/track_order/:id' => 'orders#track_order', :as => :track_order
   get '/orders/process_order/:id' => 'orders#process_order', :as => :process_order
+  get '/orders/complete_order/:id' => 'orders#complete_order', :as => :complete_order
   
   resources :carts, only: [] do
     collection do

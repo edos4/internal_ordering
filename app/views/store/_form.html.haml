@@ -10,7 +10,7 @@
             #delivery_details
               .form-group
                 = o.text_field :address, {:type => "text", :name=> "delivery_address_attributes", :placeholder => "Complete Address here", :id => 'address_input', :class => 'form-control'}
-                %input{:type => "hidden", :name=> "latLong", :id=> "latLong", :value => "bacolod"}
+                = o.hidden_field :coordinates, {:type => "hidden", :id => 'latLong', :class => 'form-control'}
                 #map
               .form-group
                 = o.text_field :company_name, {:type => "text", :placeholder => "Apt Number / Company Name", :id => 'form1-apt', :class => 'form-control'}
