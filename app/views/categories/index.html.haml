@@ -14,7 +14,6 @@
         .helper-notification
           %p= t('categories.index.no_records')
     - else
-
   %table.table#myTable.card
     %thead.undefined
       %tr
@@ -48,4 +47,4 @@
 :javascript 
   $(document).ready( function () {
     $('#myTable').DataTable();
-  } );         
+  });         
