@@ -130,3 +130,10 @@ table#myTable {
     padding: 0 7px;
     border: none;
 }
+thead {
+    font-size: 12px;
+    white-space: nowrap;
+}
+.tab-pane {
+    margin-top: 1.5rem;
+}
