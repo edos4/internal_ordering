@@ -10,7 +10,7 @@
             #delivery_details
               .form-group
                 = o.text_field :address, {:type => "text", :name=> "delivery_address_attributes", :placeholder => "Complete Address here", :id => 'address_input', :class => 'form-control'}
-                %input{:type => "hidden", :name=> "latLong", :id=> "latLong", :value => "bacolod"}
+                = o.hidden_field :coordinates, {:type => "hidden", :id => 'latLong', :class => 'form-control'}
                 #map
               .form-group
                 = o.text_field :company_name, {:type => "text", :placeholder => "Apt Number / Company Name", :id => 'form1-apt', :class => 'form-control'}
@@ -24,11 +24,11 @@
               .actions
                 / %button.btn.btn-primary.float-right{:type => "button"} Send  
         %h6 Time
-        .form-row
+        .form-row#col
           .col
-            %input#form1-number.form-control.form{:disabled => 'true',:placeholder => "Today", :type => "text"}/
+            %input#form1-number.form-control{:placeholder => "Today", :type => "text"}/
           .col  
-            %input#form1-phone.form-control.form{:disabled => 'true',:placeholder => "30 - 45 mins", :type => "number"}/
+            %input#form1-phone.form-control{:placeholder => "30 - 45 mins", :type => "number"}/
         %h6 Select Payment
         .form-group.container#checkout
           .custom-control.custom-radio

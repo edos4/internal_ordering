@@ -22,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'haml', '~> 5.0.4'
 gem 'haml-rails'
 gem 'pg'
+gem 'rb-readline'
 gem 'pry'
 gem 'simple_form'
 gem 'bootstrap-sass'
@@ -65,7 +66,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'figaro'
+#gem 'figaro'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
