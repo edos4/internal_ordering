@@ -23,7 +23,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table#myTable.card
+              %table.table.order.card
                 %thead
                   %tr
                     %th= t('orders.index.id')
@@ -64,7 +64,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table#myTable.card
+              %table.table.processing.card
                 %thead
                   %tr
                     %th= t('orders.index.id')
@@ -104,7 +104,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table#myTable.card
+              %table.table.route.card
                 %thead
                   %tr
                     %th= t('orders.index.id')
@@ -148,7 +148,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table#myTable.card
+              %table.table.completed.card
                 %thead
                   %tr
                     %th= t('orders.index.id')
@@ -180,5 +180,8 @@
                         = order.message
 :javascript 
   $(document).ready( function () {
-    $('#myTable').DataTable();
+    $('.order').DataTable();
+    $('.processing').DataTable();
+    $('.route').DataTable();
+    $('.completed').DataTable();
   });  
