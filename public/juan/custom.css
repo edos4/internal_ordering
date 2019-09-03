@@ -1339,7 +1339,7 @@ p.error-message {
 .success-message img{
 		animation: jump .5s ease-out .75s;
 		animation-fill-mode: backwards;
-		
+		width: 50%;
 }
 .success-message a{
 		display: block;
@@ -1348,6 +1348,7 @@ p.error-message {
 }
 .success-message p{
 	margin-top: -15px;
+	letter-spacing: 0.5px;
 }
 
 @-webkit-keyframes fadeInUp {
