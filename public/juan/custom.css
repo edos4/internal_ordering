@@ -1,6 +1,39 @@
 :root {
 	--gutter: 20px;
 	}
+@font-face {
+	font-family: 'Kollektif Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Kollektif Regular'), url('fonts/Kollektif.woff') format('woff');
+}
+	
+	
+@font-face {
+	font-family: 'Kollektif Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Kollektif Italic'), url('fonts/Kollektif-Italic.woff') format('woff');
+}
+	
+	
+@font-face {
+	font-family: 'Kollektif Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Kollektif Bold'), url('fonts/Kollektif-Bold.woff') format('woff');
+}
+	
+	
+@font-face {
+	font-family: 'Kollektif Bold Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Kollektif Bold Italic'), url('fonts/Kollektif-BoldItalic.woff') format('woff');
+}
+* {
+	font-family: 'Kollektif Regular' !important;
+}
 .navbar {
 	padding: .75rem 10px;
 }
@@ -87,18 +120,21 @@ border-top-left-radius: 5px;
 .card-con-mer h3 {
 font-size: 16px;
 font-weight: 500;
+letter-spacing: .05rem;
 color: #545454;
 }
 .card-con-mer h4 { 
 font-size: 12px;
 font-weight: 600;
 margin-bottom: 6px;
+letter-spacing: .04rem;
 color: #a6a6a6;
 }
 .card-con-mer h5 {  
 font-size: 11px;
 line-height: 1.4;
 margin-bottom: 5px;
+letter-spacing: .04rem;
 color: #a6a6a6;
 }
 .card-con-mer h6 {  
@@ -152,6 +188,7 @@ color: #545454;
 }
 .card-con-promo h4 { 
 font-size: 14px;
+letter-spacing: .05rem;
 font-weight: 600;
 margin-bottom: 6px;
 color: #737373;
@@ -243,6 +280,7 @@ font-size: 19px;
 #category p {
 margin-bottom: 0;
 font-size: 11px;
+letter-spacing: .04rem;
 }
 .category-img {
 height: 8rem;
