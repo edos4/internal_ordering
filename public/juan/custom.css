@@ -33,6 +33,7 @@
 }
 * {
 	font-family: 'Kollektif Regular' !important;
+	letter-spacing: 1px;
 }
 .navbar {
 	padding: .75rem 10px;
@@ -462,6 +463,9 @@ text-align: center;
 	padding-top: 10px;
 	font-size: 15px;
     font-weight: 500;
+}
+hr {
+	border-top: none;
 }
 
 /* Clean code  */ 
