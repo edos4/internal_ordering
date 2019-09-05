@@ -1,3 +1,28 @@
+function compute_delivery_fee(order_id, coordinate){
+    //console.log("order_id: "+order_id+" coordinate: "+coordinate);
+    $.ajax({
+      url: "/orders/calculate_delivery_fee", // this will be routed
+      type: 'POST',
+      data: {
+        order_id: order_id,
+        coordinate: coordinate
+      },
+      async: true,
+      dataType: "json",
+      error: function(XMLHttpRequest, errorTextStatus, error){
+          alert("Failed: "+ errorTextStatus+" ;"+error);
+      },
+      success: function(ret){
+          // here we iterate the json result
+          jQuery.each(ret, function(index, value) {
+            $("#delivery_fee").append(value.merchant+": "+value.distance+"<br>");
+          });
+          //$(".cart-quantity").text(ret['quantity']);
+          //$(".price-total").text("₱"+ret['total']);
+      }
+    });
+}
+
 function initMap() {
     var input = document.getElementById('address_input');
     var inputLatlng = document.getElementById("latLong");
@@ -19,6 +44,8 @@ function initMap() {
             draggable: true,
             title: place.name
         });
+        //console.log("when place changed order_id: "+$('#order_id').val());
+        compute_delivery_fee($('#order_id').val(), JSON.stringify(latLng));
 
         google.maps.event.addListener(marker, 'dragend', function (marker) {
             var latLng = marker.latLng;
@@ -29,6 +56,8 @@ function initMap() {
 
                         inputLatlng.value = JSON.stringify(latLng);
                         input.value = results[0].formatted_address;
+                        //console.log("when marker changed order_id: "+$('#order_id').val());
+                        compute_delivery_fee($('#order_id').val(), JSON.stringify(latLng));
                     } else {
                         window.alert('No results found');
                     }
