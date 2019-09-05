@@ -12,7 +12,7 @@
         .box-details
           - @variants.each_with_index do |variant, i|
             .custom-control.custom-radio.d-block.my-2
-              %input.custom-control-input{:name => "size", :type => "radio", :id=> "radio_#{i+1}", :value => variant.id}/
+              %input.custom-control-input.var{:name => "size", :type => "radio", :id=> "radio_#{i+1}", :value => variant.id}/
               %label.custom-control-label{:for => "radio_#{i+1}"}
                 = variant.name
               %span#cart-price
@@ -20,10 +20,10 @@
         .card-title
           %h6.box-title.border-bottom Cancel Option
         .box-details
-          .custom-control.custom-radio.d-block.my-2
+          .custom-control.custom-radio.d-block.my-2.c_option
             %input.custom-control-input.warning{:name => "cancel_option", :type => "radio", :id=> "cancel_item"}
             %label.custom-control-label.warning{:for => "cancel_item"}  Cancel Item
-          .custom-control.custom-radio.d-block.my-2
+          .custom-control.custom-radio.d-block.my-2.c_option
             %input.custom-control-input.warning{:name => "cancel_option", :type => "radio", :id=> "cancel_order"}
             %label.custom-control-label{:for => "cancel_order"} Cancel Order
         %p.box-title.border-bottom Special Instructions?
@@ -43,6 +43,10 @@
 
 :javascript 
   $(document).ready(function() {
+    $('.var').on('change',function(){
+      $(".c_option input:radio").prop('checked', false);
+      $(".product-quantity").val(1);
+    });
     $('.minus').click(function () {
       var $input = $(this).parent().find('input');
       var count = parseInt($input.val()) - 1;
