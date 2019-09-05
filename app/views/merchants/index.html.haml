@@ -30,6 +30,7 @@
               %th= t('merchants.index.desc')
               %th= t('merchants.index.sub_desc')
               %th= t('merchants.index.price')
+              %th= t('merchants.index.coordinates')
               %th Actions
           %tbody
             - @merchants.each do |merchant|
@@ -44,6 +45,8 @@
                   = merchant.sub_desc 
                 %td
                   = merchant.price 
+                %td
+                  = merchant.coordinates 
                 %td
                   .dropdown.dropdown-action
                     %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
