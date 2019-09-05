@@ -14,35 +14,36 @@
       .helper-notification
         %p= t('settings.index.no_records')
   - else
-    .table-responsive.card.card-small.mt-5
-      .card-body.p-0.pb-3.text-center
-        %table.table.table-hover
-          %thead
-            %tr
-              %th= t('settings.index.key')
-              %th= t('settings.index.text_value')
-              %th= t('settings.index.image_value')
-              %th Action
-          %tbody
-            - @settings.each do |setting|
-              %tr
-                %td
-                  = setting.key
-                %td
-                  = setting.text_value
-                %td.add
-                  = setting.image_value
-                %td
-                  .dropdown.dropdown-action
-                    %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
-                      %i.fa.fa-ellipsis-v
-                    .dropdown-menu.dropdown-menu-right
-                      = link_to edit_setting_path(setting), :class => "dropdown-item" do 
-                        %i.fa.fa-pencil.m-r-5
-                        #text
-                          Edit
-                      = link_to  setting, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
-                        %i.fa.fa-remove.m-r-5
-                        #text
-                          Delete
-                
+  %table.table#myTable.card
+    %thead
+      %tr
+        %th= t('settings.index.key')
+        %th= t('settings.index.text_value')
+        %th= t('settings.index.image_value')
+        %th Action
+    %tbody
+      - @settings.each do |setting|
+        %tr
+          %td
+            = setting.key
+          %td
+            = setting.text_value
+          %td.add
+            = setting.image_value
+          %td
+            .dropdown.dropdown-action
+              %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                %i.fa.fa-ellipsis-v
+              .dropdown-menu.dropdown-menu-right
+                = link_to edit_setting_path(setting), :class => "dropdown-item" do 
+                  %i.fa.fa-pencil.m-r-5
+                  #text
+                    Edit
+                = link_to  setting, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
+                  %i.fa.fa-remove.m-r-5
+                  #text
+                    Delete
+:javascript 
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+  });  

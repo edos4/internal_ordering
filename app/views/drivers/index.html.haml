@@ -15,75 +15,37 @@
           %p= t('drivers.index.no_records')
           %i.icon-labmerchants
     - else
-    .table-responsive.card.card-small.mt-5
-      .card-body.p-0.pb-3.text-center
-        %table.table.table-hover
-          %thead
-            %tr
-              %th= t('drivers.index.name')
-              %th= t('drivers.index.devise_id')
-              %th= t('drivers.index.actions')
-          %tbody
-            - @drivers.each do |driver|
-              %tr
-                %td
-                  = driver.name
-                %td
-                  = driver.devise_id
-                %td
-                  .dropdown.dropdown-action
-                    %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
-                      %i.fa.fa-ellipsis-v
-                    .dropdown-menu.dropdown-menu-right
-                      = link_to driver, :class => "dropdown-item" do
-                        %i.fa.fa-eye.m-r-5
-                        #text
-                          Show
-                      = link_to edit_driver_path(driver), :class => "dropdown-item" do 
-                        %i.fa.fa-pencil.m-r-5
-                        #text
-                          Edit
-                      = link_to  driver, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
-                        %i.fa.fa-remove.m-r-5
-                        #text
-                          Delete
-
-/ :javascript
-/   $(document).ready(function(){
-/     $('#exportables').DataTable({
-/       dom: 'Blfrtip',
-/       "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-/       buttons: [
-/         {extend: 'excel', 
-/         exportOptions: {
-/           title: 'Drivers',
-/           columns: 'th:not(:last-child)'
-/         }
-/         },
-/         {extend: 'print',
-/           title: 'Drivers',
-/           orientation: 'landscape',
-/           pageSize: 'LEGAL',
-/           exportOptions: {
-/           columns: 'th:not(:last-child)'
-/         },
-/           customize: function (win){
-/           $(win.document.body).addClass('white-bg');
-/           $(win.document.body).css('font-size', '10px');
-/           $(win.document.body).find('.actions').css('display', 'none');
-          
-/           }
-/         }
-/       ],
-/       });
-/       $(".buttons-print").addClass("btn-dt");
-/       $(".buttons-html5").addClass("btn-dt");
-      
-/     $("table[role='datatable']").each(function(){
-/       $(this).DataTable({
-/         processing: true,
-/         responsive: true       
-/       });
-/     });
-
-/   })
+  %table.table#myTable.card
+    %thead
+      %tr
+        %th= t('drivers.index.name')
+        %th= t('drivers.index.devise_id')
+        %th= t('drivers.index.actions')
+    %tbody
+      - @drivers.each do |driver|
+        %tr
+          %td
+            = driver.name
+          %td
+            = driver.devise_id
+          %td
+            .dropdown.dropdown-action
+              %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                %i.fa.fa-ellipsis-v
+              .dropdown-menu.dropdown-menu-right
+                = link_to driver, :class => "dropdown-item" do
+                  %i.fa.fa-eye.m-r-5
+                  #text
+                    Show
+                = link_to edit_driver_path(driver), :class => "dropdown-item" do 
+                  %i.fa.fa-pencil.m-r-5
+                  #text
+                    Edit
+                = link_to  driver, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
+                  %i.fa.fa-remove.m-r-5
+                  #text
+                    Delete
+:javascript 
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+  });  
