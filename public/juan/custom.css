@@ -43,7 +43,8 @@ ul#myUL {
     margin-top: 16rem;
     position: absolute;
     z-index: 1;
-    width: 100%;
+	width: 60%;
+    transform: translateX(5.2rem);
 }
 .card-swipe {
 display: -ms-flexbox;
