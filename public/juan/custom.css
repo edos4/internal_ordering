@@ -37,7 +37,8 @@ ul#myUL {
     margin-top: 16rem;
     position: absolute;
     z-index: 1;
-    width: 100%;
+	width: 60%;
+    transform: translateX(5.2rem);
 }
 .card-swipe {
 display: -ms-flexbox;
@@ -453,12 +454,11 @@ margin: 0;
 padding: 0;
 }
 .box-qty{
-width: 3rem;
-border-radius: 2px;
+width: 2rem;
 padding: 3px;
-background: transparent;
-border: 1px solid #e6e6e6;
+border: none;
 text-align: center;
+border-bottom: 1px solid #ececec;
 }
 #view_cart h6 {
 	padding-top: 10px;
@@ -994,7 +994,7 @@ div#cart-details {
 }
 .accordion-item .product-info .product-qty{
 		text-tranform: none;
-		flex: .8;
+		flex: .6;
 }
 .accordion-item .product-info p.price{
 		font-size: .9em;
