@@ -1,5 +1,7 @@
 function compute_delivery_fee(order_id, coordinate){
     //console.log("order_id: "+order_id+" coordinate: "+coordinate);
+    
+    var total = $('.total_price').text().slice(1);
     $.ajax({
       url: "/orders/calculate_delivery_fee", // this will be routed
       type: 'POST',
@@ -22,6 +24,9 @@ function compute_delivery_fee(order_id, coordinate){
             }
           });
           $("#total_delivery_fee").append("₱"+ret.slice(-1)[0]['total_delivery_fee']);
+          var delivery = $('#total_delivery_fee').text();
+          var data_total = parseFloat(total) + parseFloat(delivery)
+          $('.total_price').html('₱'+data_total);
           //$(".cart-quantity").text(ret['quantity']);
           //$(".price-total").text("₱"+ret['total']);
       }

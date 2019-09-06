@@ -35,6 +35,7 @@
 :javascript
   function update_qty(id, value){
     console.log(id, value);
+    var delivery = $('#total_delivery_fee').val();
     $.ajax({
       url: "/order_items/"+id, // this will be routed
       type: 'PUT',
@@ -49,7 +50,12 @@
       },
       success: function(data){
         $('#p_'+id).html('₱'+data['item_price']);
-        $('.total_price').html('₱'+data['total']);
+        var total = $('.total_price').text().slice(1);
+        var delivery = $('#total_delivery_fee').text();
+        var data_total = parseFloat(total) + parseFloat(delivery)
+        $('.total_price').html('₱'+data_total);
+
+
       }
     });
   }
