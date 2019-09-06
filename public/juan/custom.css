@@ -1221,6 +1221,9 @@ input{
 		display: flex;
 		justify-content: space-between;
 }
+h3.f {
+	color: #202020;
+}
 .items {
     padding-top: 15px;
 }

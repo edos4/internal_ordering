@@ -120,10 +120,28 @@ class OrdersController < ApplicationController
     order_merchants = order.order_items.collect{|x| x.variant.product.category.merchant}.uniq
   
     matrix = []
+    total_delivery_fee = 0
     order_merchants.each do |om|
-      matrix << {merchant: om.name, distance: OrdersController.get_distance(customer_raw_coordinate['lat'].to_f, customer_raw_coordinate['lng'].to_f, om.coordinates.split(",")[0].to_f, om.coordinates.split(",")[1].to_f) }
+      distance = OrdersController.get_distance(customer_raw_coordinate['lat'].to_f, customer_raw_coordinate['lng'].to_f, om.coordinates.split(",")[0].to_f, om.coordinates.split(",")[1].to_f)
+      matrix << {merchant: om.name, price: price_from_distance(distance) }
+      total_delivery_fee += price_from_distance(distance)
     end
+    matrix << {total_delivery_fee: total_delivery_fee }
     render json: matrix
+  end
+
+  def price_from_distance(distance)
+    price = case distance
+    when 0..5
+      79
+    when 6..9
+      99
+    when 10..12
+      129
+    when 12..100
+      149
+    end
+    price
   end
 
   def self.get_distance(src_lat, src_lng, dest_lat, dest_lng)

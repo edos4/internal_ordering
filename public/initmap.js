@@ -15,9 +15,13 @@ function compute_delivery_fee(order_id, coordinate){
       success: function(ret){
           // here we iterate the json result
           $("#delivery_fee").html("")
+          $("#total_delivery_fee").html("")
           jQuery.each(ret, function(index, value) {
-            $("#delivery_fee").append("<div class='total'><h3>"+value.merchant+"</h3>"+"<h3 class='total-value'>"+value.distance+"</h3></div>");
+            if (typeof value.merchant !== 'undefined'){
+                $("#delivery_fee").append("<div class='total'><h3>"+value.merchant+"</h3>"+"<h3 class='total-value'>₱"+value.price+"</h3></div>");
+            }
           });
+          $("#total_delivery_fee").append("₱"+ret.slice(-1)[0]['total_delivery_fee']);
           //$(".cart-quantity").text(ret['quantity']);
           //$(".price-total").text("₱"+ret['total']);
       }
