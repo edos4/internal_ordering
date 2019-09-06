@@ -243,9 +243,9 @@ margin-bottom: -45px;
 section#menu-header {
 margin-bottom: -3.85rem;
 }
-/* section#view_cart {
-margin-top: 5rem;
-} */
+.view_cart {
+margin-top: 4rem;
+} 
 section#checkout-wrapper {
 margin-top: 7rem;
 }
