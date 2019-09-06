@@ -70,7 +70,7 @@ margin-bottom: 15px;
 background-color: #fff;
 border: none;
 border-radius: 0.5rem;
-width: 14rem;
+width: 15rem;
 box-shadow: 0 0.46875rem 2.1875rem rgba(64, 111, 164, 0.1), 0 0.9375rem 1.40625rem rgb(249, 250, 252), 0 0.25rem 0.53125rem rgb(249, 250, 252), 0 0.125rem 0.1875rem rgb(33, 49, 82);
 }
 .card-con-med {
@@ -243,9 +243,9 @@ margin-bottom: -45px;
 section#menu-header {
 margin-bottom: -3.85rem;
 }
-/* section#view_cart {
-margin-top: 5rem;
-} */
+.view_cart {
+margin-top: 4rem;
+} 
 section#checkout-wrapper {
 margin-top: 7rem;
 }
@@ -1220,6 +1220,13 @@ input{
 .total{
 		display: flex;
 		justify-content: space-between;
+}
+h3.f {
+	color: #202020;
+}
+.del {
+    font-size: 16px !important;
+    padding: 10px 0 5px 0;
 }
 .items {
     padding-top: 15px;

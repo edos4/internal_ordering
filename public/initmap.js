@@ -20,10 +20,10 @@ function compute_delivery_fee(order_id, coordinate){
           $("#total_delivery_fee").html("")
           jQuery.each(ret, function(index, value) {
             if (typeof value.merchant !== 'undefined'){
-              $("#delivery_fee").append(value.merchant+": "+value.price+"<br>");
+                $("#delivery_fee").append("<div class='total'><h3>"+value.merchant+"</h3>"+"<h3 class='total-value'>₱"+value.price+"</h3></div>");
             }
           });
-          $("#total_delivery_fee").append(ret.slice(-1)[0]['total_delivery_fee']);
+          $("#total_delivery_fee").append("₱"+ret.slice(-1)[0]['total_delivery_fee']);
           var delivery = $('#total_delivery_fee').text();
           var data_total = parseFloat(total) + parseFloat(delivery)
           $('.total_price').html('₱'+data_total);
