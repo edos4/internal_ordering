@@ -1,6 +1,8 @@
 class StoreController < ApplicationController
-  before_action :messenger_only
+  before_action :messenger_only, :except => [:search_variant]
   layout false
+  skip_before_action :verify_authenticity_token, :only => [:search_variant]
+
   
   def index
     @messenger_id = params['messenger_id']
@@ -10,6 +12,15 @@ class StoreController < ApplicationController
     @settings = Setting.all
     order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
     @order = order
+  end
+
+  def search_variant
+    params.permit!
+    messenger_id = params['messenger']
+    variant = params[:variant].downcase
+    @variants = Product.where(['name ILIKE ?', "%#{variant}%"]).order(name: :asc).limit(10)
+    @variants = @variants.collect{|v| {merchant_id: v.category.merchant.id, product_id: v.id, product_name: v.name, messenger_id: messenger_id}}
+    render json: @variants.to_json
   end
 
   def menu

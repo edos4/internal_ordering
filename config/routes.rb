@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   get 'store/menu/:id' => 'store#menu', :as => :merchant_proucts
+  post '/store/search_variant' => 'store#search_variant', :as => :search_variant
   get 'store/:id/cart' => 'store#cart', :as => :product_variants
   get 'store/view_cart' => 'store#view_cart', :as => :view_cart
   get '/orders/track_order/:id' => 'orders#track_order', :as => :track_order

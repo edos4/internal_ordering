@@ -32,6 +32,13 @@
 .navbar {
 	padding: .75rem 10px;
 }
+ul#myUL {
+    /* top: 25px; */
+    margin-top: 16rem;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
 .card-swipe {
 display: -ms-flexbox;
 display: grid;
