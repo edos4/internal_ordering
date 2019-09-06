@@ -14,7 +14,7 @@
 						-# %input#customFile2.custom-file-input{:required => "", :type => "file"}/
 						-# %label.custom-file-label{:for => "customFile2"} Choose file...
 						
-						= f.file_field :logo, id: :logo, :class=> "custom-file-input", :id=>"customFile", :required => true
+						= f.file_field :logo, id: :logo, :class=> "custom-file-input", :id=>"customFile"
 						= f.label :choose_file, :class=> "custom-file-label", :for=>"customFile"
 				.col-md-6
 					= f.label :merchant_name
@@ -30,6 +30,10 @@
 				.col-md-6
 					= f.label :price
 					= f.text_field :price, :class => 'form-control', :required => true
+				.col-md-6
+					= f.label :coordinates
+					= f.text_field :coordinates, :class => 'form-control', :required => true, placeholder: '10.668445,122.954490 no spaces'
+
 		
 			.form-group
 				= f.submit 'Save', :class => 'btn btn-primary btn-sm px-4'

@@ -37,7 +37,8 @@ ul#myUL {
     margin-top: 16rem;
     position: absolute;
     z-index: 1;
-    width: 100%;
+	width: 60%;
+    transform: translateX(5.2rem);
 }
 .card-swipe {
 display: -ms-flexbox;
@@ -77,7 +78,7 @@ margin-bottom: 15px;
 background-color: #fff;
 border: none;
 border-radius: 0.5rem;
-width: 14rem;
+width: 15rem;
 box-shadow: 0 0.46875rem 2.1875rem rgba(64, 111, 164, 0.1), 0 0.9375rem 1.40625rem rgb(249, 250, 252), 0 0.25rem 0.53125rem rgb(249, 250, 252), 0 0.125rem 0.1875rem rgb(33, 49, 82);
 }
 .card-con-med {
@@ -250,9 +251,9 @@ margin-bottom: -45px;
 section#menu-header {
 margin-bottom: -3.85rem;
 }
-section#view_cart {
-margin-top: 5rem;
-}
+.view_cart {
+margin-top: 4rem;
+} 
 section#checkout-wrapper {
 margin-top: 7rem;
 }
@@ -453,12 +454,11 @@ margin: 0;
 padding: 0;
 }
 .box-qty{
-width: 3rem;
-border-radius: 2px;
+width: 2rem;
 padding: 3px;
-background: transparent;
-border: 1px solid #e6e6e6;
+border: none;
 text-align: center;
+border-bottom: 1px solid #ececec;
 }
 #view_cart h6 {
 	padding-top: 10px;
@@ -647,9 +647,30 @@ label.custom-control-label {
 }
 .bg {
 	background-color: #fff;
-	padding: 0 10px 1px 10px;
+	padding: 0 10px 20px 10px;
 	border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	margin-top: 4.2rem;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.bg2 {
+	padding: 0 5px 5px 0px;
+	margin-top: -1rem;
+}
+.bg:after {
+    background: linear-gradient(-45deg, #f2f2f2 16px, transparent 0), linear-gradient(45deg, #f2f2f2 16px, transparent 0);
+    background-position: left-bottom;
+    background-repeat: repeat-x;
+    background-size: 20px 32px;
+    content: " ";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+	height: 20px;
+	
 }
 #col input {
 	border: 1px solid white;
@@ -973,7 +994,7 @@ div#cart-details {
 }
 .accordion-item .product-info .product-qty{
 		text-tranform: none;
-		flex: .8;
+		flex: .6;
 }
 .accordion-item .product-info p.price{
 		font-size: .9em;
@@ -1206,6 +1227,13 @@ input{
 .total{
 		display: flex;
 		justify-content: space-between;
+}
+h3.f {
+	color: #202020;
+}
+.del {
+    font-size: 16px !important;
+    padding: 10px 0 5px 0;
 }
 .items {
     padding-top: 15px;
@@ -1523,10 +1551,11 @@ p.error-message {
     		border-bottom-left-radius: 5px;
 	}
 	input.btn-out {
-		margin-left: 6px;
-		margin-right: 6px;
+		margin-left: -5px;
 		border-radius: 0;
 		margin-top: 10px;
+		margin-right: -5px;
+		width: 100vw;
 	}
 	}
 	.card-img-top {

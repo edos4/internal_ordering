@@ -1,5 +1,5 @@
 %section#view_cart
-  %h6.cart-details.border-bottom Crib
+  %h6.cart-details.border-bottom Order Details
   / Form Controls: Simple Forms
   .items
     - total = 0
@@ -19,10 +19,12 @@
         %h3 Sub Total
         %h3.total-value ₱#{total}
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
+      #delivery_fee
       .total
-        %h3 Delivery
-        %h3.total-value ₱TBD
+        %h3.f Delivery Fee
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
+        %pre#total_delivery_fee
+
       .amount.border-top
         %h3.pt-2 Total Amount
         %h3.total-value.pt-2.total_price ₱#{total}
@@ -31,10 +33,12 @@
       -#CHECKOUT
 
 :javascript
+  $('#total_delivery_fee').html('₱'+0);
   function update_qty(id, value){
     console.log(id, value);
+    var delivery = $('#total_delivery_fee').text().slice(1);
     $.ajax({
-      url: "/order_items/"+id, // this will be routed
+      url: "/order_items/"+id,
       type: 'PUT',
       data: {
         order_item: {quantity: value,
@@ -47,7 +51,9 @@
       },
       success: function(data){
         $('#p_'+id).html('₱'+data['item_price']);
-        $('.total_price').html('₱'+data['total']);
+        var data_total = parseFloat(data['total']) + parseFloat(delivery);
+        console.log(parseFloat(data['total']),parseFloat(delivery));
+        $('.total_price').html('₱'+data_total);
       }
     });
   }

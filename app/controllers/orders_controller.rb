@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   # Rejected = orders delivered but rejected
   
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, :only => [:calculate_delivery_fee]
   layout false, only: [:track_order]
 
   # GET /orders
@@ -110,6 +111,59 @@ class OrdersController < ApplicationController
     @order = Order.find(params['id'])
     @order.update(status: 'Completed')
     redirect_to orders_url
+  end
+
+  def calculate_delivery_fee
+    params.permit!
+    order = Order.find(params['order_id'])
+    customer_raw_coordinate = JSON.parse(params['coordinate'])
+    order_merchants = order.order_items.collect{|x| x.variant.product.category.merchant}.uniq
+  
+    matrix = []
+    total_delivery_fee = 0
+    order_merchants.each do |om|
+      distance = OrdersController.get_distance(customer_raw_coordinate['lat'].to_f, customer_raw_coordinate['lng'].to_f, om.coordinates.split(",")[0].to_f, om.coordinates.split(",")[1].to_f)
+      matrix << {merchant: om.name, price: price_from_distance(distance) }
+      total_delivery_fee += price_from_distance(distance)
+    end
+    matrix << {total_delivery_fee: total_delivery_fee }
+    render json: matrix
+  end
+
+  def price_from_distance(distance)
+    price = case distance
+    when 0..5
+      79
+    when 6..9
+      99
+    when 10..12
+      129
+    when 12..100
+      149
+    end
+    price
+  end
+
+  def self.get_distance(src_lat, src_lng, dest_lat, dest_lng)
+    require 'rest-client'
+    require 'json'
+
+    distance = 0
+    req = RestClient::Request.new({
+        method: :post,
+        url: "https://www.mapquestapi.com/directions/v2/route?key=#{ENV['MAPQUEST_KEY']}&from=#{src_lat},#{src_lng}&to=#{dest_lat},#{dest_lng}&outFormat=json&ambiguities=ignore&routeType=fastest&doReverseGeocode=false&enhancedNarrative=false&avoidTimedConditions=false",
+        headers: { :accept => :json, content_type: :json }
+      }).execute do |response, request, result|
+        case response.code
+        when 400
+          distance = 0
+        when 200..299
+          distance = JSON.parse(response.body)['route']['distance']
+        else
+          fail "Invalid response #{response.to_str} received."
+        end
+      end
+    distance.to_f
   end
 
   private

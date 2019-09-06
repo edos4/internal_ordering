@@ -26,8 +26,7 @@ Rails.application.routes.draw do
   get '/orders/track_order/:id' => 'orders#track_order', :as => :track_order
   get '/orders/process_order/:id' => 'orders#process_order', :as => :process_order
   get '/orders/complete_order/:id' => 'orders#complete_order', :as => :complete_order
-
-  
+  post '/orders/calculate_delivery_fee' => 'orders#calculate_delivery_fee', :as => :calculate_delivery_fee
   
   resources :carts, only: [] do
     collection do
