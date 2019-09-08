@@ -25,10 +25,10 @@
 	font-weight: normal;
 	src: local('Kollektif Bold Italic'), url('fonts/Kollektif-BoldItalic.woff') format('woff');
 }
-* {
+/* * {
 	font-family: 'Kollektif Regular' !important;
 	letter-spacing: 1px;
-}
+} */
 .navbar {
 	padding: .75rem 10px;
 }
@@ -334,7 +334,8 @@ margin-top: 0px !important;
 }
 .menu-left  h4 {
 color: #4d4d4d;
-font-size: 16px;
+font-size: 15px;
+letter-spacing: .01rem;
 line-height: 1;
 margin-bottom: 3px;
 }
