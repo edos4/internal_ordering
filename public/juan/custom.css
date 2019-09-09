@@ -25,10 +25,10 @@
 	font-weight: normal;
 	src: local('Kollektif Bold Italic'), url('fonts/Kollektif-BoldItalic.woff') format('woff');
 }
-* {
+/* * {
 	font-family: 'Kollektif Regular' !important;
 	letter-spacing: 1px;
-}
+} */
 .navbar {
 	padding: .75rem 10px;
 }
@@ -334,7 +334,8 @@ margin-top: 0px !important;
 }
 .menu-left  h4 {
 color: #4d4d4d;
-font-size: 16px;
+font-size: 15px;
+letter-spacing: .01rem;
 line-height: 1;
 margin-bottom: 3px;
 }
@@ -420,12 +421,13 @@ margin-left: -32px;
 }
 
 button#checkout {
-margin-top: -5px;
-margin-left: 15px; 
-margin-right: 15px;
-width: 93%;	
-padding: 10px;
-margin-top: 10px;
+	width: 100%;
+	padding: 1rem;
+	position: fixed;
+	bottom: 0;
+	border-radius: 0;
+	right: 0;
+	display: block;	
 }
 #form-rad {
 margin-left: -37px;
@@ -458,7 +460,8 @@ width: 2rem;
 padding: 3px;
 border: none;
 text-align: center;
-border-bottom: 1px solid #ececec;
+background: transparent;
+border-bottom: 1px solid #e4e4e4;
 }
 #view_cart h6 {
 	padding-top: 10px;
@@ -655,9 +658,9 @@ label.custom-control-label {
     margin-right: -15px;
 }
 .bg2 {
-	padding: 0 5px 5px 0px;
+	padding: 0 5px 20px 0px;
 	margin-top: -1rem;
-}
+}	
 .bg:after {
     background: linear-gradient(-45deg, #f2f2f2 16px, transparent 0), linear-gradient(45deg, #f2f2f2 16px, transparent 0);
     background-position: left-bottom;
@@ -666,7 +669,6 @@ label.custom-control-label {
     content: " ";
     display: block;
     position: absolute;
-    bottom: 0px;
     left: 0px;
     width: 100%;
 	height: 20px;
@@ -1250,7 +1252,8 @@ h3.f {
     border-top: 1px solid #e8e8e8!important;
 }
 .amount h3 {
-	color: #000;
+	color: #3a3a3a;
+	font-size: 14px;
 	font-weight: bold;
 }
 
@@ -1551,12 +1554,13 @@ p.error-message {
     		border-bottom-left-radius: 5px;
 	}
 	input.btn-out {
-		margin-left: -5px;
 		border-radius: 0;
-		margin-top: 10px;
-		margin-right: -5px;
-		width: 100vw;
-	}
+		z-index: 98;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+
+		
 	}
 	.card-img-top {
 			height: 160px;
