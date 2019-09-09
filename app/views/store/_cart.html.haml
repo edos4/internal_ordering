@@ -8,7 +8,7 @@
         .product-info
           .upper-product-info
             .product-qty
-              %input.i_quantity{:class=> 'box-qty',:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :value => "#{item.quantity}"}
+              %input.i_quantity{:class=> 'box-qty',:id=>"#{item.id}", :onchange=>"update_qty(this.id, this.value)", :type => "number", :value => "#{item.quantity}"}
             .product-text
               %h2 #{item.variant.name}
               %p.description x ₱#{item.variant.price}
@@ -21,9 +21,9 @@
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
       #delivery_fee
       .total
-        %h3.f Total Delivery Fee
+        %h3 Total Delivery Fee
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
-        %pre#total_delivery_fee
+        %h3#total_delivery_fee
 
       .amount.border-top
         %h3.pt-2 Total Amount
