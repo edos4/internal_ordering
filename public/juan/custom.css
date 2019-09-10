@@ -60,6 +60,7 @@ width: 100%;
 scroll-snap-align: center;
 display: flex;
 flex-direction: column;
+display: -webkit-inline-box;
 /* justify-content: center; */
 align-items: center;
 /* border-radius: 8px; */
@@ -619,10 +620,7 @@ button.bg-primary.cart-quantity{
 	border: 0;
 	font-size: .9em;
 	border-radius: 3px;;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-	-o-border-radius: 3px;
+	border-radius: 0px;
 	display: flex;
 	justify-content: space-around;
 }
@@ -1060,11 +1058,6 @@ input{
 		border: 0;
 		font-size: .9em;
 		padding: 15px;    
-		border-radius: 3px;;
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		-ms-border-radius: 3px;
-		-o-border-radius: 3px;
 		display: flex;
 		justify-content: space-around;
 }
