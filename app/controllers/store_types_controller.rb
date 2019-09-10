@@ -10,6 +10,7 @@ class StoreTypesController < ApplicationController
   # GET /store_types/1
   # GET /store_types/1.json
   def show
+    @merchants = @store_type.merchants
   end
 
   # GET /store_types/new
