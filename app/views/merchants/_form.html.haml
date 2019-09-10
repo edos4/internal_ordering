@@ -33,6 +33,10 @@
 				.col-md-6
 					= f.label :coordinates
 					= f.text_field :coordinates, :class => 'form-control', :required => true, placeholder: '10.668445,122.954490 no spaces'
+			.row.mb-2
+				.col-md-6
+					= f.label :store_type_id
+					= f.select 'store_type_id', options_for_select(StoreType.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'custom-select w-100', :id => "store_type_id"
 
 		
 			.form-group

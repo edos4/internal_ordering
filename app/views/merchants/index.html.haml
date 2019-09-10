@@ -25,6 +25,7 @@
   %table.table#myTable.card
     %thead
       %tr
+        %th= t('merchants.index.store_type')
         %th= t('merchants.index.name')
         %th.add= t('merchants.index.logo')
         %th= t('merchants.index.desc')
@@ -35,6 +36,8 @@
     %tbody
       - @merchants.each do |merchant|
         %tr
+          %td
+            = merchant.store_type.name
           %td
             = merchant.name
           %td.add
