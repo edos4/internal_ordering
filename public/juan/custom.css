@@ -474,7 +474,9 @@ border-bottom: 1px solid #e4e4e4;
 hr {
 	border-top: none;
 }
-
+.pop-container {
+    margin-bottom: 1.2rem;
+}
 .cat-name {
 	margin-bottom: -5px;
     align-items: center;
