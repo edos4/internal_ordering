@@ -19,6 +19,10 @@
         = link_to '/dashboard', 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Dashboard' do
           %i.material-icons edit
           %span Dashboard
+      %li.nav-item{:class => "#{active_controller?(controller: 'store_type')}"}
+        = link_to store_types_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link',  'data-placement' => 'right', 'data-original-title' => 'Store Types' do
+          %i.material-icons vertical_split
+          %span Store Types
       %li.nav-item{:class => "#{active_controller?(controller: 'merchant')}"}
         = link_to merchants_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link',  'data-placement' => 'right', 'data-original-title' => 'Merchants' do
           %i.material-icons vertical_split

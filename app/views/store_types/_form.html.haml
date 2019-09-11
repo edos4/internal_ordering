@@ -1,0 +1,13 @@
+= form_for @store_type do |f|
+  - if @store_type.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@store_type.errors.count, "error")} prohibited this store_type from being saved:"
+      %ul
+        - @store_type.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'
