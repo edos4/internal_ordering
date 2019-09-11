@@ -107,6 +107,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -207,6 +211,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     regexp_parser (1.6.0)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -308,6 +313,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails
   devise
+  dotenv-rails
   finance_math
   font-awesome-rails
   haml (~> 5.0.4)
@@ -321,6 +327,7 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   rails (~> 5.2.1)
+  rb-readline
   rmagick
   roo (~> 2.8.0)
   roo-xls

@@ -1,7 +1,53 @@
 / Welcome Section
-%section.welcome.d-flex.justify-content-center.flex-column
-  .inner-wrapper.mt-auto.mb-auto.container
-    .row
-      .col-md-7
-        %h1.welcome-heading
-          = @settings.find_by(key: 'store_header').text_value
+%section.welcome
+  .inner-wrapper.mt-auto.mb-auto
+    .welcome-heading
+      %input#messenger.hidden{:value=> "#{@messenger_id}"}
+      %input.form-control#search_variant
+      %ul#myUL
+      %img{:src=> "/key.png"}
+
+
+:css
+  #myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+  }
+  #myUL li a:hover:not(.header) {
+    background-color: #eee;
+  }
+:javascript
+  $('#search_variant').keyup(function(){
+  	var messenger = $('#messenger').val();
+  	var variant = $('#search_variant').val();
+  	if (variant != ""){
+  	  $.ajax({
+  	    url: "/store/search_variant",
+  	    type: 'POST',
+  	    data: {
+  	      variant: variant,
+  	      messenger: messenger
+  	    },
+  	    async: true,
+  	    dataType: "json",
+  	    error: function(XMLHttpRequest, errorTextStatus, error){
+  	      alert("Failed: "+ errorTextStatus+" ;"+error);
+  	    },
+  	    success: function(data){
+  	    $('#myUL').html("");
+  	    var i = data;
+  	      for(var i=0, l = data.length; i < l; i++){
+  	        $('#myUL').append('<li><a href='+'/store/'+data[i].merchant_id+'/cart/?product='+data[i].product_id+'&messenger_id='+data[i].messenger_id+'>'+data[i].product_name+'</li>');
+  	      }
+  	    }
+  	  });
+  	}else{
+  	  $('#myUL').html("");
+  	}
+  });

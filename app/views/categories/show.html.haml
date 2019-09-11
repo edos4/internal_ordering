@@ -22,42 +22,43 @@
         .helper-notification
           %p= t('products.index.no_records')
     - else
-  .table-responsive.card.card-small.mt-5
-    .card-body.p-0.pb-3.text-center
-      %table.table.table-hover
-        %thead
-          %tr
-            %th= t('products.index.name')
-            %th= t('products.index.image')
-            %th= t('products.index.description')
-            %th= t('products.index.category')
-            %th= t('products.index.actions')
-        %tbody
-          - @products.each do |product|
-            %tr
-              %td
-                = product.name
-              %td
-                = product.image
-              %td
-                = product.description
-              %td
-                = product.category.name
-              %td
-                .dropdown.dropdown-action
-                  %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
-                    %i.fa.fa-ellipsis-v
-                  .dropdown-menu.dropdown-menu-right
-                    = link_to product, :class => "dropdown-item" do
-                      %i.fa.fa-eye.m-r-5
-                      #text
-                        Show
-                    = link_to edit_product_path(product), :class => "dropdown-item" do 
-                      %i.fa.fa-pencil.m-r-5
-                      #text
-                        Edit
-                    = link_to  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
-                      %i.fa.fa-remove.m-r-5
-                      #text
-                        Delete
-             
+  %table.table#myTable.card
+    %thead
+      %tr
+        %th= t('products.index.name')
+        %th= t('products.index.image')
+        %th= t('products.index.description')
+        %th= t('products.index.category')
+        %th= t('products.index.actions')
+    %tbody
+      - @products.each do |product|
+        %tr
+          %td
+            = product.name
+          %td
+            = product.image
+          %td
+            = product.description
+          %td
+            = product.category.name
+          %td
+            .dropdown.dropdown-action
+              %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                %i.fa.fa-ellipsis-v
+              .dropdown-menu.dropdown-menu-right
+                = link_to product, :class => "dropdown-item" do
+                  %i.fa.fa-eye.m-r-5
+                  #text
+                    Show
+                = link_to edit_product_path(product), :class => "dropdown-item" do 
+                  %i.fa.fa-pencil.m-r-5
+                  #text
+                    Edit
+                = link_to  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
+                  %i.fa.fa-remove.m-r-5
+                  #text
+                    Delete
+:javascript 
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+  });              
