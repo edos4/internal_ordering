@@ -476,7 +476,7 @@ hr {
 }
 
 .cat-name {
-	margin-bottom: 10px;
+	margin-bottom: -5px;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
