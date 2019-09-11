@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :store_types
   resources :everydays
   resources :drivers
   resources :settings

@@ -15,6 +15,7 @@ xlsx = Roo::Excelx.new("#{Dir.pwd}/SUPERMARKET.xlsx", {:expand_merged_ranges => 
 data = xlsx.parse.drop(1) #drop the header on line 1
 
 #purge tables
+StoreType.destroy_all
 Merchant.destroy_all
 Category.destroy_all
 Product.destroy_all
@@ -23,14 +24,16 @@ Order.destroy_all
 OrderItem.destroy_all
 
 data.each do |d|
-	merchant_name = d[0]
-	category_name = d[1]
-	product_name = d[2]
-	variant_name = d[3]
-	grocery_price = d[4]
-	juan_ride_price = d[5]
+	store_type_name = d[0]
+	merchant_name = d[1]
+	category_name = d[2]
+	product_name = d[3]
+	variant_name = d[4]
+	grocery_price = d[5]
+	juan_ride_price = d[6]
 
-	merch = Merchant.find_or_create_by!(name: merchant_name)
+	store_type = StoreType.find_or_create_by!(name: store_type_name)
+	merch = Merchant.find_or_create_by!(name: merchant_name, store_type_id: store_type.id)
 	category = Category.find_or_create_by!(name: category_name, merchant_id: merch.id)
 	product = Product.find_or_create_by!(name: product_name, category_id: category.id)
 	variant = Variant.find_or_create_by!(name: variant_name, product_id: product.id)
