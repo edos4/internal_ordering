@@ -315,6 +315,8 @@ margin-top: 20px
 }
 .menu-left {
 border-bottom: 1px solid #e0e0e0; 
+padding-top: 1rem;
+padding-bottom: 0.5rem;
 }
 .menu-left  a {
 color: #007bff !important;
@@ -334,9 +336,10 @@ margin-top: 0px !important;
 }
 .menu-left  h4 {
 color: #4d4d4d;
-font-size: 15px;
+font-size: 14px;
 letter-spacing: .01rem;
 line-height: 1;
+font-weight: 100;
 margin-bottom: 3px;
 }
 .menu-box img {
@@ -380,7 +383,7 @@ margin-bottom: 0;
 .menu-box {
 	border-radius: 0;
 	width: 100%;
-	padding-top: 15px;
+	padding-top: 8px;
 }
 input.special {
 border: none;
@@ -472,6 +475,38 @@ hr {
 	border-top: none;
 }
 
+.cat-name {
+	margin-bottom: -5px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+.cat-name:before {
+	content: "";
+    width: 33px;
+	height: 3px;
+	margin: 11px -2.5rem;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-image: linear-gradient(to right, transparent 0%, transparent 36.36%, #2196F3 36.36%, #2196F3 63.63%, transparent 63.63%, transparent 100%);
+    background-size: 11px 3px;
+    background-repeat: repeat-x;
+}
+.cat-name:after {
+	content: "";
+    width: 33px;
+	height: 3px;
+	margin: 11px 2px;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-image: linear-gradient(to right, transparent 0%, transparent 36.36%, #2196F3 36.36%, #2196F3 63.63%, transparent 63.63%, transparent 100%);
+    background-size: 11px 3px;
+    background-repeat: repeat-x;
+}
 /* Clean code  */ 
 /* Ed  */    
 
