@@ -17,7 +17,7 @@
     .details-section
       .total
         %h3 Sub Total
-        %h3.total-value ₱#{total}
+        %h3#subtotal.total-value ₱#{total}
         %input.total-value{:name => "gross_amount", :type => "hidden", :value => "1695"}/
       #delivery_fee
       .total
@@ -51,11 +51,9 @@
       },
       success: function(data){
         $('#p_'+id).html('₱'+data['item_price']);
-        var data_total = parseFloat(data['total']) + parseFloat(delivery);
-        console.log(parseFloat(data['total']),parseFloat(delivery));
-        $('.total_price').html('₱'+data_total);
+        $('#subtotal').html('₱'+data['total']);
+        $('.total_price').html('₱'+data['total']);
       }
+      
     });
   }
-
-  
