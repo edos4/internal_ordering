@@ -42,12 +42,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_083835) do
     t.string "ev_order"
   end
 
-  create_table "merch_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "merchants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "logo"
@@ -58,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_083835) do
     t.float "price"
     t.string "url"
     t.string "coordinates"
-    t.string "merch_type_id"
     t.string "store_type_id"
   end
 
@@ -79,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_083835) do
     t.string "coordinates"
     t.string "delivery_option"
     t.string "payment_option"
-    t.string "reference_number", default: "6e84b6"
+    t.string "reference_number"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

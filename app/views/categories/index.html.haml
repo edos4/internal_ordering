@@ -1,50 +1,46 @@
 - content_for :title, 'categories'
 - content_for :breadcrumb, "Stores"
 .main-content-container.container-fluid.px-4
-  .page-header.no-gutters.py-4
-    .col-12.text-center.text-sm-left.mb-0
-      .col-6.float-left.pl-0
-        %span.text-uppercase.page-subtitle Overview
-        %h3.page-title.col-6= t('categories.index.categories')
-      .col-6.float-right
-      = link_to new_category_path, :class => "btn btn-primary float-right mt-3 btn-sm " do
-        %b Add Category
-    - if @categories.empty?
-      .widget.widget-content.clearfix
-        .helper-notification
-          %p= t('categories.index.no_records')
-    - else
-  %table.table#myTable.card
-    %thead.undefined
-      %tr
-        %th= t('categories.index.name')
-        %th= t('categories.index.image')
-        %th= t('categories.index.actions')
-    %tbody
-      - @categories.each do |category|
-        %tr
-          %td
-            = category.name
-          %td
-            = category.image
-          %td
-            .dropdown.dropdown-action
-              %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
-                %i.fa.fa-ellipsis-v
-              .dropdown-menu.dropdown-menu-right
-                = link_to category, :class => "dropdown-item" do
-                  %i.fa.fa-eye.m-r-5
-                  #text
-                    Show
-                = link_to edit_category_path(category), :class => "dropdown-item" do 
-                  %i.fa.fa-pencil.m-r-5
-                  #text
-                    Edit
-                = link_to  category, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
-                  %i.fa.fa-remove.m-r-5
-                  #text
-                    Delete
-:javascript 
-  $(document).ready( function () {
-    $('#myTable').DataTable();
-  });         
+	.page-header.no-gutters.py-4
+		.col-12.text-center.text-sm-left.mb-0
+			.col-6.float-left.pl-0
+				%span.text-uppercase.page-subtitle Overview
+				%h3.page-title.col-6= t('categories.index.categories')
+			.col-6.float-right
+			= link_to new_category_path, :class => "btn btn-primary float-right mt-3 btn-sm " do
+				%b Add Category
+		- if @categories.empty?
+			.widget.widget-content.clearfix
+				.helper-notification
+					%p= t('categories.index.no_records')
+		- else
+	%table.table#myTable.card
+		%thead.undefined
+			%tr
+				%th= t('categories.index.name')
+				%th= t('categories.index.image')
+				%th= t('categories.index.actions')
+		%tbody
+			- @categories.each do |category|
+				%tr
+					%td
+						= category.name
+					%td
+						= category.image
+					%td
+						.dropdown.dropdown-action
+							%a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+								%i.fa.fa-ellipsis-v
+							.dropdown-menu.dropdown-menu-right
+								= link_to category, :class => "dropdown-item" do
+									%i.fa.fa-eye.m-r-5
+									#text
+										Show
+								= link_to edit_category_path(category), :class => "dropdown-item" do 
+									%i.fa.fa-pencil.m-r-5
+									#text
+										Edit
+								= link_to  category, method: :delete, data: { confirm: 'Are you sure?' }, :class => "dropdown-item" do 
+									%i.fa.fa-remove.m-r-5
+									#text
+										Delete
