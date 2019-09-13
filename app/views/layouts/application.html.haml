@@ -5,7 +5,8 @@
 		%meta{:charset => "utf-8"}/
 		%title
 			= yield :title
-		
+		%script{:src => "https://code.jquery.com/jquery-3.3.1.js"}
+		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 		%meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 		
@@ -22,7 +23,7 @@
 		%link{:href => "/juan/custom-dash.css", :rel => "stylesheet"}/
 		%script{:async => "", :defer => "defer", :src => "https://buttons.github.io/buttons.js"}
 
-		%script{:src => "https://code.jquery.com/jquery-3.3.1.js"}
+		
 		%link{:href => "/stylesheets/font.css", :media => "screen", :rel => "stylesheet"}/
 		%script{:src => "/modernizr.js", :type => "text/javascript"}
 		/ For Mobile Sidebar
@@ -43,7 +44,7 @@
 		%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"}
 		%script{:src => "https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"}
 		%script{:src => "https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"}
-		
+
 		= yield :header
 	%body
 		= render 'layouts/sidebar'

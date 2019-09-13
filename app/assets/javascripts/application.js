@@ -9,7 +9,27 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-// = require jquery
-//= require jquery_ujs
-//= require_tree .
+$(document).ready( function () {
+  $('#myTable').DataTable({
+    dom: '<"html5buttons"B>lTfgtip',
+  buttons: [
+    {
+      extend: 'excel', 
+      title: 'Juanride', 
+      "className": 'btn btn-primary btn-sm',
+      exportOptions: {
+        columns: 'th:not(:last-child)'
+      }
+    },
+    {
+      extend: 'copy',
+      "className": 'btn btn-primary btn-sm',
+      text: 'Copy',
+      exportOptions: {
+        columns: 'th:not(:last-child)'
+      }
+    },
+  ],
+  responsive: true  
+  });
+});         
