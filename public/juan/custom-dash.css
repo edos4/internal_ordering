@@ -1,139 +1,144 @@
 #breadcumbs {
-    margin: 6px;
-    color: #a7a7a7;
-    letter-spacing: 2px;
+	margin: 6px;
+	color: #a7a7a7;
+	letter-spacing: 2px;
 }
 .clearfix {
-    clear: both;
+	clear: both;
 }
 .form-group {
 	position: relative;
 }
 .form-container {
-    margin-top: 1.5rem;
+	margin-top: 1.5rem;
 }
 input:required:focus {
-    border: 1px solid red;
+	border: 1px solid red;
   }
 input:valid {   
-    border-color: #17c671;
+	border-color: #17c671;
 }
 input.btn {
-    border: none;
-    width: 78px;
-    margin-top: 8px;
+	border: none;
+	width: 78px;
+	margin-top: 8px;
 }
 #text {
-    color: #000;
-    float: right;
-    display: contents;
-    font-size: 12px;
+	color: #000;
+	float: right;
+	display: contents;
+	font-size: 12px;
 }
 .dropdown-menu {
-    min-width: 6rem;
-    padding: 0;
+	min-width: 6rem;
+	padding: 0;
 }
 .dropdown .fa, .dropdown .material-icons {
-    color: #007bfe;
+	color: #007bfe;
 }
 select#category_merchant_id {
-    width: 100%!important;
-    font-size: .8125rem;
-    height: calc(2rem + 2px);
-    padding: .375rem 1.75rem .375rem .75rem;
-    line-height: 1.2;
-    color: #495057;
-    background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
-    background-size: 8px 10px;
-    border: 1px solid #becad6;
-    font-weight: 300;
-    transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
-    border-radius: .375rem;
+	width: 100%!important;
+	font-size: .8125rem;
+	height: calc(2rem + 2px);
+	padding: .375rem 1.75rem .375rem .75rem;
+	line-height: 1.2;
+	color: #495057;
+	background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
+	background-size: 8px 10px;
+	border: 1px solid #becad6;
+	font-weight: 300;
+	transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
+	border-radius: .375rem;
 }
 select#product_category_id  {
-    width: 100%!important;
-    font-size: .8125rem;
-    height: calc(2rem + 2px);
-    padding: .375rem 1.75rem .375rem .75rem;
-    line-height: 1.2;
-    color: #495057;
-    background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
-    background-size: 8px 10px;
-    border: 1px solid #becad6;
-    font-weight: 300;
-    transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
-    border-radius: .375rem;
+	width: 100%!important;
+	font-size: .8125rem;
+	height: calc(2rem + 2px);
+	padding: .375rem 1.75rem .375rem .75rem;
+	line-height: 1.2;
+	color: #495057;
+	background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
+	background-size: 8px 10px;
+	border: 1px solid #becad6;
+	font-weight: 300;
+	transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
+	border-radius: .375rem;
 }
 select#everyday_category {
-    width: 100%!important;
-    font-size: .8125rem;
-    height: calc(2rem + 2px);
-    padding: .375rem 1.75rem .375rem .75rem;
-    line-height: 1.2;
-    color: #495057;
-    background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
-    background-size: 8px 10px;
-    border: 1px solid #becad6;
-    font-weight: 300;
-    transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
-    border-radius: .375rem;
+	width: 100%!important;
+	font-size: .8125rem;
+	height: calc(2rem + 2px);
+	padding: .375rem 1.75rem .375rem .75rem;
+	line-height: 1.2;
+	color: #495057;
+	background: #fff url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' v…'0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E) no-repeat right .75rem center;
+	background-size: 8px 10px;
+	border: 1px solid #becad6;
+	font-weight: 300;
+	transition: box-shadow 250ms cubic-bezier(.27,.01,.38,1.06),border 250ms cubic-bezier(.27,.01,.38,1.06);
+	border-radius: .375rem;
 }
 .add {
-    white-space: nowrap;
-    max-width: 12rem;
-    text-overflow: ellipsis;
-    overflow: hidden;
+	white-space: nowrap;
+	max-width: 12rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 tbody {
-    font-weight: 300;
+	font-weight: 300;
 }
 .page-header {
-    margin-bottom: 3rem;
+	margin-bottom: 3rem;
 }
 input[type="search"] {
-    height: calc(1.8125rem + 2px);
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    line-height: 1.5;
-    border-radius: 0.2rem;
+	height: calc(1.8125rem + 2px);
+	padding: 0.25rem 0.5rem;
+	font-size: 0.875rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	line-height: 1.5;
+	border-radius: 0.2rem;
 }
 input[type="search"]:focus {
-    box-shadow: none;
+	box-shadow: none;
 }
 select {
-    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
-    line-height: 1.5;
-    color: #495057;
-    vertical-align: middle;
-    background: url("/search.svg") no-repeat right 0.75rem center;
-    background-size: 8px 10px;
-    height: calc(1.8125rem + 2px);
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
-    font-size: 75%;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    background-color: white;
-    -webkit-appearance: none;
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+	line-height: 1.5;
+	color: #495057;
+	vertical-align: middle;
+	background: url("/search.svg") no-repeat right 0.75rem center;
+	background-size: 8px 10px;
+	height: calc(1.8125rem + 2px);
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+	font-size: 75%;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	background-color: white;
+	-webkit-appearance: none;
 }
 .paginate_button {
-    padding: 0.5em .1em !important;
+	padding: 0.5em .1em !important;
 }
 
 table#myTable {
-    box-shadow: none;
-    background-color: white;
-    padding: 0 7px;
-    border: none;
+	box-shadow: none;
+	background-color: white;
+	padding: 0 7px;
+	border: none;
 }
 thead {
-    font-size: 12px;
-    white-space: nowrap;
+	font-size: 12px;
+	white-space: nowrap;
 }
 .tab-pane {
-    margin-top: 1.5rem;
+	margin-top: 1.5rem;
+}
+.dt-buttons {
+	float: right;
+	margin-left: .5rem;
+	margin-bottom: 1rem;
 }
