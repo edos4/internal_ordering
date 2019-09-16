@@ -3,7 +3,7 @@
 		%a.navbar-brand{:href => "/store?messenger_id=#{params['messenger_id']}"}
 			JuanRide
 		= link_to "/store/view_cart/?messenger_id=#{params['messenger_id']}" do
-			%button.btn.bg-primary.cart-quantity Track Order
+			%button.btn.bg-primary.cart-quantity View Cart
 				
 :javascript
 	$('#view_cart').click(function () {
