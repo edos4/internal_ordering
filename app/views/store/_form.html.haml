@@ -36,7 +36,7 @@
           .custom-control.custom-radio
             = o.radio_button :payment_option, "cash", checked: true, :class=> "custom-control-input"
             %label.custom-control-label{:for => "radio"} Cash on Delivery
-
+            = o.submit 'Continue', :class => 'btn btn-primary form-btn btn-out'
         
               
 %script{:async => "", :defer => "defer", :src => "/initmap.js"}

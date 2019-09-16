@@ -1,10 +1,9 @@
 = render 'source'
 = render 'nav'
 %div
-    .col-md-6
-        .bg
-            = render 'form' 
-        .bg2    
-            = render 'cart'
-            = form_for @order, url: "/store/pending/?messenger_id=#{params['messenger_id']}" do |o|
-                = o.submit 'Continue', :class => 'btn btn-primary form-btn btn-out'
+	.col-md-6
+		.bg
+			= render 'form' 
+		.bg2    
+			= render 'cart'
+                
