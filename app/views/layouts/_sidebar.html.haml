@@ -16,47 +16,48 @@
   .nav-wrapper
     %ul.nav.flex-column
       %li.nav-item{:class => "#{active_controller?(controller: 'admin')}"}
-        = link_to '/dashboard', 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Dashboard' do
+        /= link_to '/dashboard', 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Dashboard' do
+        %a.nav-link{:href => "/dashboard", :class => "#{ 'active' if current_page?(dashboard_path)}"}    
           %i.material-icons edit
           %span Dashboard
       %li.nav-item{:class => "#{active_controller?(controller: 'store_type')}"}
-        = link_to store_types_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link',  'data-placement' => 'right', 'data-original-title' => 'Store Types' do
+        %a.nav-link{:href => "/store_types", :class => "#{ 'active' if current_page?(store_types_path)}"}
           %i.material-icons vertical_split
           %span Store Types
       %li.nav-item{:class => "#{active_controller?(controller: 'merchant')}"}
-        = link_to merchants_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link',  'data-placement' => 'right', 'data-original-title' => 'Merchants' do
+        %a.nav-link{:href => "/merchants", :class => "#{ 'active' if current_page?(merchants_path)}"}
           %i.material-icons vertical_split
           %span Merchants
       %li.nav-item{:class => "#{active_controller?(controller: 'category')}"}
-        = link_to categories_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Category' do
+        %a.nav-link{:href => "/categories", :class => "#{ 'active' if current_page?(categories_path)}"}
           %i.material-icons note_add
           %span Category
       %li.nav-item{:class => "#{active_controller?(controller: 'product')}"}
-        = link_to products_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Products' do
+        %a.nav-link{:href => "/products", :class => "#{ 'active' if current_page?(products_path)}"}
           %i.material-icons view_module
           %span Products
       %li.nav-item{:class => "#{active_controller?(controller: 'orders')}"}
-        = link_to orders_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Orders' do
+        %a.nav-link{:href => "/orders", :class => "#{ 'active' if current_page?(orders_path)}"}
           %i.material-icons table_chart
           %span Orders
       %li.nav-item{:class => "#{active_controller?(controller: 'driver')}"}
-        = link_to drivers_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Drivers' do
+        %a.nav-link{:href => "/drivers", :class => "#{ 'active' if current_page?(drivers_path)}"}
           %i.material-icons table_chart
           %span Drivers
       %li.nav-item{:class => "#{active_controller?(controller: 'everydays')}"}
-        = link_to everydays_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Everydays' do
+        %a.nav-link{:href => "/everydays", :class => "#{ 'active' if current_page?(everydays_path)}"}
           %i.material-icons table_chart
           %span Everydays
       %li.nav-item{:class => "#{active_controller?(controller: 'promos')}"}
-        = link_to promos_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Featured' do
+        %a.nav-link{:href => "/promos", :class => "#{ 'active' if current_page?(promos_path)}"}
           %i.material-icons table_chart
           %span Featured
       %li.nav-item{:class => "#{active_controller?(controller: 'settings')}"}
-        = link_to settings_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Settings' do
+        %a.nav-link{:href => "/settings", :class => "#{ 'active' if current_page?(settings_path)}"}
           %i.material-icons table_chart
           %span Settings
       %li.nav-item{:class => "#{active_controller?(controller: 'store')}"}
-        = link_to store_index_path, 'data-toggle' => 'tooltip', 'class' => 'nav-link', 'data-placement' => 'right', 'data-original-title' => 'Storefront' do
+        %a.nav-link{:href => "/sstore_index", :class => "#{ 'active' if current_page?(store_index_path)}"}
           %i.material-icons table_chart
           %span Storefront
       
