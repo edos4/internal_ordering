@@ -14,9 +14,9 @@ class StoreController < ApplicationController
     @order = order
     if params['type'].present?
       store_type = StoreType.where(name: params['type'])
-      @merchant = Merchant.where(store_type_id: store_type[0].id).order("created_at ASC")
+      @merchant = Merchant.where(store_type_id: store_type[0].id).order(name: :asc)
     else
-      @merchant = Merchant.all.order("created_at ASC")
+      @merchant = Merchant.all.order(name: :asc)
     end
   end
 
