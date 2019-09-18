@@ -1,13 +1,15 @@
 = form_for @order do |f|
-  - if @order.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      %ul
-        - @order.errors.full_messages.each do |message|
-          %li= message
+  .form-container
+    - if @order.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+        %ul
+          - @order.errors.full_messages.each do |message|
+            %li= message
 
-  .field
-    = f.label :driver
-    = f.select 'driver_id', options_for_select(Driver.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
-  .actions
-    = f.submit 'Save'
+    .row  
+      .col-md-6
+        = f.label :driver
+        = f.select 'driver_id', options_for_select(Driver.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
+    .actions
+      = f.submit 'Save', :class => 'btn btn-sm btn-primary'
