@@ -7,7 +7,7 @@
         %span.text-uppercase.page-subtitle Overview
         %h3.page-title.col-6= t('orders.index.orders')
       .col-12.float-left
-        %ul#myTab.nav.nav-tabs{:role => "tablist"}
+        %ul#myTab.nav.nav-tabs.mt-3{:role => "tablist"}
           %li.nav-item
             %a#pending-tab.nav-link.active{"aria-controls" => "pending", "aria-selected" => "true", "data-toggle" => "tab", :href => "#pending", :role => "tab"} Pending
           %li.nav-item
@@ -23,7 +23,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table#myTable.card.orders
+              %table.table#myTable.card.orders.table-responsive
                 %thead
                   %tr
                     %th= t('orders.index.id')

@@ -156,3 +156,33 @@ thead {
 	margin-left: .5rem;
 	margin-bottom: 1rem;
 }
+.nav-link.active::before {
+	border-color: #fff transparent transparent transparent;
+	border-style: solid;
+	border-width: 10px 10px 0px 10px;
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0px;
+	margin-left: 2.7rem;
+	top: 3.4rem;
+	z-index: 10;
+}
+.nav-tabs .nav-item {
+	margin-bottom: -1px;
+	background: #f2f2f2;
+	border-right: 1px solid #ececec;
+	width: 8rem;
+	text-align: center;
+}
+.nav-tabs {
+	border-bottom:  none;
+}
+.nav-tabs .nav-link {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	color: #2196F3;
+	background-color: #ffffff;
+	border-color: #ddd;
+	border: none;
+}
