@@ -5,13 +5,19 @@ class StoreController < ApplicationController
 
   
   def index
+    params.permit!
     @messenger_id = params['messenger_id']
     @promos =  Promo.all
-    @merchant = Merchant.all.order("created_at ASC")
     @everydays = Everyday.all.order("created_at ASC")
     @settings = Setting.all
     order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
     @order = order
+    if params['type'].present?
+      store_type = StoreType.where(name: params['type'])
+      @merchant = Merchant.where(store_type_id: store_type[0].id).order(name: :asc)
+    else
+      @merchant = Merchant.all.order(name: :asc)
+    end
   end
 
   def search_variant

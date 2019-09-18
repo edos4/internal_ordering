@@ -8,12 +8,12 @@
 				.card-con-body
 					%h5 for business
 		.card-item
-			.card-con-serve 
-				%img{:src=> "/bs2.png"}
+			.card-con-serve
+				= link_to image_tag("/bs2.png"), "/store?messenger_id=#{params['messenger_id']}&type=Booze#merchants"
 				.card-con-body
-					%h5 groceries
+					%h5 Booze
 		.card-item
 			.card-con-serve
-				%img{:src=> "/bs1.png"}
+				= link_to image_tag("/bs1.png"), "/store?messenger_id=#{params['messenger_id']}&type=Grocery#merchants"
 				.card-con-body
-					%h5 food
+					%h5 Grocery
