@@ -55,9 +55,18 @@
                       %td
                         = order.message
                       %td
-                        = link_to 'Items', order
-                        |
-                        = link_to 'Process Order', process_order_path(order.id), method: :post
+                        .dropdown.dropdown-action
+                          %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                            %i.fa.fa-ellipsis-v
+                          .dropdown-menu.dropdown-menu-right
+                            = link_to order, :class => "dropdown-item" do
+                              %i.fas.fa-list.m-r-5
+                              #text
+                                Show Items
+                            = link_to process_order_path(order.id), method: :post, :class => "dropdown-item" do 
+                              %i.fa.fa-bell-o.m-r-5
+                              #text
+                                Process Order
           #processing.tab-pane.fade{"aria-labelledby" => "processing-tab", :role => "tabpanel"}
             - if @orders.where(status: 'Processing').empty?
               .widget.widget-content.clearfix
@@ -93,9 +102,18 @@
                       %td
                         = order.message
                       %td
-                        = link_to 'Items', order
-                        |
-                        = link_to 'Assign Driver', edit_order_path(order)
+                        .dropdown.dropdown-action
+                          %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                            %i.fa.fa-ellipsis-v
+                          .dropdown-menu.dropdown-menu-right
+                            = link_to order, :class => "dropdown-item" do
+                              %i.fas.fa-list.m-r-5
+                              #text
+                                Show Items
+                            = link_to edit_order_path(order), :class => "dropdown-item" do 
+                              %i.fas.fa-motorcycle.m-r-5
+                              #text
+                                Assign Driver
                             
 
           #en_route.tab-pane.fade{"aria-labelledby" => "en_route-tab", :role => "tabpanel"}
@@ -136,11 +154,22 @@
                       %td
                         = order.message
                       %td
-                        = link_to 'Items', order
-                        |
-                        = link_to 'Track', "/orders/track_order/#{order.id}"
-                        |
-                        = link_to 'Complete Order', complete_order_path(order.id), method: :post
+                        .dropdown.dropdown-action
+                          %a.action-icon{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                            %i.fa.fa-ellipsis-v
+                          .dropdown-menu.dropdown-menu-right
+                            = link_to order, :class => "dropdown-item" do
+                              %i.fas.fa-list.m-r-5
+                              #text
+                                Show Items
+                            = link_to "/orders/track_order/#{order.id}", :class => "dropdown-item" do
+                              %i.fas.icon-map.m-r-5
+                              #text
+                                Track
+                            = link_to complete_order_path(order.id), method: :post, :class => "dropdown-item" do 
+                              %i.fas.icon-checkmark.m-r-5
+                              #text
+                                Complete Order
 
           #completed.tab-pane.fade{"aria-labelledby" => "completed-tab", :role => "tabpanel"}
             - if @orders.where(status: 'Completed').empty?

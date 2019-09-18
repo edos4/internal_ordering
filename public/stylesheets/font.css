@@ -246,6 +246,8 @@ you can use the generic selector below, but it's slower:
 }
 .icon-map:before {
     content: "\e045";
+    color: #007bff;
+    padding-right: 5px;
 }
 .icon-map-2:before {
     content: "\e046";
@@ -801,6 +803,7 @@ you can use the generic selector below, but it's slower:
 }
 .icon-checkmark:before {
     content: "\e0fe";
+    color: #007bff;
 }
 .icon-checkmark-2:before {
     content: "\e0ff";
@@ -1750,6 +1753,8 @@ you can use the generic selector below, but it's slower:
 }
 .fa-list:before {
   content: "\f03a";
+  color: #007bff;
+  padding-right: 5px;
 }
 .fa-dedent:before,
 .fa-outdent:before {
@@ -1897,6 +1902,18 @@ you can use the generic selector below, but it's slower:
 }
 .fa-fire:before {
   content: "\f06d";
+}
+.fa-motorcycle:before {
+  content: "\f21c";
+  color: #007bff;
+}
+.fa-clipboard-list:before {
+  content: "\f46d";
+}
+.fa-shopping-bag:before {
+  content: "\f290";
+  color: #007bff;
+  padding-right: .4rem;
 }
 .fa-eye:before {
   content: "\f06e";
