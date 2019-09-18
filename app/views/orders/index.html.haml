@@ -23,7 +23,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table.order.card
+              %table.table#myTable.card.orders
                 %thead
                   %tr
                     %th= t('orders.index.id')
@@ -34,7 +34,7 @@
                     %th= t('orders.index.payment_option')
                     %th= t('orders.index.reference_number')
                     %th= t('orders.index.message')
-                    %th
+                    %th= t('orders.index.actions')
                 %tbody
                   - @orders.where(status: 'Pending').each do |order|
                     %tr
@@ -64,7 +64,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table.processing.card
+              %table.table#myTable.card.processing
                 %thead
                   %tr
                     %th= t('orders.index.id')
@@ -74,7 +74,7 @@
                     %th= t('orders.index.delivery_option')
                     %th= t('orders.index.payment_option')
                     %th= t('orders.index.message')
-                    %th
+                    %th= t('orders.index.actions')
                 %tbody
                   - @orders.where(status: 'Processing').each do |order|
                     %tr
@@ -104,7 +104,7 @@
                 .helper-notification
                   %p= t('orders.index.no_records')
             - else
-              %table.table.route.card
+              %table.table#myTable.card.route
                 %thead
                   %tr
                     %th= t('orders.index.id')
@@ -115,7 +115,7 @@
                     %th= t('orders.index.payment_option')
                     %th= t('orders.index.driver')
                     %th= t('orders.index.message')
-                    %th
+                    %th= t('orders.index.actions')
                 %tbody
                   - @orders.where(status: 'En route').each do |order|
                     %tr

@@ -1,10 +1,13 @@
 - content_for :title, 'order_items'
 - content_for :breadcrumb, "Stores"
-.twelvecol
-  .page-header
+.main-content-container.container-fluid.px-4
+  .page-header.no-gutters.py-4
+    .col-12.text-center.text-sm-left.mb-0
+      .col-6.float-left.pl-0
+        %span.text-uppercase.page-subtitle Overview
+        %h3.page-title.col-6= t('orders.index.orders_items')
     / = link_to new_order_item_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: t('order_items.index.add_tooltip') do
     /   %i.icon-plus
-    %h2.widget.widget-header= t('order_items.index.order_items')
   - if @order_items.empty?
     .widget.widget-content
       .helper-notification
@@ -12,7 +15,7 @@
         %i.icon-lab
   - else
     .table-responsive
-      %table.table.table-striped.table-bordered.table-hover#exportables{:role => 'datatable'}
+      %table.table#myTable.card
         %thead
           %tr
             %th= t('order_items.index.merchant')
@@ -38,44 +41,3 @@
               /   = link_to 'Show', order_items
               /   = link_to 'Edit', edit_order_items_path(order_items)
               /   = link_to 'Destroy', order_items, method: :delete, data: { confirm: 'Are you sure?' }
-
-
-:javascript
-  $(document).ready(function(){
-    $('#exportables').DataTable({
-      dom: 'Blfrtip',
-      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-      buttons: [
-        {extend: 'excel', 
-        exportOptions: {
-          title: 'Orders',
-          columns: 'th:not(:last-child)'
-        }
-        },
-        {extend: 'print',
-          title: 'Orders',
-          orientation: 'landscape',
-          pageSize: 'LEGAL',
-          exportOptions: {
-          columns: 'th:not(:last-child)'
-        },
-          customize: function (win){
-          $(win.document.body).addClass('white-bg');
-          $(win.document.body).css('font-size', '10px');
-          $(win.document.body).find('.actions').css('display', 'none');
-          
-          }
-        }
-      ],
-      });
-      $(".buttons-print").addClass("btn-dt");
-      $(".buttons-html5").addClass("btn-dt");
-      
-    $("table[role='datatable']").each(function(){
-      $(this).DataTable({
-        processing: true,
-        responsive: true       
-      });
-    });
-
-  })
