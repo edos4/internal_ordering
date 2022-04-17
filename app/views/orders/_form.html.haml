@@ -7,9 +7,12 @@
           - @order.errors.full_messages.each do |message|
             %li= message
 
-    .row  
+  %form
+    .row.mb-2
       .col-md-6
-        = f.label :driver
-        = f.select 'driver_id', options_for_select(Driver.all.order(:name).collect{ |u| [u.name, u.id] }), :class => 'form-control'
-    .actions
+        = f.label :table
+        = f.select 'table_num', options_for_select(['1', '2', '3', '4', '5', '6', '7', '8']), :class => 'form-control'
+    
+    .form-group
       = f.submit 'Save', :class => 'btn btn-sm btn-primary'
+        
