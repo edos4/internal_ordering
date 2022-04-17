@@ -5,9 +5,6 @@
     %nav{"aria-label" => "breadcrumb"}
       %ol.breadcrumb
         %li.breadcrumb-item
-          %a{:href => "/merchants"}
-            = @product.category.merchant.name
-        %li.breadcrumb-item
           %a{:href => "/categories/#{@product.category.id}"}
             = @product.category.name
         %li.breadcrumb-item

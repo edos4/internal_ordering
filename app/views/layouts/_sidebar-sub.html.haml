@@ -6,50 +6,12 @@
 				.input-group.input-group-seamless.ml-3
 					.input-group-prepend
 						.input-group-text
-							%i.fas.fa-search
-					%input.navbar-search.form-control{"aria-label" => "Search", :placeholder => "Search for something...", :type => "text"}/
-			%ul.navbar-nav.border-left.flex-row
-				%li.nav-item.border-right.dropdown.notifications
-					%a#dropdownMenuLink.nav-link.nav-link-icon.text-center{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-						.nav-link-icon__wrapper
-							%i.material-icons 
-							%span.badge.badge-pill.badge-danger 2
-					.dropdown-menu.dropdown-menu-small{"aria-labelledby" => "dropdownMenuLink"}
-						%a.dropdown-item{:href => "#"}
-							.notification__icon-wrapper
-								.notification__icon
-									%i.material-icons 
-							.notification__content
-								%span.notification__category Analytics
-								%p
-									Your website’s active users count increased by
-									%span.text-success.text-semibold 28%
-									in the last week. Great job!
-						%a.dropdown-item{:href => "#"}
-							.notification__icon-wrapper
-								.notification__icon
-									%i.material-icons 
-							.notification__content
-								%span.notification__category Sales
-								%p
-									Last week your store’s sales count decreased by
-									= succeed "." do
-										%span.text-danger.text-semibold 5.52%
-						%a.dropdown-item.notification__all.text-center{:href => "#"} View all Notifications
+			
 				%li.nav-item.dropdown
 					%a.nav-link.dropdown-toggle.text-nowrap.px-3{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-						%span.d-none.d-md-inline-block.mt-3 Juan Dela Cruz
+						%span.d-none.d-md-inline-block.mt-3 
 					.dropdown-menu.dropdown-menu-small
-						%a.dropdown-item{:href => "user-profile-lite.html"}
-							%i.material-icons 
-							Profile
-						%a.dropdown-item{:href => "components-blog-posts.html"}
-							%i.material-icons vertical_split
-							Settings
-						%a.dropdown-item{:href => "add-new-post.html"}
-							%i.material-icons note_add
-							Edit Profile
-						.dropdown-divider
+						
 						%a.dropdown-item.text-danger{:href => "#"}
 							%i.material-icons.text-danger 
 							Logout
