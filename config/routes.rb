@@ -11,14 +11,7 @@ Rails.application.routes.draw do
   resources :merchants
   resources :categories
 
-  resources :store, only: [] do
-    collection do
-      get :index
-      get :checkout 
-      get :completed 
-      patch :pending
-    end
-  end
+  
 
   get 'store/menu/:id' => 'store#menu', :as => :merchant_proucts
   post '/store/search_variant' => 'store#search_variant', :as => :search_variant
@@ -28,6 +21,15 @@ Rails.application.routes.draw do
   get '/orders/process_order/:id' => 'orders#process_order', :as => :process_order
   get '/orders/complete_order/:id' => 'orders#complete_order', :as => :complete_order
   post '/orders/calculate_delivery_fee' => 'orders#calculate_delivery_fee', :as => :calculate_delivery_fee
+
+  resources :store, only: [] do
+    collection do
+      get :index
+      get :checkout 
+      get :completed 
+      patch :pending
+    end
+  end
   
   resources :carts, only: [] do
     collection do
