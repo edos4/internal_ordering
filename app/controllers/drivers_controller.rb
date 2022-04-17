@@ -28,6 +28,7 @@ class DriversController < ApplicationController
 
     respond_to do |format|
       if @driver.save
+        @driver.update(code: SecureRandom.hex(4))
         format.html { redirect_to @driver, notice: 'Driver was successfully created.' }
         format.json { render :show, status: :created, location: @driver }
       else
