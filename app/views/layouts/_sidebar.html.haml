@@ -4,15 +4,13 @@
     %nav.navbar.align-items-stretch.navbar-light.bg-white.flex-md-nowrap.border-bottom.p-0
       %a.navbar-brand.w-100.mr-0{:href => "#", :style => "line-height: 25px;"}
         .d-table.m-auto
-          %span.d-md-inline JuanRide
+          %span.d-md-inline Arffogato
       %a.toggle-sidebar.d-sm-inline.d-md-none.d-lg-none
         %i.material-icons 
   %form.main-sidebar__search.w-100.border-right.d-sm-flex.d-md-none.d-lg-none{:action => "#"}
     .input-group.input-group-seamless.ml-3
       .input-group-prepend
         .input-group-text
-          %i.fas.fa-search
-      %input.navbar-search.form-control{"aria-label" => "Search", :placeholder => "Search for something...", :type => "text"}/
   .nav-wrapper
     %ul.nav.flex-column
       %li.nav-item{:class => "#{active_controller?(controller: 'admin')}"}

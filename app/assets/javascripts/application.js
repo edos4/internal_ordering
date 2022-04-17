@@ -15,7 +15,7 @@ $(document).ready( function () {
   buttons: [
     {
       extend: 'excel', 
-      title: 'Juanride', 
+      title: 'Arffogato', 
       "className": 'btn btn-primary btn-sm',
       exportOptions: {
         columns: 'th:not(:last-child)'
