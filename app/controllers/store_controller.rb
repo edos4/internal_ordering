@@ -30,7 +30,7 @@ class StoreController < ApplicationController
   end
 
   def menu
-    @categories = Category.where(merchant_id: params['id']).order("created_at ASC")
+    @categories = Category.order("name ASC")
     @messenger_id = params['messenger_id']
     @order = Order.find_or_create_by!(messenger_id: @messenger_id, status: "Open")
 
