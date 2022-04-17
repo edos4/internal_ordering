@@ -11,7 +11,7 @@
 
 # Populate tables
 require 'roo'
-xlsx = Roo::Excelx.new("#{Dir.pwd}/SUPERMARKET.xlsx", {:expand_merged_ranges => true})
+xlsx = Roo::Excelx.new("#{Dir.pwd}/menu.xlsx", {:expand_merged_ranges => true})
 data = xlsx.parse.drop(1) #drop the header on line 1
 
 #purge tables
@@ -24,20 +24,15 @@ Order.destroy_all
 OrderItem.destroy_all
 
 data.each do |d|
-	store_type_name = d[0]
-	merchant_name = d[1]
-	category_name = d[2]
-	product_name = d[3]
-	variant_name = d[4]
-	grocery_price = d[5]
-	juan_ride_price = d[6]
+	category_name = d[0]
+	product_name = d[1]
+	variant_name = d[2]
+	grocery_price = d[3]
 
-	store_type = StoreType.find_or_create_by!(name: store_type_name)
-	merch = Merchant.find_or_create_by!(name: merchant_name, store_type_id: store_type.id)
-	category = Category.find_or_create_by!(name: category_name, merchant_id: merch.id)
+	category = Category.find_or_create_by!(name: category_name)
 	product = Product.find_or_create_by!(name: product_name, category_id: category.id)
 	variant = Variant.find_or_create_by!(name: variant_name, product_id: product.id)
-	variant.update!(grocery_price: grocery_price, price: juan_ride_price)
+	variant.update!(price: grocery_price)
 end
 
 Setting.create(key: "store_header", text_value: "Two line tag line here!")
