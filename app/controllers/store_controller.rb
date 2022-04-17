@@ -87,7 +87,7 @@ class StoreController < ApplicationController
 
   def messenger_only
     unless params['messenger_id'].present?
-      redirect_to '/404.html'
+      #redirect_to '/404.html'
     end
   end
 end

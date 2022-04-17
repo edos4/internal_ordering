@@ -23,7 +23,7 @@
 		%div{id: category.name.gsub(" ", "")}
 		.container
 			%h6.cat-name  #{category.name}
-			- category.products.each do |product|
+			- category.products.order("name asc").each do |product|
 				.card.menu-box
 					.menu-left
 						%h4

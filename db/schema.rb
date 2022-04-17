@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_072146) do
+ActiveRecord::Schema.define(version: 2022_04_17_093827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_072146) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "Open"
+    t.string "status", default: "pending"
     t.string "company_name"
     t.string "driver_id"
     t.string "share_url"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_072146) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category_id"
+    t.float "price"
   end
 
   create_table "promos", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
