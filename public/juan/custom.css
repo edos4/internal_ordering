@@ -488,7 +488,7 @@ hr {
     margin-bottom: 1.2rem;
 }
 .cat-name {
-	margin-bottom: -5px;
+	margin-bottom: 20px;
 	align-items: center;
 	text-align: center;
 	text-transform: uppercase;
@@ -524,7 +524,7 @@ hr {
 
 .list-group{
 position: sticky; 
-top: 70px;
+top: 0px;
 z-index: 5000;
 overflow: auto;
 width: 100%;
@@ -1722,7 +1722,7 @@ p.error-message {
 	}
 	.list-group{
 		position: fixed; 
-		top: 63px;
+		top: 0px;
 		z-index: 5000;
 		overflow: auto;
 		width: 100%;
@@ -1807,3 +1807,4 @@ p.error-message {
 		}
 	
 }
+

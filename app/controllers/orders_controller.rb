@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, :only => [:calculate_delivery_fee]
-  layout false, only: [:track_order]
+  layout false, only: [:track_order, :new]
 
   # GET /orders
   # GET /orders.json
@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @categories = Category.order("name ASC")
   end
 
   # GET /orders/1/edit
@@ -36,6 +37,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.
 
     respond_to do |format|
       if @order.save

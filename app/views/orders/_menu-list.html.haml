@@ -1,0 +1,46 @@
+%style
+  /*Remove number field arrow*/
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;  }
+
+  /* Firefox */
+  input[type=number] {-moz-appearance: textfield;}
+
+%section#menu-list
+.list-group
+  .stickyhero-tabs-container.scrollbar
+    - @categories.each do |category|
+      %a.list-group-item.list-group-item-action{:href => "##{category.name.gsub(" ", "")}"} #{category.name}
+
+- @categories.each do |category|
+  %div{id: category.name.gsub(" ", "")}
+  .container
+    .col-md-12
+      .row
+        %h6.cat-name  #{category.name}
+        - category.products.order("name asc").each do |product|
+        
+          .col-md-8
+            .card.menu-box
+              .menu-left
+                = "#{product.name} (₱#{product.price})"
+                %h6
+                  - if product.description.present?
+                    = product.description
+          .col-md-4
+            %button#sub.sub{:type => "button"} -
+            %input.qty{:min => "0", :type => "number", :value => "0"}/
+            %button#add.add{:type => "button"} +
+  %hr
+
+:javascript
+  $('.add').click(function () {
+    $(this).prev().val(+$(this).prev().val() + 1);
+  });
+  $('.sub').click(function () {
+    if ($(this).next().val() >= 1) {
+      if ($(this).next().val() >= 1) $(this).next().val(+$(this).next().val() - 1);
+    }
+  });
+
