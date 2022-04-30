@@ -358,9 +358,7 @@ right: 0;
 height: 5.7rem;
 top: 12px;
 }/* Menu List */
-.menu-container{
 
-}
 .menu-container img {
 height: 300px;
 width: 100%;
@@ -1202,7 +1200,7 @@ div#cart-details {
 		margin-top: -8px;
 }
 .accordion-item .product-info .product-qty{
-		text-tranform: none;
+		text-transform: none;
 		flex: .6;
 }
 .accordion-item .product-info p.price{
@@ -1807,3 +1805,4 @@ p.error-message {
 	
 }
 
+#qty_buttons {width: 20%;}
