@@ -25,14 +25,13 @@
             .card.menu-box
               .menu-left
                 = "#{product.name} (₱#{product.price})"
-                %h6
-                  - if product.description.present?
-                    = product.description
+                
+                - if product.description.present?
+                  %h6 #{product.description}
           .col-md-4
             %button#sub.sub{:type => "button"} -
-            %input.qty{:min => "0", :type => "number", :value => "0"}/
+            %input.qty{:min => "0", :type => "text", :value => "0"}/
             %button#add.add{:type => "button"} +
-  %hr
 
 :javascript
   $('.add').click(function () {
