@@ -9,11 +9,11 @@
   %div{id: category.name.gsub(" ", "")}
   
   %h6.cat-name  #{category.name}
-  - category.products.order("name asc").each do |product|
+  - category.products.order("name asc").each_with_index do |product, index|
     - id = product.name.downcase.gsub(/[^0-9a-z]/i, '-')
     .container
-      .row
-        .col-md-8
+      .row{class: index%2==0 ? 'row-even' : 'row-odd'}
+        .col-md-8.menu-title
           = "#{product.name} (₱#{product.price})"
         .col-md-4
           .sp-quantity
@@ -23,7 +23,11 @@
               %input.quntity-input{:type => "text", :value => "0"}/
             .sp-minus.fff
               %button.ddd{:href => "#"} -
-
+.menu-order-nav
+  %button.btn.btn-danger
+    Back 
+  %button.btn.btn-primary 
+    Submit
 :javascript
   $(".ddd").on("click", function () {
     var $button = $(this);

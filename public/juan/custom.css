@@ -707,7 +707,7 @@ text-transform: uppercase;
 {
   .site-footer [class^=col-]
   {
-    margin-bottom:30px
+    margin-bottom:-30px
   }
 }
 @media (max-width:767px)
@@ -1810,6 +1810,8 @@ p.error-message {
 .sp-quantity {
     height:42px;
     font-family:"ProximaNova Bold", Helvetica, Arial;
+    margin-top: -20px;
+    padding-bottom:  20px;
 }
 .sp-minus {
     width:40px;
@@ -1850,3 +1852,21 @@ p.error-message {
     height: 100%;
     padding-top: 5px;
 } 
+
+.row-odd {
+  background-color:  #F8F8FF;
+  padding-bottom:  10px;
+}
+.row-even {
+  background-color:  #DCDCDC;
+  padding-bottom:  10px;
+}
+.menu-title{
+  padding-top: 10px;
+}
+.menu-order-nav{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  position:  fixed;
+  bottom: 0px;
+}
